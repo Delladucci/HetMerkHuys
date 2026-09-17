@@ -344,6 +344,34 @@ a { color: inherit; }
   margin-bottom: 0;
 }
 
+/* ---------- Featured (Uitgelicht deze maand) ---------- */
+
+.featured {
+  padding: 30px 0 30px;
+}
+
+.placeholder-image {
+  position: relative;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--border) 0,
+    var(--border) 1px,
+    transparent 1px,
+    transparent 13px
+  );
+  background-color: var(--bg-tan);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.placeholder-image__caption {
+  font-size: 0.68rem;
+  letter-spacing: 0.88px;
+  color: var(--muted);
+  padding: 10px 12px;
+}
+
 /* ---------- Products ---------- */
 
 .products {
