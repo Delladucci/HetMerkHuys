@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HetMerkhuys — Warme woonwinkel voor huis en tuin</title>
+<meta name="description" content="HetMerkhuys is een gastvrije webshop met zorgvuldig uitgezocht wonen, textiel en decoratie in landelijke, stoere stijl. Hout, linnen en rotan voor een huis dat aanvoelt als thuis.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23A9603F'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23FAF5EC' font-family='Georgia,serif'%3EH%3C/text%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#producten">Ga naar producten</a>
+
+<header class="site-header">
+  <div class="wrap header__inner">
+    <a href="#top" class="logo">Het<span>Merk</span>huys</a>
+
+    <nav class="main-nav" aria-label="Hoofdnavigatie">
+      <a href="#wonen">Wonen</a>
+      <a href="#textiel">Textiel</a>
+      <a href="#decoratie">Decoratie</a>
+      <a href="#verhaal">Ons verhaal</a>
+    </nav>
+
+    <button id="cart-toggle" class="cart-button" aria-haspopup="dialog" aria-expanded="false" aria-controls="cart-drawer">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 8h12l-1.2 11.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 8Z"/>
+        <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+      </svg>
+      <span class="cart-button__label">Mandje</span>
+      <span id="cart-count" class="cart-count">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <p class="hero__eyebrow">Welkom bij HetMerkhuys</p>
+      <h1 class="hero__title">Kom binnen, doe je jas uit.</h1>
+      <p class="hero__text">
+        Bij ons vind je geen kille showroom, maar spullen die een huis stap voor stap
+        een thuis maken. Hout dat mag verweren, linnen dat zachter wordt met de jaren,
+        rotan dat licht door de kamer laat vallen — allemaal met zorg uitgezocht,
+        precies zoals je het bij vrienden op de plank zou vinden.
+      </p>
+      <div class="hero__actions">
+        <a href="#producten" class="btn btn--primary">Bekijk het assortiment</a>
+        <a href="#verhaal" class="btn btn--ghost">Ons verhaal</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" aria-label="Waarom HetMerkhuys">
+    <div class="wrap features__grid">
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12 12 4l9 8"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
+        </span>
+        <h3>Natuurlijke materialen</h3>
+        <p>Hout, linnen, wol en rotan — stuk voor stuk materialen die mooier worden met gebruik, niet minder.</p>
+      </div>
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.3"/><path d="M5 20c1.2-3.6 4-5.4 7-5.4s5.8 1.8 7 5.4"/></svg>
+        </span>
+        <h3>Persoonlijk uitgezocht</h3>
+        <p>Geen eindeloos aanbod, maar een gecureerde collectie waar we zelf verliefd op werden.</p>
+      </div>
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7Z"/><path d="M4 7 8 3h8l4 4"/><path d="M9 11h6"/></svg>
+        </span>
+        <h3>Verzonden met liefde</h3>
+        <p>Zorgvuldig verpakt en met een persoonlijk kaartje — alsof je het bij ons thuis kwam ophalen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="producten" class="products">
+    <div class="wrap">
+
+      <div class="section-heading">
+        <p class="section-heading__eyebrow">Het assortiment</p>
+        <h2>Voor wonen, textiel &amp; decoratie</h2>
+        <p class="section-heading__text">Een greep uit onze collectie — alles gemaakt om te gebruiken, niet om achter glas te bewaren.</p>
+      </div>
+
+      <h3 id="wonen" class="category-title">Wonen</h3>
+      <div class="product-grid">
+
+        <article class="product-card" data-category="wonen">
+          <div class="product-card__image">
+            <img src="images/rotan-dienblad.svg" alt="Rond rotan dienblad met gevlochten rand" loading="lazy" width="600" height="450">
+          </div>
+          <div class="product-card__body">
+            <h4 class="product-card__name">Rotan dienblad &lsquo;Vlecht&rsquo;</h4>
+            <p class="product-card__desc">Handgevlochten rotan, ideaal voor de koffietafel of het ontbijt op bed.</p>
+            <div class="product-card__footer">
+              <span class="product-card__price" data-price="24.95">€24,95</span>
+              <button class="btn btn--small add-to-cart" data-id="rotan-dienblad" data-name="Rotan dienblad &lsquo;Vlecht&rsquo;" data-price="24.95">Bestellen</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="wonen">
+          <div class="product-card__image">
+            <img src="images/houten-fruitmand.svg" alt="Houten fruitmand met hengsel" loading="lazy" width="600" height="450">
+          </div>
+          <div class="product-card__body">
+            <h4 class="product-card__name">Houten fruitmand &lsquo;Boomgaard&rsquo;</h4>
+            <p class="product-card__desc">Lichtgewicht essenhout, met een hengsel die net zo mooi verweert als de rest van je keuken.</p>
+            <div class="product-card__footer">
+              <span class="product-card__price" data-price="27.50">€27,50</span>
+              <button class="btn btn--small add-to-cart" data-id="houten-fruitmand" data-name="Houten fruitmand &lsquo;Boomgaard&rsquo;" data-price="27.50">Bestellen</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="wonen">
+          <div class="product-card__image">
+            <img src="images/kaarsenplank.svg" alt="Eiken wandplank met kaarsen" loading="lazy" width="600" height="450">
+          </div>
+          <div class="product-card__body">
+            <h4 class="product-card__name">Eiken kaarsenplank &lsquo;Landelijk&rsquo;</h4>
+            <p class="product-card__desc">Massief eiken plankje met drie kaarshouders — warm licht voor lange avonden.</p>
+            <div class="product-card__footer">
+              <span class="product-card__price" data-price="34.95">€34,95</span>
+              <button class="btn btn--small add-to-cart" data-id="kaarsenplank" data-name="Eiken kaarsenplank &lsquo;Landelijk&rsquo;" data-price="34.95">Bestellen</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <h3 id="textiel" class="category-title">Textiel</h3>
+      <div class="product-grid">
+
+        <article class="product-card" data-category="textiel">
+          <div class="product-card__image">
+            <img src="images/linnen-kussenhoes.svg" alt="Linnen kussenhoes in zandkleur" loading="lazy" width="600" height="450">
+          </div>
+          <div class="product-card__body">
+            <h4 class="product-card__name">Linnen kussenhoes &lsquo;Zand&rsquo;</h4>
+            <p class="product-card__desc">Gewassen linnen dat met elke wasbeurt zachter wordt. Verkrijgbaar in vier aardetinten.</p>
+            <div class="product-card__footer">
+              <span class="product-card__price" data-price="29.95">€29,95</span>
+              <button class="btn btn--small add-to-cart" data-id="linnen-kussenhoes" data-name="Linnen kussenhoes &lsquo;Zand&rsquo;" data-price="29.95">Bestellen</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="textiel">
+          <div class="product-card__image">
+            <img src="images/wollen-plaid.svg" alt="Grofgebreide wollen plaid" loading="lazy" width="600" height="450">
+          </div>
+          <div class="product-card__body">
+            <h4 class="product-card__name">Wollen plaid &lsquo;Warmte&rsquo;</h4>
+            <p class="product-card__desc">Dik, grofgebreid scheerwol — de plaid die je van de bank niet meer op wil.</p>
+            <div class="product-card__footer">
+              <span class="product-card__price" data-price="59.95">€59,95</span>
+              <button class="btn btn--small add-to-cart" data-id="wollen-plaid" data-name="Wollen plaid &lsquo;Warmte&rsquo;" data-price="59.95">Bestellen</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="textiel">
+          <div class="product-card__image">
+            <img src="images/linnen-tafelkleed.svg" alt="Linnen tafelkleed op houten tafel" loading="lazy" width="600" height="450">
+          </div>
+          <div class="product-card__body">
+            <h4 class="product-card__name">Linnen tafelkleed &lsquo;Habitat&rsquo;</h4>
+            <p class="product-card__desc">Losjes geweven linnen tafelkleed, mooi verkreukeld precies zoals het hoort.</p>
+            <div class="product-card__footer">
+              <span class="product-card__price" data-price="44.50">€44,50</span>
+              <button class="btn btn--small add-to-cart" data-id="linnen-tafelkleed" data-name="Linnen tafelkleed &lsquo;Habitat&rsquo;" data-price="44.50">Bestellen</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <h3 id="decoratie" class="category-title">Decoratie</h3>
+      <div class="product-grid">
+
+        <article class="product-card" data-category="decoratie">
+          <div class="product-card__image">
+            <img src="images/keramische-vaas.svg" alt="Handgedraaide keramische vaas" loading="lazy" width="600" height="450">
+          </div>
+          <div class="product-card__body">
+            <h4 class="product-card__name">Keramische vaas &lsquo;Aarde&rsquo;</h4>
+            <p class="product-card__desc">Handgedraaid aardewerk met een ongeglazuurde, matte afwerking. Elk exemplaar uniek.</p>
+            <div class="product-card__footer">
+              <span class="product-card__price" data-price="39.95">€39,95</span>
+              <button class="btn btn--small add-to-cart" data-id="keramische-vaas" data-name="Keramische vaas &lsquo;Aarde&rsquo;" data-price="39.95">Bestellen</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="decoratie">
+          <div class="product-card__image">
+            <img src="images/rotan-hanglamp.svg" alt="Rotan hanglamp met vlechtpatroon" loading="lazy" width="600" height="450">
+          </div>
+          <div class="product-card__body">
+            <h4 class="product-card__name">Rotan hanglamp &lsquo;Vlechtwerk&rsquo;</h4>
+            <p class="product-card__desc">Werpt een zacht, gestreept lichtpatroon — de blikvanger boven je eettafel.</p>
+            <div class="product-card__footer">
+              <span class="product-card__price" data-price="89.50">€89,50</span>
+              <button class="btn btn--small add-to-cart" data-id="rotan-hanglamp" data-name="Rotan hanglamp &lsquo;Vlechtwerk&rsquo;" data-price="89.50">Bestellen</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="verhaal" class="story">
+    <div class="wrap story__inner">
+      <p class="section-heading__eyebrow">Ons verhaal</p>
+      <h2>Een huis vol verhalen, niet vol spullen</h2>
+      <p>
+        HetMerkhuys begon met een simpele gedachte: een huis wordt geen thuis door meer
+        spullen, maar door de juiste. Wij zoeken producten die iets te vertellen hebben —
+        gemaakt van materialen die ouder mogen worden, door makers die trots zijn op hun vak.
+        Geen bodemprijzen, geen wegwerpspullen. Gewoon eerlijke kwaliteit, met een warm welkom erbij.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer__inner">
+    <div class="footer__brand">
+      <p class="logo logo--footer">Het<span>Merk</span>huys</p>
+      <p>Landelijk wonen, textiel &amp; decoratie — met zorg uitgezocht.</p>
+    </div>
+    <div class="footer__links">
+      <h5>Ontdek</h5>
+      <a href="#wonen">Wonen</a>
+      <a href="#textiel">Textiel</a>
+      <a href="#decoratie">Decoratie</a>
+    </div>
+    <div class="footer__contact">
+      <h5>Contact</h5>
+      <a href="mailto:hallo@hetmerkhuys.nl">hallo@hetmerkhuys.nl</a>
+      <p>Ma–vr, 9:00–17:00</p>
+    </div>
+  </div>
+  <div class="wrap footer__bottom">
+    <p>&copy; <span id="year"></span> HetMerkhuys. Met liefde samengesteld.</p>
+  </div>
+</footer>
+
+<div id="cart-overlay" class="cart-overlay" hidden></div>
+<aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true">
+  <div class="cart-drawer__header">
+    <h2 id="cart-title">Jouw mandje</h2>
+    <button id="cart-close" class="cart-close" aria-label="Mandje sluiten">&times;</button>
+  </div>
+
+  <ul id="cart-items" class="cart-items"></ul>
+  <p id="cart-empty" class="cart-empty">Je mandje is nog leeg — tijd om lekker rond te snuffelen.</p>
+
+  <div class="cart-summary">
+    <div class="cart-total">
+      <span>Totaal</span>
+      <span id="cart-total">€0,00</span>
+    </div>
+    <a id="cart-checkout" class="btn btn--primary btn--full" href="#">Bestelling versturen</a>
+    <p class="cart-note">We nemen contact met je op om de bestelling af te ronden.</p>
+  </div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>

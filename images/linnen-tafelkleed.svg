@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F1E6D6"/>
+      <stop offset="1" stop-color="#FAF5EC"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#bgGrad)"/>
+  <circle cx="140" cy="110" r="170" fill="#A9603F" opacity="0.1"/>
+  <circle cx="500" cy="380" r="130" fill="#3C4A3B" opacity="0.07"/>
+  <g transform="translate(300.0,225.0)" fill="none" stroke="#2E241C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+
+    <path d="M -150,-40 C -150,-70 150,-70 150,-40 L 165,70 C 100,95 -100,95 -165,70 Z" fill="#FAF5EC" stroke="#A9603F" stroke-width="4"/>
+    <path d="M -150,-40 C -80,-20 80,-20 150,-40" fill="none" stroke="#A9603F" stroke-width="1.6"/>
+    <path d="M -140,10 C -70,26 70,26 140,10" fill="none" stroke="#A9603F" stroke-width="1.2" opacity="0.6"/>
+    <path d="M -130,55 C -65,68 65,68 130,55" fill="none" stroke="#A9603F" stroke-width="1.2" opacity="0.6"/>
+    <line x1="-100" y1="-55" x2="-115" y2="90" stroke="#A9603F" stroke-width="1" opacity="0.4"/>
+    <line x1="100" y1="-55" x2="115" y2="90" stroke="#A9603F" stroke-width="1" opacity="0.4"/>
+
+  </g>
+</svg>
