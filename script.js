@@ -42,7 +42,7 @@
   }
 
   function formatPrice(amount) {
-    return "€" + amount.toFixed(2).replace(".", ",");
+    return "€ " + amount.toFixed(2).replace(".", ",");
   }
 
   function findItem(id) {
@@ -223,4 +223,76 @@
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   render();
+
+  // --- zoeken -----------------------------------------------------
+
+  var searchToggle = document.getElementById("search-toggle");
+  var searchBar = document.getElementById("search-bar");
+  var searchInput = document.getElementById("search-input");
+  var searchClose = document.getElementById("search-close");
+  var searchStatus = document.getElementById("search-status");
+  var productCards = Array.prototype.slice.call(document.querySelectorAll(".product-card"));
+  var categoryTitles = Array.prototype.slice.call(document.querySelectorAll(".category-title"));
+
+  function openSearch() {
+    searchBar.hidden = false;
+    searchToggle.setAttribute("aria-expanded", "true");
+    window.setTimeout(function () { searchInput.focus(); }, 50);
+  }
+
+  function closeSearch() {
+    searchBar.hidden = true;
+    searchToggle.setAttribute("aria-expanded", "false");
+    searchInput.value = "";
+    filterProducts("");
+  }
+
+  function filterProducts(query) {
+    var q = query.trim().toLowerCase();
+    var visibleCount = 0;
+
+    productCards.forEach(function (card) {
+      var haystack = (card.dataset.search || "") + " " + card.textContent.toLowerCase();
+      var match = q === "" || haystack.toLowerCase().indexOf(q) !== -1;
+      card.hidden = !match;
+      if (match) visibleCount++;
+    });
+
+    categoryTitles.forEach(function (title) {
+      var grid = title.nextElementSibling;
+      if (!grid) return;
+      var anyVisible = Array.prototype.some.call(grid.querySelectorAll(".product-card"), function (c) {
+        return !c.hidden;
+      });
+      title.hidden = !anyVisible;
+      grid.hidden = !anyVisible;
+    });
+
+    if (q !== "" && visibleCount === 0) {
+      searchStatus.hidden = false;
+      searchStatus.textContent = "Geen producten gevonden voor ‘" + query.trim() + "’.";
+    } else {
+      searchStatus.hidden = true;
+    }
+  }
+
+  if (searchToggle && searchBar) {
+    searchToggle.addEventListener("click", function () {
+      var isOpen = !searchBar.hidden;
+      if (isOpen) {
+        closeSearch();
+      } else {
+        openSearch();
+      }
+    });
+  }
+  if (searchClose) searchClose.addEventListener("click", closeSearch);
+  if (searchInput) {
+    searchInput.addEventListener("input", function () {
+      filterProducts(searchInput.value);
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && searchBar && !searchBar.hidden) closeSearch();
+  });
 })();

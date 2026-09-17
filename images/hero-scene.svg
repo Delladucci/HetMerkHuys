@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="wallGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E7DCC9"/>
+      <stop offset="1" stop-color="#FAF5EC"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#wallGrad)"/>
+  <rect x="0" y="620" width="1200" height="180" fill="#DCD0BB" opacity="0.55"/>
+
+  <!-- window -->
+  <g stroke="#3E2F23" stroke-width="5" fill="none">
+    <rect x="760" y="90" width="360" height="430" rx="4"/>
+    <line x1="940" y1="90" x2="940" y2="520"/>
+    <line x1="760" y1="305" x2="1120" y2="305"/>
+  </g>
+  <rect x="765" y="95" width="170" height="205" fill="#FAF5EC" opacity="0.5"/>
+  <rect x="945" y="95" width="170" height="205" fill="#FAF5EC" opacity="0.35"/>
+  <rect x="765" y="310" width="170" height="205" fill="#FAF5EC" opacity="0.4"/>
+  <rect x="945" y="310" width="170" height="205" fill="#FAF5EC" opacity="0.3"/>
+
+  <!-- armchair -->
+  <g stroke="#3E2F23" stroke-width="5" fill="#A9603F" stroke-linejoin="round">
+    <path d="M120,560 L120,430 C120,395 150,370 190,370 L340,370 C380,370 410,395 410,430 L410,560 Z" opacity="0.9"/>
+    <rect x="95" y="470" width="50" height="140" rx="14" opacity="0.85"/>
+    <rect x="385" y="470" width="50" height="140" rx="14" opacity="0.85"/>
+    <rect x="120" y="560" width="290" height="26" rx="6" fill="#3E2F23" opacity="0.9"/>
+  </g>
+  <g stroke="#3E2F23" stroke-width="4" fill="none" opacity="0.5">
+    <line x1="150" y1="400" x2="150" y2="560"/>
+    <line x1="265" y1="390" x2="265" y2="560"/>
+    <line x1="380" y1="400" x2="380" y2="560"/>
+  </g>
+
+  <!-- side table + plant -->
+  <g stroke="#3E2F23" stroke-width="5" fill="none">
+    <line x1="480" y1="610" x2="480" y2="530"/>
+    <line x1="620" y1="610" x2="620" y2="530"/>
+    <rect x="470" y="510" width="160" height="22" rx="4" fill="#FAF5EC"/>
+  </g>
+  <path d="M525,510 C500,470 500,420 520,380 C530,420 520,470 525,510 Z" fill="#3C4A3B"/>
+  <path d="M550,510 C575,460 585,410 570,370 C555,415 550,465 550,510 Z" fill="#5E7060"/>
+  <path d="M575,510 C560,470 560,430 575,400 C590,430 590,470 575,510 Z" fill="#3C4A3B"/>
+  <path d="M520,505 L580,505 L570,555 L530,555 Z" fill="#A9603F"/>
+
+  <!-- floor lamp -->
+  <g stroke="#3E2F23" stroke-width="4" fill="none">
+    <line x1="720" y1="610" x2="720" y2="330"/>
+  </g>
+  <path d="M660,330 L780,330 L760,240 L680,240 Z" fill="none" stroke="#3E2F23" stroke-width="4" stroke-linejoin="round"/>
+  <ellipse cx="720" cy="612" rx="34" ry="10" fill="#3E2F23" opacity="0.7"/>
+</svg>
