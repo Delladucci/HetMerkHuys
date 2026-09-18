@@ -261,7 +261,14 @@
     categoryTitles.forEach(function (title) {
       var grid = title.nextElementSibling;
       if (!grid) return;
-      var anyVisible = Array.prototype.some.call(grid.querySelectorAll(".product-card"), function (c) {
+      var cardsInGrid = grid.querySelectorAll(".product-card");
+      if (cardsInGrid.length === 0) {
+        // Nog geen producten in deze categorie (placeholder-tekst) — altijd tonen, zoeken is hier niet op van toepassing.
+        title.hidden = false;
+        grid.hidden = false;
+        return;
+      }
+      var anyVisible = Array.prototype.some.call(cardsInGrid, function (c) {
         return !c.hidden;
       });
       title.hidden = !anyVisible;

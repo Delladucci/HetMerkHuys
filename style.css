@@ -407,6 +407,16 @@ a { color: inherit; }
   gap: 30px;
 }
 
+.product-grid--empty {
+  display: block;
+  padding: 34px 0 6px;
+}
+.category-empty {
+  color: var(--muted);
+  font-style: italic;
+  max-width: 46ch;
+}
+
 .product-card {
   background: transparent;
   display: flex;
