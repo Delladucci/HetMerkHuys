@@ -89,6 +89,24 @@
       specs: [["Afmeting", "Ø 53 x 50 x 51 cm"], ["Staat", "Nieuw, originele verpakking"]]
     },
     {
+      id: "by-boo-ming-vaas", cat: "wonen", brand: "By-Boo",
+      name: "Ming vaas zwart (large)", spec: "Hoogte 40 cm · ruw keramiek",
+      tiers: [{ q: 1, p: 39.99 }],
+      stock: 1, unit: "stuk", note: "", worth: 59.95, worthPrefix: "Winkelwaarde",
+      images: [],
+      desc: "Robuuste zwarte vaas van By-Boo, model Ming in de grootste uitvoering. Het keramiek heeft een stoere, ruwe structuur: mooi met een grote bos droogbloemen of een paar siertakken, en van zichzelf al een statement in de kamer.",
+      specs: [["Merk", "By-Boo, model Ming (Large)"], ["Hoogte", "40 cm"], ["Materiaal", "Keramiek met ruwe, steenachtige afwerking"], ["Staat", "Zo goed als nieuw, geen beschadigingen"]]
+    },
+    {
+      id: "by-boo-olit-bijzettafels", cat: "wonen", brand: "By-Boo",
+      name: "Olit bijzettafels, set van 2", spec: "Set van 2 · zwart staal met glazen blad",
+      tiers: [{ q: 1, p: 79 }],
+      stock: 1, unit: "set", note: "Set van 2", worth: 139, worthPrefix: "Nieuwprijs",
+      images: [],
+      desc: "Een minimalistische set van twee hoge bijzettafels uit de Olit-serie, ook mooi als plantenstandaard of decoratiezuil. Door het hoogteverschil schuif je ze deels onder elkaar of zet je ze los van elkaar. Showroommodel in nieuwstaat.",
+      specs: [["Merk", "By-Boo / FurniLux, Olit Small"], ["Tafelblad", "30 x 30 cm"], ["Hoogte", "ca. 73 en 77 cm"], ["Frame", "Gecoat zwart staal"], ["Blad", "Donker glas (rookglas/groen)"], ["Staat", "Showroommodel, in nieuwstaat"]]
+    },
+    {
       id: "wandrek-metaal", cat: "wonen", brand: "HetMerkhuys",
       name: "Zwart wandrek met houten plank", spec: "60 x 17 x 17 cm · metaal met hout",
       tiers: [{ q: 1, p: 59.99 }, { q: 3, p: 99 }],
