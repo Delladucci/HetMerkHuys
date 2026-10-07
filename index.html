@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HetMerkhuys — Warme woonwinkel voor huis en tuin</title>
-<meta name="description" content="HetMerkhuys is een gastvrije webshop met zorgvuldig uitgezocht wonen, textiel en decoratie in landelijke, stoere stijl. Hout, linnen en rotan voor een huis dat aanvoelt als thuis.">
+<title>HetMerkhuys — Warme spullen, direct uit voorraad</title>
+<meta name="description" content="HetMerkhuys: nieuwe sierkussens, wandklokken en woonaccessoires, direct uit voorraad leverbaar. Bij elk artikel zie je hoeveel er nog zijn.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='6' fill='%233E2F23'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23FAF5EC' font-family='Georgia,serif'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%232A1F18'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='%23F7F0E4' font-family='Georgia,serif'%3EH%3C/text%3E%3C/svg%3E">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -18,224 +18,67 @@
 
 <a class="skip-link" href="#producten">Ga naar producten</a>
 
+<div class="usp-bar">
+  <span>Direct uit voorraad</span>
+  <span>Nieuw &amp; ongebruikt</span>
+  <span>Persoonlijk contact bij elke bestelling</span>
+</div>
+
 <header class="site-header">
   <div class="wrap header__inner">
     <a href="#top" class="logo">Het<span>Merkhuys</span></a>
 
-    <nav class="main-nav" aria-label="Hoofdnavigatie">
-      <a href="#wonen">Wonen</a>
-      <a href="#textiel">Textiel</a>
-      <a href="#decoratie">Decoratie</a>
-    </nav>
+    <label class="search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+      <input type="search" id="search-input" placeholder="Zoek een kussen, klok of tafel" aria-label="Zoek in het assortiment" autocomplete="off">
+    </label>
 
-    <div class="header__actions">
-      <button id="search-toggle" class="text-link" aria-haspopup="true" aria-expanded="false" aria-controls="search-bar">Zoeken</button>
-      <button id="cart-toggle" class="text-link cart-link" aria-haspopup="dialog" aria-expanded="false" aria-controls="cart-drawer">
-        Winkelwagen
-        <span id="cart-count" class="cart-count">0</span>
-      </button>
-    </div>
-  </div>
-
-  <div id="search-bar" class="search-bar" hidden>
-    <div class="wrap search-bar__inner">
-      <input type="search" id="search-input" placeholder="Zoek een product, bv. &lsquo;linnen&rsquo; of &lsquo;vaas&rsquo;&hellip;" aria-label="Zoek producten">
-      <button id="search-close" class="search-close" aria-label="Zoeken sluiten">&times;</button>
-    </div>
+    <button type="button" id="cart-toggle" class="cart-pill" aria-haspopup="dialog" aria-controls="cart-drawer" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+      <span>Mandje · <span id="cart-count">0</span></span>
+      <span class="cart-pill__total" id="cart-total">€ 0,00</span>
+    </button>
   </div>
 </header>
 
 <main id="top">
 
-  <section class="hero">
-    <div class="hero__media">
-      <img src="images/hero-scene.svg" alt="Sfeerbeeld van een warme woonkamer met linnen en hout" width="1200" height="800">
+  <section class="wrap intro">
+    <div class="intro__text">
+      <p class="eyebrow">Nu op voorraad</p>
+      <h1>Warme spullen, direct uit voorraad</h1>
+      <p class="intro__lead">Kussens, klokken en meubels voor een huis dat aanvoelt als thuis. Wat je ziet is wat er ligt: bij elk artikel staat hoeveel er nog zijn.</p>
     </div>
-    <div class="wrap">
-      <div class="hero__card">
-        <p class="eyebrow">Najaarscollectie</p>
-        <h1 class="hero__title">Kom binnen, doe je jas uit</h1>
-        <p class="hero__text">
-          Wij zoeken spullen uit zoals we ze zelf in huis willen: eerlijk hout,
-          linnen dat mag kreuken en rotan dat een leven meegaat. Welkom in ons huis.
-        </p>
-        <div class="hero__actions">
-          <a href="#producten" class="btn btn--primary">Bekijk de collectie</a>
-          <a href="#textiel" class="btn btn--ghost">Textiel &amp; kussens</a>
-        </div>
-      </div>
+    <div class="stats" aria-label="Het aanbod in cijfers">
+      <div class="stat"><div class="stat__num" id="stat-items">0</div><div class="stat__label">artikelen</div></div>
+      <div class="stat"><div class="stat__num" id="stat-pieces">0</div><div class="stat__label">stuks op voorraad</div></div>
+      <div class="stat"><div class="stat__num" id="stat-from">–</div><div class="stat__label">vanaf</div></div>
     </div>
   </section>
 
-  <section id="door-het-huis" class="categories">
-    <div class="wrap">
-      <div class="section-row">
-        <h2>Door het huis</h2>
-        <a href="#producten" class="link-arrow">Alles bekijken</a>
-      </div>
+  <section class="wrap cats" aria-label="Categorieën">
+    <div class="cats__row" id="cat-pills" role="group" aria-label="Categorieën"></div>
+  </section>
 
-      <div class="category-grid">
-        <a href="#wonen" class="category-tile">
-          <div class="category-tile__image">
-            <img src="images/category-wonen.svg" alt="Meubelstuk van massief hout" loading="lazy" width="800" height="600">
-          </div>
-          <div class="category-tile__body">
-            <h3>Wonen</h3>
-            <p>Meubels van massief hout en rotan</p>
-          </div>
-        </a>
-        <a href="#textiel" class="category-tile">
-          <div class="category-tile__image">
-            <img src="images/category-textiel.svg" alt="Gevouwen plaid met kussens" loading="lazy" width="800" height="600">
-          </div>
-          <div class="category-tile__body">
-            <h3>Textiel</h3>
-            <p>Kussens, plaids en linnen tafelgoed</p>
-          </div>
-        </a>
-        <a href="#decoratie" class="category-tile">
-          <div class="category-tile__image">
-            <img src="images/category-decoratie.svg" alt="Vaas en wandklok" loading="lazy" width="800" height="600">
-          </div>
-          <div class="category-tile__body">
-            <h3>Decoratie</h3>
-            <p>Vazen, klokken en keramiek</p>
-          </div>
-        </a>
-      </div>
+  <section class="wrap products" id="producten">
+    <p class="products__count" id="shown-label" aria-live="polite"></p>
+    <div class="no-results" id="no-results" hidden>
+      <p class="no-results__title">Niets gevonden</p>
+      <p>Probeer een andere zoekterm of kies een andere categorie.</p>
+    </div>
+    <div class="grid" id="grid">
+      <noscript><p>Zet JavaScript aan om het aanbod te bekijken, of mail ons op <a href="mailto:hallo@hetmerkhuys.nl">hallo@hetmerkhuys.nl</a>.</p></noscript>
     </div>
   </section>
 
-  <section id="uitgelicht" class="featured">
-    <div class="wrap">
-      <div class="section-row">
-        <div>
-          <p class="eyebrow">Ontdek HetMerkhuys</p>
-          <h2>Uitgelicht deze maand</h2>
-        </div>
-        <a href="#producten" class="link-arrow">Alles bekijken</a>
-      </div>
-
-      <div class="product-grid">
-
-        <article class="product-card" data-category="riverdale" data-sku="003097-23" data-ean="8717318265282" data-search="riverdale bowie sierkussen kussen beige">
-          <div class="product-card__image">
-            <img src="images/riverdale-bowie-beige.jpg" alt="Riverdale Bowie sierkussen in beige, 45x45cm" loading="lazy">
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__eyebrow">Riverdale</p>
-            <h4 class="product-card__name">Bowie Sierkussen 45x45cm Beige</h4>
-            <p class="product-card__desc">Zacht beige sierkussen inclusief binnenkussen, met een fijne bies &mdash; mooi op de bank, in de leesstoel of op bed. Ook verkrijgbaar in groen en taupe. Bij 2 of 4 stuks geldt een staffelprijs.</p>
-            <div class="product-card__footer">
-              <span class="product-card__price" data-price="17.99">€ 17,99</span>
-              <button class="btn btn--small add-to-cart" data-id="riverdale-bowie-beige-45" data-name="Riverdale Bowie Sierkussen 45x45cm Beige" data-price="17.99">Bestellen</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="riverdale" data-sku="003072-21" data-ean="8717318404681" data-search="riverdale cush sierkussen kussen roze boucle">
-          <div class="product-card__image">
-            <img src="images/riverdale-cush-boucle-pink.jpg" alt="Riverdale Cush sierkussen in roze bouclé, 50x50cm" loading="lazy">
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__eyebrow">Riverdale</p>
-            <h4 class="product-card__name">Cush Sierkussen Bouclé 50x50cm Roze</h4>
-            <p class="product-card__desc">Luxe sierkussen in zachte roze bouclé-stof &mdash; fijn los, of als setje van drie op de bank. Bij 3 of 6 stuks geldt een staffelprijs.</p>
-            <div class="product-card__footer">
-              <span class="product-card__price" data-price="29.99">€ 29,99</span>
-              <button class="btn btn--small add-to-cart" data-id="riverdale-cush-boucle-50-roze" data-name="Riverdale Cush Sierkussen Bouclé 50x50cm Roze" data-price="29.99">Bestellen</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="riverdale" data-sku="308670-20" data-ean="8717318214761" data-search="riverdale wandklok levy sam ray">
-          <div class="product-card__image">
-            <img src="images/riverdale-wandklok-levy.jpg" alt="Riverdale Wandklok Levy, goudkleurig met slangenprint" loading="lazy">
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__eyebrow">Riverdale</p>
-            <h4 class="product-card__name">Wandklok Levy 50cm</h4>
-            <p class="product-card__desc">Warmgouden wandklok met een subtiele slangenprint en strak zwarte wijzers &mdash; een klein statement boven de bank of in de hal. Rond, Ø 50 cm, werkt op een AA-batterij. Nieuw, nog in originele verpakking.</p>
-            <div class="product-card__footer">
-              <span class="product-card__price" data-price="99.00">€ 99,-</span>
-              <button class="btn btn--small add-to-cart" data-id="riverdale-wandklok-levy" data-name="Riverdale Wandklok Levy 50cm" data-price="99.00">Bestellen</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card" data-category="riverdale" data-search="riverdale wandklok derby">
-          <div class="product-card__image">
-            <img src="images/riverdale-wandklok-derby.jpg" alt="Riverdale Wandklok Derby, zwarte marmerlook met Romeinse cijfers" loading="lazy">
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__eyebrow">Riverdale</p>
-            <h4 class="product-card__name">Wandklok Derby 50cm</h4>
-            <p class="product-card__desc">Chique zwarte marmerlook wijzerplaat met een roestvrijstalen rand en aluminium Romeinse cijfers, achter een glazen voorkant die het uurwerk stofvrij houdt. Rond, Ø 50 cm. Nieuw, nog in originele verpakking.</p>
-            <div class="product-card__footer">
-              <span class="product-card__price" data-price="99.00">€ 99,-</span>
-              <button class="btn btn--small add-to-cart" data-id="riverdale-wandklok-derby" data-name="Riverdale Wandklok Derby 50cm" data-price="99.00">Bestellen</button>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="producten" class="products">
-    <div class="wrap">
-
-      <div class="section-heading">
-        <p class="eyebrow eyebrow--center">Het volledige assortiment</p>
-        <h2>Onze collectie</h2>
-        <p class="section-heading__text">Een greep uit onze collectie — alles gemaakt om te gebruiken, niet om achter glas te bewaren.</p>
-      </div>
-
-      <p id="search-status" class="search-status" hidden></p>
-
-      <h3 id="wonen" class="category-title">Wonen</h3>
-      <div class="product-grid">
-
-        <article class="product-card" data-category="wonen" data-search="ptmd rupert naturel salontafel bijzettafel teakhout">
-          <div class="product-card__image">
-            <img src="images/ptmd-rupert-naturel.jpg" alt="PTMD Rupert Naturel salontafelset van gerecycled teakhout" loading="lazy">
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__eyebrow">PTMD</p>
-            <h4 class="product-card__name">Salontafelset Rupert Naturel</h4>
-            <p class="product-card__desc">Set van twee bijzettafels van gerecycled teakhout, met een warme houtlook en stoer karakter &mdash; schuif ze in elkaar of zet ze apart in de zithoek. Nieuw en ongebruikt, nog in originele verpakking. Ø 53 x 50 x 51cm.</p>
-            <div class="product-card__footer">
-              <span class="product-card__price" data-price="99.00">€ 99,-</span>
-              <button class="btn btn--small add-to-cart" data-id="ptmd-rupert-naturel" data-name="PTMD Salontafelset Rupert Naturel" data-price="99.00">Bestellen</button>
-            </div>
-          </div>
-        </article>
-
-      </div>
-
-      <h3 id="textiel" class="category-title">Textiel</h3>
-      <div class="product-grid product-grid--empty">
-        <p class="category-empty">Hier komt binnenkort onze collectie Textiel. We zijn zorgvuldig aan het uitzoeken &mdash; kom snel weer eens kijken.</p>
-      </div>
-
-      <h3 id="decoratie" class="category-title">Decoratie</h3>
-      <div class="product-grid product-grid--empty">
-        <p class="category-empty">Hier komt binnenkort onze collectie Decoratie. We zijn zorgvuldig aan het uitzoeken &mdash; kom snel weer eens kijken.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="verhaal" class="story">
-    <div class="wrap story__inner">
-      <p class="eyebrow">Ons verhaal</p>
-      <h2>Een huis vol verhalen, niet vol spullen</h2>
-      <p>
-        HetMerkhuys begon met een simpele gedachte: een huis wordt geen thuis door meer
-        spullen, maar door de juiste. Wij zoeken producten die iets te vertellen hebben —
-        gemaakt van materialen die ouder mogen worden, door makers die trots zijn op hun vak.
-        Geen bodemprijzen, geen wegwerpspullen. Gewoon eerlijke kwaliteit, met een warm welkom erbij.
-      </p>
+  <section class="how">
+    <div class="wrap how__inner">
+      <h2>Zo bestel je</h2>
+      <ol class="how__steps">
+        <li><span class="how__num">1</span><p>Kies je artikelen en zet ze in je mandje.</p></li>
+        <li><span class="how__num">2</span><p>Verstuur je bestelling. Dan ontvang je van ons een bevestiging per mail.</p></li>
+        <li><span class="how__num">3</span><p>We spreken samen af hoe je betaalt en hoe het bij je komt.</p></li>
+      </ol>
     </div>
   </section>
 
@@ -243,55 +86,47 @@
 
 <footer class="site-footer">
   <div class="wrap footer__inner">
-    <div class="footer__brand">
-      <p class="logo logo--footer">Het<span>Merkhuys</span></p>
-      <p>Woonaccessoires en meubels met een verhaal, uitgezocht in ons eigen huis aan de Veldweg.</p>
+    <div>
+      <div class="footer__logo">Het<span>Merkhuys</span></div>
+      <p>Veldweg 12, Deventer<br><a href="mailto:hallo@hetmerkhuys.nl">hallo@hetmerkhuys.nl</a></p>
     </div>
-    <div class="footer__col">
-      <h5>Winkel</h5>
-      <a href="#wonen">Wonen</a>
-      <a href="#textiel">Textiel</a>
-      <a href="#decoratie">Decoratie</a>
-      <a href="#producten">Nieuw binnen</a>
-    </div>
-    <div class="footer__col">
-      <h5>Hulp</h5>
-      <a href="#">Bezorging</a>
-      <a href="#">Retour</a>
-      <a href="mailto:hallo@hetmerkhuys.nl">Contact</a>
-      <a href="#">Veelgestelde vragen</a>
-    </div>
-    <div class="footer__col">
-      <h5>Ons huis</h5>
-      <a href="#verhaal">Over ons</a>
-      <a href="#">Materialen</a>
-      <a href="#">Instagram</a>
-    </div>
-  </div>
-  <div class="wrap footer__bottom">
-    <p>&copy; <span id="year"></span> HetMerkhuys &middot; Veldweg 12, Deventer</p>
+    <p class="footer__note">Voorraad en prijzen kunnen wijzigen zolang er niet besteld is. &copy; <span id="year"></span> HetMerkhuys</p>
   </div>
 </footer>
 
-<div id="cart-overlay" class="cart-overlay" hidden></div>
-<aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true">
-  <div class="cart-drawer__header">
-    <h2 id="cart-title">Jouw mandje</h2>
-    <button id="cart-close" class="cart-close" aria-label="Mandje sluiten">&times;</button>
+<!-- Mandjebalk -->
+<div class="cartbar" id="cartbar" hidden>
+  <div class="cartbar__inner">
+    <span id="cartbar-text"></span>
+    <button type="button" class="btn btn--accent" id="cartbar-open">Mandje bekijken</button>
   </div>
+</div>
 
-  <ul id="cart-items" class="cart-items"></ul>
-  <p id="cart-empty" class="cart-empty">Je mandje is nog leeg — tijd om lekker rond te snuffelen.</p>
+<!-- Melding -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <div class="cart-summary">
-    <div class="cart-total">
-      <span>Totaal</span>
-      <span id="cart-total">€0,00</span>
-    </div>
-    <a id="cart-checkout" class="btn btn--primary btn--full" href="#">Bestelling versturen</a>
-    <p class="cart-note">We nemen contact met je op om de bestelling af te ronden.</p>
+<!-- Mandje (zijpaneel) -->
+<div class="overlay" id="cart-overlay" hidden></div>
+<aside class="drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-label="Je mandje" aria-hidden="true">
+  <div class="drawer__head">
+    <h2>Je mandje</h2>
+    <button type="button" class="iconbtn" id="cart-close" aria-label="Mandje sluiten">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+    </button>
+  </div>
+  <p class="drawer__empty" id="cart-empty">Je mandje is nog leeg. Kies iets moois uit het aanbod.</p>
+  <ul class="drawer__items" id="cart-items"></ul>
+  <div class="drawer__foot">
+    <div class="drawer__total"><span>Totaal</span><strong id="cart-sum">€ 0,00</strong></div>
+    <p class="drawer__hint">Je bestelt door ons een mail te sturen. Daarna spreken we samen af hoe je betaalt en hoe het bij je komt.</p>
+    <a class="btn btn--accent btn--block" id="cart-checkout" href="#" aria-disabled="true">Bestelling versturen</a>
   </div>
 </aside>
+
+<!-- Productdetail -->
+<div class="modal" id="modal" hidden>
+  <div class="modal__box" id="modal-box" role="dialog" aria-modal="true" aria-labelledby="detail-title" tabindex="-1"></div>
+</div>
 
 <script src="script.js"></script>
 </body>
