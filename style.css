@@ -91,6 +91,16 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 }
 .cart-pill__total { opacity: .7; font-weight: 500; }
 
+/* ---- Outlet-banner ---- */
+.outlet { background: var(--accent); color: #fff; }
+.outlet__inner { display: flex; align-items: center; justify-content: center; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
+.outlet__tag {
+  flex: none; background: var(--surface); color: var(--accent-dark); font-family: var(--serif);
+  font-size: 20px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  padding: 4px 16px; border-radius: 999px;
+}
+.outlet p { margin: 0; font-size: 15px; line-height: 1.5; max-width: 760px; }
+
 /* ---- Intro ---- */
 .intro { display: flex; gap: 48px; align-items: flex-end; flex-wrap: wrap; padding-top: 56px; padding-bottom: 24px; }
 .intro__text { flex: 1 1 520px; min-width: 0; }
@@ -339,6 +349,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .modal__box { border-radius: 0; padding: 20px 16px 28px; min-height: 100%; }
   .info__title { font-size: 28px; }
   .cartbar__inner { padding-left: 18px; gap: 12px; }
+  .outlet__inner { flex-direction: column; gap: 8px; text-align: center; }
+  .outlet p { font-size: 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

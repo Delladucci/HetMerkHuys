@@ -28,7 +28,7 @@
     {
       id: "bowie-groen", cat: "kussens", brand: "Riverdale",
       name: "Bowie sierkussen groen", spec: "45 x 45 cm · inclusief binnenkussen",
-      tiers: [{ q: 1, p: 17.99 }, { q: 2, p: 29.99 }, { q: 4, p: 49.99 }],
+      tiers: [{ q: 1, p: 12.99 }, { q: 4, p: 45 }],
       stock: 12, unit: "stuk", note: "Scherp geprijsd",
       images: ["images/riverdale-bowie-groen-2.jpg", "images/riverdale-bowie-groen-1.jpg", "images/riverdale-bowie-groen-3.jpg"],
       desc: "Zacht groen sierkussen met crème bies, inclusief binnenkussen. Mooi op de bank, in de leesstoel of op bed. Ook verkrijgbaar in beige en taupe.",
@@ -37,7 +37,7 @@
     {
       id: "bowie-beige", cat: "kussens", brand: "Riverdale",
       name: "Bowie sierkussen beige", spec: "45 x 45 cm · inclusief binnenkussen",
-      tiers: [{ q: 1, p: 17.99 }, { q: 2, p: 29.99 }],
+      tiers: [{ q: 1, p: 15.99 }, { q: 2, p: 28.99 }],
       stock: 2, unit: "stuk", note: "",
       images: ["images/riverdale-bowie-beige-2.jpg", "images/riverdale-bowie-beige.jpg"],
       desc: "Zacht beige sierkussen met donkergroene bies, inclusief binnenkussen. Mooi op de bank, in de leesstoel of op bed. Ook verkrijgbaar in groen en taupe.",
@@ -46,7 +46,7 @@
     {
       id: "bowie-taupe", cat: "kussens", brand: "Riverdale",
       name: "Bowie sierkussen taupe", spec: "45 x 45 cm · inclusief binnenkussen",
-      tiers: [{ q: 1, p: 19.99 }],
+      tiers: [{ q: 1, p: 15.99 }],
       stock: 1, unit: "stuk", note: "",
       images: ["images/riverdale-bowie-taupe-1.jpg"],
       desc: "Zacht taupe sierkussen met crème bies, inclusief binnenkussen. Mooi op de bank, in de leesstoel of op bed. Ook verkrijgbaar in beige en groen.",
@@ -105,6 +105,42 @@
       images: [],
       desc: "Een minimalistische set van twee hoge bijzettafels uit de Olit-serie, ook mooi als plantenstandaard of decoratiezuil. Door het hoogteverschil schuif je ze deels onder elkaar of zet je ze los van elkaar. Showroommodel in nieuwstaat.",
       specs: [["Merk", "By-Boo / FurniLux, Olit Small"], ["Tafelblad", "30 x 30 cm"], ["Hoogte", "ca. 73 en 77 cm"], ["Frame", "Gecoat zwart staal"], ["Blad", "Donker glas (rookglas/groen)"], ["Staat", "Showroommodel, in nieuwstaat"]]
+    },
+    {
+      id: "riviera-room48-poef", cat: "wonen", brand: "Rivièra Maison",
+      name: "Room 48 poef FabFlax 40x40", spec: "40 x 40 cm · vlaslook met eikenhout",
+      tiers: [{ q: 1, p: 99 }],
+      stock: 1, unit: "stuk", note: "", worth: 249, worthPrefix: "Winkelwaarde ca.",
+      images: [],
+      desc: "Chique vierkante poef (hocker) in een geblokte vlas/linnen-look. De onderkant heeft een stoer detail van geleefd, gerecycled eikenhout met industriële handgrepen. Fijn als extra zitplek, voetenbank of decoratief item in de woon- of slaapkamer. Nieuw en nog ongeopend in de originele fabrieksverpakking.",
+      specs: [["Merk", "Rivièra Maison, Room 48 Stool"], ["Afmeting", "40 x 40 cm"], ["Materiaal", "Vlas/linnen-look met gerecycled eikenhout"], ["Staat", "Nieuw, ongeopend in originele verpakking"]]
+    },
+    {
+      id: "allibert-hortza-manden", cat: "wonen", brand: "Allibert",
+      name: "Hortza opbergmanden goud, set van 2", spec: "Set van 2 · nestbaar, metallic goud",
+      tiers: [{ q: 1, p: 8.99 }],
+      stock: 4, unit: "set", note: "Set van 2", worth: 25, worthPrefix: "Winkelwaarde vanaf",
+      images: [],
+      desc: "Twee manden met een goudkleurige, geweven metallic buitenkant en een stevige zwarte binnenvoering. Handig voor handdoeken of verzorgingsproducten in de badkamer, in de slaapkamer of inloopkast, of gewoon als eyecatcher in de woonkamer. De manden passen in elkaar.",
+      specs: [["Merk", "Allibert Bath & Design, model Hortza"], ["Grote mand", "Ø 15,5 cm, hoogte 14 cm"], ["Kleine mand", "Ø 12,5 cm, hoogte 12 cm"], ["Staat", "Nieuw, met originele kaartjes"]]
+    },
+    {
+      id: "philips-crane-bureaulamp", cat: "wonen", brand: "Philips",
+      name: "EyeCare Crane LED-bureaulamp zwart", spec: "Dimbaar · met USB-poort",
+      tiers: [{ q: 1, p: 39.99 }, { q: 2, p: 69.99 }, { q: 3, p: 99.99 }],
+      stock: 3, unit: "stuk", note: "", worth: 79, worthPrefix: "Nieuwprijs vanaf",
+      images: [],
+      desc: "Bureaulamp met Honeycomb-lens die het licht gelijkmatig verdeelt en schittering voorkomt, speciaal tegen vermoeide ogen. Met schuifdimmer (touch-bediening op de voet) en een ingebouwde USB-poort om je telefoon of tablet op te laden. Gloednieuw in de originele doos.",
+      specs: [["Merk", "Philips, EyeCare Crane"], ["Type", "71665/30/16"], ["Kleur", "Zwart"], ["Staat", "Nieuw, in originele doos"]]
+    },
+    {
+      id: "simplehuman-pedaalemmer", cat: "wonen", brand: "simplehuman",
+      name: "Pedaalemmer 6L taupe", spec: "6 liter · compact en halfrond",
+      tiers: [{ q: 1, p: 11.99 }],
+      stock: 5, unit: "stuk", note: "", worth: 25, worthPrefix: "Winkelwaarde ca.",
+      images: [],
+      desc: "Compacte pedaalemmer van simplehuman in een stijlvolle taupe/grijze kleur, perfect voor toilet of badkamer. Met een ijzersterk metalen pedaal voor jarenlang soepel gebruik en een uitneembare binnenemmer om makkelijk schoon te maken en zakken te wisselen. Het halfronde design past in kleine hoekjes. Splinternieuw, met originele labels en beschermende verpakking. Alle 5 in één keer? Stuur ons een bericht voor de prijs.",
+      specs: [["Merk", "simplehuman, Compact Plastic Step Can"], ["Inhoud", "6 liter"], ["Kleur", "Taupe/grijs"], ["Staat", "Nieuw, met labels en verpakking"]]
     },
     {
       id: "wandrek-metaal", cat: "wonen", brand: "HetMerkhuys",
