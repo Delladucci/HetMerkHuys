@@ -48,9 +48,9 @@
       name: "Bowie sierkussen taupe", spec: "45 x 45 cm · inclusief binnenkussen",
       tiers: [{ q: 1, p: 15.99 }],
       stock: 1, unit: "stuk", note: "",
-      images: ["images/riverdale-bowie-taupe-1.jpg"],
+      images: ["images/riverdale-bowie-taupe-1.jpg", "images/riverdale-bowie-taupe-2.jpg", "images/riverdale-bowie-taupe-3.jpg"],
       desc: "Zacht taupe sierkussen met crème bies, inclusief binnenkussen. Mooi op de bank, in de leesstoel of op bed. Ook verkrijgbaar in beige en groen.",
-      specs: [["Afmeting", "45 x 45 cm"], ["Staat", "Nieuw, met label"]]
+      specs: [["Afmeting", "45 x 45 cm"], ["Staat", "Nieuw, in originele verpakking"], ["Artikelnummer", "003099-23"]]
     },
     {
       id: "cush-roze", cat: "kussens", brand: "Riverdale",
