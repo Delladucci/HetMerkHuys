@@ -110,7 +110,7 @@
       name: "Ming vaas zwart (large)", spec: "Hoogte 40 cm · ruw keramiek",
       tiers: [{ q: 1, p: 39.99 }],
       stock: 1, unit: "stuk", note: "", worth: 59.95, worthPrefix: "Winkelwaarde",
-      images: [],
+      images: ["images/by-boo-ming-vaas-1.jpg", "images/by-boo-ming-vaas-2.jpg", "images/by-boo-ming-vaas-3.jpg"],
       desc: "Robuuste zwarte vaas van By-Boo, model Ming in de grootste uitvoering. Het keramiek heeft een stoere, ruwe structuur: mooi met een grote bos droogbloemen of een paar siertakken, en van zichzelf al een statement in de kamer.",
       specs: [["Merk", "By-Boo, model Ming (Large)"], ["Hoogte", "40 cm"], ["Materiaal", "Keramiek met ruwe, steenachtige afwerking"], ["Staat", "Zo goed als nieuw, geen beschadigingen"]]
     },
@@ -119,7 +119,7 @@
       name: "Olit bijzettafels, set van 2", spec: "Set van 2 · zwart staal met glazen blad",
       tiers: [{ q: 1, p: 79 }],
       stock: 1, unit: "set", note: "Set van 2", worth: 139, worthPrefix: "Nieuwprijs",
-      images: [],
+      images: ["images/by-boo-olit-tafels-1.jpg", "images/by-boo-olit-tafels-2.jpg", "images/by-boo-olit-tafels-3.jpg", "images/by-boo-olit-tafels-4.jpg", "images/by-boo-olit-tafels-5.jpg", "images/by-boo-olit-tafels-6.jpg"],
       desc: "Een minimalistische set van twee hoge bijzettafels uit de Olit-serie, ook mooi als plantenstandaard of decoratiezuil. Door het hoogteverschil schuif je ze deels onder elkaar of zet je ze los van elkaar. Showroommodel in nieuwstaat.",
       specs: [["Merk", "By-Boo / FurniLux, Olit Small"], ["Tafelblad", "30 x 30 cm"], ["Hoogte", "ca. 73 en 77 cm"], ["Frame", "Gecoat zwart staal"], ["Blad", "Donker glas (rookglas/groen)"], ["Staat", "Showroommodel, in nieuwstaat"]]
     },
@@ -128,7 +128,7 @@
       name: "Room 48 poef FabFlax 40x40", spec: "40 x 40 cm · vlaslook met eikenhout",
       tiers: [{ q: 1, p: 99 }],
       stock: 1, unit: "stuk", note: "", worth: 249, worthPrefix: "Winkelwaarde ca.",
-      images: [],
+      images: ["images/riviera-room48-poef-1.jpg", "images/riviera-room48-poef-2.jpg", "images/riviera-room48-poef-3.jpg"],
       desc: "Chique vierkante poef (hocker) in een geblokte vlas/linnen-look. De onderkant heeft een stoer detail van geleefd, gerecycled eikenhout met industriële handgrepen. Fijn als extra zitplek, voetenbank of decoratief item in de woon- of slaapkamer. Nieuw en nog ongeopend in de originele fabrieksverpakking.",
       specs: [["Merk", "Rivièra Maison, Room 48 Stool"], ["Afmeting", "40 x 40 cm"], ["Materiaal", "Vlas/linnen-look met gerecycled eikenhout"], ["Staat", "Nieuw, ongeopend in originele verpakking"]]
     },
@@ -146,7 +146,7 @@
       name: "EyeCare Crane LED-bureaulamp zwart", spec: "Dimbaar · met USB-poort",
       tiers: [{ q: 1, p: 39.99 }, { q: 2, p: 69.99 }, { q: 3, p: 99.99 }],
       stock: 3, unit: "stuk", note: "", worth: 79, worthPrefix: "Nieuwprijs vanaf",
-      images: [],
+      images: ["images/philips-crane-bureaulamp-1.jpg", "images/philips-crane-bureaulamp-2.jpg", "images/philips-crane-bureaulamp-3.jpg", "images/philips-crane-bureaulamp-4.jpg", "images/philips-crane-bureaulamp-5.jpg"],
       desc: "Bureaulamp met Honeycomb-lens die het licht gelijkmatig verdeelt en schittering voorkomt, speciaal tegen vermoeide ogen. Met schuifdimmer (touch-bediening op de voet) en een ingebouwde USB-poort om je telefoon of tablet op te laden. Gloednieuw in de originele doos.",
       specs: [["Merk", "Philips, EyeCare Crane"], ["Type", "71665/30/16"], ["Kleur", "Zwart"], ["Staat", "Nieuw, in originele doos"]]
     },
@@ -155,7 +155,7 @@
       name: "Pedaalemmer 6L taupe", spec: "6 liter · compact en halfrond",
       tiers: [{ q: 1, p: 11.99 }],
       stock: 5, unit: "stuk", note: "", worth: 25, worthPrefix: "Winkelwaarde ca.",
-      images: [],
+      images: ["images/simplehuman-pedaalemmer-1.jpg", "images/simplehuman-pedaalemmer-2.jpg", "images/simplehuman-pedaalemmer-3.jpg", "images/simplehuman-pedaalemmer-4.jpg", "images/simplehuman-pedaalemmer-5.jpg"],
       desc: "Compacte pedaalemmer van simplehuman in een stijlvolle taupe/grijze kleur, perfect voor toilet of badkamer. Met een ijzersterk metalen pedaal voor jarenlang soepel gebruik en een uitneembare binnenemmer om makkelijk schoon te maken en zakken te wisselen. Het halfronde design past in kleine hoekjes. Splinternieuw, met originele labels en beschermende verpakking. Alle 5 in één keer? Stuur ons een bericht voor de prijs.",
       specs: [["Merk", "simplehuman, Compact Plastic Step Can"], ["Inhoud", "6 liter"], ["Kleur", "Taupe/grijs"], ["Staat", "Nieuw, met labels en verpakking"]]
     },
