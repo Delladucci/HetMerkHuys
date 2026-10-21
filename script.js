@@ -162,10 +162,10 @@
     {
       id: "wandrek-metaal", cat: "wonen", brand: "HetMerkhuys",
       name: "Zwart wandrek met houten plank", spec: "60 x 17 x 17 cm · metaal met hout",
-      tiers: [{ q: 1, p: 59.99 }, { q: 3, p: 99 }],
-      stock: 3, unit: "stuk", note: "Alle 3 voor € 99",
+      tiers: [{ q: 1, p: 59.99 }, { q: 2, p: 99 }],
+      stock: 3, unit: "stuk", note: "2 voor € 99",
       images: ["images/matra-kripa-wandrek-2.jpg", "images/matra-kripa-wandrek-3.jpg"],
-      desc: "Zwart metalen wandrek met een houten plank, mooi voor planten, kaarsen en boeken. Per stuk te koop, of neem ze alle drie voor een lagere prijs.",
+      desc: "Zwart metalen wandrek met een houten plank, mooi voor planten, kaarsen en boeken. Per stuk te koop, of neem er twee voor een lagere prijs.",
       specs: [["Afmeting", "60 x 17 x 17 cm"], ["Staat", "Nieuw"]]
     }
   ];
