@@ -9,6 +9,7 @@
 
   var ORDER_EMAIL = "hallo@hetmerkhuys.nl";
   var STORAGE_KEY = "hetmerkhuys-cart-v2";
+  var DELIVERY_KEY = "hetmerkhuys-delivery";
 
   /* --------------------------------------------------------------
      AANBOD
@@ -17,6 +18,22 @@
               (bv. { q: 2, p: 29.99 } betekent: 2 stuks voor € 29,99)
      worth  = (optioneel) winkelwaarde, wordt doorgestreept getoond
      -------------------------------------------------------------- */
+  /* --------------------------------------------------------------
+     VERZENDING (PostNL, alleen binnen Nederland)
+     price     = prijs per gemiddeld pakket (max. 10 kg, 100 x 50 x 50 cm)
+     freeFrom  = vanaf dit bedrag aan producten is het eerste pakket gratis
+     SHIP_UNITS= hoeveel van een pakket een artikel inneemt (1 = een heel pakket,
+                 0.2 = er passen er 5 in één pakket). Pas aan als het niet klopt.
+     -------------------------------------------------------------- */
+  var SHIP = { price: 6.95, freeFrom: 75 };
+  var SHIP_UNITS = {
+    "bowie-groen": 0.2, "bowie-beige": 0.2, "bowie-taupe": 0.2, "cush-roze": 0.25,
+    "klok-levy": 1, "klok-derby": 1, "tafelset-rupert": 1,
+    "by-boo-ming-vaas": 1, "by-boo-olit-bijzettafels": 1, "riviera-room48-poef": 1,
+    "allibert-hortza-manden": 0.1667, "philips-crane-bureaulamp": 0.5,
+    "simplehuman-pedaalemmer": 0.34, "wandrek-metaal": 0.34
+  };
+
   var CATEGORIES = [
     { id: "alles", label: "Alles" },
     { id: "kussens", label: "Kussens" },
@@ -119,7 +136,7 @@
       id: "allibert-hortza-manden", cat: "wonen", brand: "Allibert",
       name: "Hortza opbergmanden goud, set van 2", spec: "Set van 2 · nestbaar, metallic goud",
       tiers: [{ q: 1, p: 8.99 }],
-      stock: 4, unit: "set", note: "Set van 2", worth: 25, worthPrefix: "Winkelwaarde vanaf",
+      stock: 20, unit: "set", note: "Set van 2", worth: 25, worthPrefix: "Winkelwaarde vanaf",
       images: [],
       desc: "Twee manden met een goudkleurige, geweven metallic buitenkant en een stevige zwarte binnenvoering. Handig voor handdoeken of verzorgingsproducten in de badkamer, in de slaapkamer of inloopkast, of gewoon als eyecatcher in de woonkamer. De manden passen in elkaar.",
       specs: [["Merk", "Allibert Bath & Design, model Hortza"], ["Grote mand", "Ø 15,5 cm, hoogte 14 cm"], ["Kleine mand", "Ø 12,5 cm, hoogte 12 cm"], ["Staat", "Nieuw, met originele kaartjes"]]
@@ -207,7 +224,7 @@
 
   /* ---------- state ---------- */
 
-  var state = { cat: "alles", q: "", cart: loadCart() };
+  var state = { cat: "alles", q: "", cart: loadCart(), delivery: loadDelivery() };
   var modal = { id: null, thumb: 0, qty: 1, opener: null };
 
   function loadCart() {
@@ -223,6 +240,14 @@
     return out;
   }
 
+  function loadDelivery() {
+    try { return window.localStorage.getItem(DELIVERY_KEY) === "ophalen" ? "ophalen" : "verzenden"; } catch (e) { return "verzenden"; }
+  }
+
+  function saveDelivery() {
+    try { window.localStorage.setItem(DELIVERY_KEY, state.delivery); } catch (e) { /* negeren */ }
+  }
+
   function saveCart() {
     try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state.cart)); } catch (e) { /* negeren */ }
   }
@@ -231,6 +256,19 @@
   function cartCount() { return Object.keys(state.cart).reduce(function (s, id) { return s + state.cart[id]; }, 0); }
   function cartTotal() {
     return Object.keys(state.cart).reduce(function (s, id) { return s + calc(byId[id], state.cart[id]); }, 0);
+  }
+
+  // Verzendkosten: eerste pakket gratis vanaf SHIP.freeFrom, elk extra pakket kost SHIP.price.
+  function shippingFor(goods) {
+    if (state.delivery === "ophalen") return { cost: 0, parcels: 0, free: false };
+    var units = Object.keys(state.cart).reduce(function (s, id) {
+      var u = SHIP_UNITS[id] != null ? SHIP_UNITS[id] : 1;
+      return s + u * state.cart[id];
+    }, 0);
+    var parcels = Math.max(1, Math.ceil(Math.round(units * 100) / 100));
+    var free = goods >= SHIP.freeFrom;
+    var paid = parcels - (free ? 1 : 0);
+    return { cost: Math.round(paid * SHIP.price * 100) / 100, parcels: parcels, free: free };
   }
 
   function addToCart(id, n) {
@@ -348,11 +386,23 @@
     var total = cartTotal();
     $("cart-count").textContent = count;
     $("cart-total").textContent = fmt(total);
-    $("cart-sum").textContent = fmt(total);
+    var ship = shippingFor(total);
+    var grand = Math.round((total + ship.cost) * 100) / 100;
+    $("cart-goods").textContent = fmt(total);
+    $("cart-ship").textContent = count === 0 ? "–" : (state.delivery === "ophalen" ? "Gratis" : (ship.cost === 0 ? "Gratis" : fmt(ship.cost)));
+    $("cart-sum").textContent = fmt(grand);
+    var opts = document.querySelectorAll('input[name="delivery"]');
+    for (var oi = 0; oi < opts.length; oi++) opts[oi].checked = opts[oi].value === state.delivery;
+    var hint = $("cart-shiphint");
+    if (count === 0) hint.textContent = "";
+    else if (state.delivery === "ophalen") hint.textContent = "Je haalt je bestelling op. Je krijgt het adres en een tijdstip na je bestelling.";
+    else if (ship.free && ship.parcels > 1) hint.textContent = "Eerste pakket gratis. Je bestelling past niet in één pakket, dus voor de overige " + (ship.parcels - 1) + (ship.parcels - 1 === 1 ? " pakket" : " pakketten") + " rekenen we " + fmt(SHIP.price) + " per pakket.";
+    else if (ship.free) hint.textContent = "Gratis verzending met PostNL.";
+    else hint.textContent = "Nog " + fmt(SHIP.freeFrom - total) + " tot gratis verzending (" + fmt(SHIP.price) + " per pakket).";
 
     var bar = $("cartbar");
     bar.hidden = count === 0;
-    $("cartbar-text").textContent = count + (count === 1 ? " stuk" : " stuks") + " in je mandje · " + fmt(total);
+    $("cartbar-text").textContent = count + (count === 1 ? " stuk" : " stuks") + " in je mandje · " + fmt(total) + " (excl. verzending)";
 
     var ids = Object.keys(state.cart);
     $("cart-empty").hidden = ids.length > 0;
@@ -381,10 +431,10 @@
       '</li>';
     }).join("");
 
-    updateCheckout(ids, total);
+    updateCheckout(ids, total, ship, grand);
   }
 
-  function updateCheckout(ids, total) {
+  function updateCheckout(ids, total, ship, grand) {
     var a = $("cart-checkout");
     if (ids.length === 0) {
       a.setAttribute("aria-disabled", "true");
@@ -396,9 +446,14 @@
       var p = byId[id], n = state.cart[id];
       return "- " + p.name + " x" + n + " (" + fmt(calc(p, n)) + ")";
     });
+    var delivery = state.delivery === "ophalen"
+      ? "Ophalen (gratis)"
+      : "Verzenden met PostNL binnen Nederland (" + (ship.cost === 0 ? "gratis" : fmt(ship.cost)) + ")";
     var body = "Hallo HetMerkhuys,\n\nIk wil graag het volgende bestellen:\n\n" +
-      lines.join("\n") + "\n\nTotaal: " + fmt(total) +
-      "\n\nMijn naam en adres:\n\n\nGroet,";
+      lines.join("\n") + "\n\nProducten: " + fmt(total) +
+      "\nLevering: " + delivery +
+      "\nTotaal: " + fmt(grand) +
+      "\n\nMijn naam, telefoonnummer en (bij verzenden) adres:\n\n\nGroet,";
     a.setAttribute("href", "mailto:" + ORDER_EMAIL +
       "?subject=" + encodeURIComponent("Bestelling via HetMerkhuys") +
       "&body=" + encodeURIComponent(body.replace(/\n/g, "\r\n")));
@@ -593,6 +648,14 @@
     if (dec) { var did = dec.getAttribute("data-dec"); setQty(did, inCart(did) - 1); refresh(); return; }
     var rem = t.closest("[data-remove]");
     if (rem) { setQty(rem.getAttribute("data-remove"), 0); refresh(); return; }
+  });
+
+  document.addEventListener("change", function (e) {
+    if (e.target && e.target.name === "delivery") {
+      state.delivery = e.target.value === "ophalen" ? "ophalen" : "verzenden";
+      saveDelivery();
+      renderCart();
+    }
   });
 
   $("cart-toggle").addEventListener("click", openCart);

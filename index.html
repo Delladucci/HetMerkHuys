@@ -20,6 +20,7 @@
 
 <div class="usp-bar">
   <span>Direct uit voorraad</span>
+  <span>Gratis verzending vanaf € 75</span>
   <span>Nieuw of in nieuwstaat</span>
   <span>Persoonlijk contact bij elke bestelling</span>
 </div>
@@ -95,7 +96,10 @@
   <div class="wrap footer__inner">
     <div>
       <div class="footer__logo">Het<span>Merkhuys</span></div>
-      <p>Veldweg 12, Deventer<br><a href="mailto:hallo@hetmerkhuys.nl">hallo@hetmerkhuys.nl</a></p>
+      <p>HetMerkhuys is een handelsnaam van Bureau Leduc &middot; KvK 97183539<br>
+      <a href="mailto:hallo@hetmerkhuys.nl">hallo@hetmerkhuys.nl</a><br>
+      Vrijgesteld van btw (KOR)</p>
+      <p class="footer__links"><a href="voorwaarden.html">Voorwaarden &amp; retour</a> &middot; <a href="privacy.html">Privacy</a></p>
     </div>
     <p class="footer__note">Voorraad en prijzen kunnen wijzigen zolang er niet besteld is. &copy; <span id="year"></span> HetMerkhuys</p>
   </div>
@@ -124,8 +128,16 @@
   <p class="drawer__empty" id="cart-empty">Je mandje is nog leeg. Kies iets moois uit het aanbod.</p>
   <ul class="drawer__items" id="cart-items"></ul>
   <div class="drawer__foot">
+    <fieldset class="delivery">
+      <legend>Levering</legend>
+      <label class="delivery__opt"><input type="radio" name="delivery" value="verzenden" checked><span>Verzenden met PostNL <small>(binnen Nederland)</small></span></label>
+      <label class="delivery__opt"><input type="radio" name="delivery" value="ophalen"><span>Ophalen <small>(gratis)</small></span></label>
+    </fieldset>
+    <div class="drawer__row"><span>Producten</span><span id="cart-goods">€ 0,00</span></div>
+    <div class="drawer__row"><span>Verzending</span><span id="cart-ship">–</span></div>
+    <p class="drawer__shiphint" id="cart-shiphint"></p>
     <div class="drawer__total"><span>Totaal</span><strong id="cart-sum">€ 0,00</strong></div>
-    <p class="drawer__hint">Je bestelt door ons een mail te sturen. Daarna spreken we samen af hoe je betaalt en hoe het bij je komt.</p>
+    <p class="drawer__hint">Gratis verzending (PostNL, Nederland) vanaf € 75 geldt voor bestellingen die in één gemiddeld pakket passen (max. 10 kg en 100 x 50 x 50 cm). Per extra pakket rekenen we € 6,95. Je bestelt door ons een mail te sturen. Daarna spreken we samen af hoe je betaalt en hoe het bij je komt. Binnen 14 dagen retour mogelijk, retourkosten zijn voor de klant. Zie <a href="voorwaarden.html">voorwaarden &amp; retour</a>.</p>
     <a class="btn btn--accent btn--block" id="cart-checkout" href="#" aria-disabled="true">Bestelling versturen</a>
   </div>
 </aside>
