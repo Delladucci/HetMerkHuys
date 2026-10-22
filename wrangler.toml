@@ -8,8 +8,7 @@ binding = "ASSETS"
 not_found_handling = "404-page"
 run_worker_first = ["/api/*"]
 
-# Voorraad-opslag (KV). Maak in Cloudflare eerst een KV-namespace aan en zet hier het id in.
-# Haal de # weg voor de drie regels hieronder zodra je het id hebt.
-# [[kv_namespaces]]
-# binding = "STOCK"
-# id = "PLAK_HIER_HET_KV_ID"
+# Voorraad-opslag (KV): namespace "hetmerkhuys-stock".
+[[kv_namespaces]]
+binding = "STOCK"
+id = "2d7f5b864ed34460a1d855bfcfe2ad5f"
