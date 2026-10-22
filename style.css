@@ -378,3 +378,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .legal__back { margin-left: auto; font-size: 14px; color: var(--accent); text-decoration: none; font-weight: 600; }
 .footer__links a, .site-footer a { color: #E9DCC6; }
 .footer__links { margin-top: 12px !important; }
+
+.drawer__error { margin: 0 0 12px; padding: 10px 12px; border-radius: 10px; background: #F6DDD3; color: #7A2B14; font-size: 14px; line-height: 1.45; }
+.drawer__error[hidden] { display: none; }

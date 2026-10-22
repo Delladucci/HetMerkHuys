@@ -9,6 +9,8 @@
 
   var ORDER_EMAIL = "hallo@hetmerkhuys.nl";
   var STORAGE_KEY = "hetmerkhuys-cart-v2";
+  var PAY_NOTE = 'Gratis verzending (PostNL, Nederland) vanaf € 75 geldt voor bestellingen die in één gemiddeld pakket passen (max. 10 kg en 100 x 50 x 50 cm). Per extra pakket rekenen we € 6,95. Je rekent veilig af met iDEAL, kaart of Apple Pay. Binnen 14 dagen retour mogelijk, de retourkosten zijn voor de klant. Zie <a href="voorwaarden.html">voorwaarden &amp; retour</a>.';
+  var MAIL_NOTE = null; // wordt gevuld met de tekst uit index.html
   var DELIVERY_KEY = "hetmerkhuys-delivery";
 
   /* --------------------------------------------------------------
@@ -101,7 +103,7 @@
       name: "Salontafelset Rupert naturel", spec: "Set van 2 · gerecycled teakhout",
       tiers: [{ q: 1, p: 99 }],
       stock: 1, unit: "set", note: "Set van 2", worth: 215, worthPrefix: "Winkelwaarde ca.",
-      images: ["images/ptmd-rupert-naturel.jpg", "images/ptmd-rupert-naturel-2.jpg"],
+      images: ["images/ptmd-rupert-naturel-2.jpg", "images/ptmd-rupert-naturel.jpg"],
       desc: "Twee bijzettafels van gerecycled teakhout met zwarte pootjes en een warme houtlook. Schuif ze in elkaar of zet ze apart in de zithoek.",
       specs: [["Afmeting", "Ø 53 x 50 x 51 cm"], ["Staat", "Nieuw, originele verpakking"]]
     },
@@ -155,7 +157,7 @@
       name: "Pedaalemmer 6L taupe", spec: "6 liter · compact en halfrond",
       tiers: [{ q: 1, p: 11.99 }],
       stock: 5, unit: "stuk", note: "", worth: 25, worthPrefix: "Winkelwaarde ca.",
-      images: ["images/simplehuman-pedaalemmer-1.jpg", "images/simplehuman-pedaalemmer-2.jpg", "images/simplehuman-pedaalemmer-3.jpg", "images/simplehuman-pedaalemmer-4.jpg", "images/simplehuman-pedaalemmer-5.jpg"],
+      images: ["images/simplehuman-pedaalemmer-2.jpg", "images/simplehuman-pedaalemmer-1.jpg", "images/simplehuman-pedaalemmer-3.jpg", "images/simplehuman-pedaalemmer-4.jpg", "images/simplehuman-pedaalemmer-5.jpg"],
       desc: "Compacte pedaalemmer van simplehuman in een stijlvolle taupe/grijze kleur, perfect voor toilet of badkamer. Met een ijzersterk metalen pedaal voor jarenlang soepel gebruik en een uitneembare binnenemmer om makkelijk schoon te maken en zakken te wisselen. Het halfronde design past in kleine hoekjes. Splinternieuw, met originele labels en beschermende verpakking. Alle 5 in één keer? Stuur ons een bericht voor de prijs.",
       specs: [["Merk", "simplehuman, Compact Plastic Step Can"], ["Inhoud", "6 liter"], ["Kleur", "Taupe/grijs"], ["Staat", "Nieuw, met labels en verpakking"]]
     },
@@ -224,7 +226,7 @@
 
   /* ---------- state ---------- */
 
-  var state = { cat: "alles", q: "", cart: loadCart(), delivery: loadDelivery() };
+  var state = { cat: "alles", q: "", cart: loadCart(), delivery: loadDelivery(), pay: false, paying: false };
   var modal = { id: null, thumb: 0, qty: 1, opener: null };
 
   function loadCart() {
@@ -400,6 +402,12 @@
     else if (ship.free) hint.textContent = "Gratis verzending met PostNL.";
     else hint.textContent = "Nog " + fmt(SHIP.freeFrom - total) + " tot gratis verzending (" + fmt(SHIP.price) + " per pakket).";
 
+    var note = $("cart-hint");
+    if (note) {
+      if (state.pay) note.innerHTML = PAY_NOTE;
+      else note.innerHTML = MAIL_NOTE;
+    }
+
     var bar = $("cartbar");
     bar.hidden = count === 0;
     $("cartbar-text").textContent = count + (count === 1 ? " stuk" : " stuks") + " in je mandje · " + fmt(total) + " (excl. verzending)";
@@ -439,9 +447,20 @@
     if (ids.length === 0) {
       a.setAttribute("aria-disabled", "true");
       a.setAttribute("href", "#");
+      a.removeAttribute("data-pay");
+      a.textContent = state.pay ? "Afrekenen" : "Bestelling versturen";
       return;
     }
     a.removeAttribute("aria-disabled");
+    if (state.pay) {
+      // Online betalen via Stripe: de knop start de betaling (zie startCheckout).
+      a.setAttribute("href", "#");
+      a.setAttribute("data-pay", "1");
+      a.textContent = state.paying ? "Even geduld..." : "Afrekenen · " + fmt(grand);
+      if (state.paying) a.setAttribute("aria-disabled", "true");
+      return;
+    }
+    a.removeAttribute("data-pay");
     var lines = ids.map(function (id) {
       var p = byId[id], n = state.cart[id];
       return "- " + p.name + " x" + n + " (" + fmt(calc(p, n)) + ")";
@@ -650,6 +669,71 @@
     if (rem) { setQty(rem.getAttribute("data-remove"), 0); refresh(); return; }
   });
 
+  function showPayError(msg) {
+    var el = $("cart-error");
+    if (!el) return;
+    el.textContent = msg || "";
+    el.hidden = !msg;
+  }
+
+  function startCheckout() {
+    if (state.paying || cartCount() === 0) return;
+    state.paying = true;
+    showPayError("");
+    renderCart();
+    fetch("/api/checkout", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ cart: state.cart, delivery: state.delivery })
+    }).then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (data) { return { ok: res.ok, status: res.status, data: data }; });
+    }).then(function (r) {
+      if (r.ok && r.data.url) { window.location.href = r.data.url; return; }
+      state.paying = false;
+      showPayError(r.data.error || "Betalen starten is niet gelukt. Probeer het zo nog eens of mail ons op " + ORDER_EMAIL + ".");
+      if (r.status === 409) loadStock();
+      renderCart();
+    }).catch(function () {
+      state.paying = false;
+      showPayError("Geen verbinding. Probeer het zo nog eens of mail ons op " + ORDER_EMAIL + ".");
+      renderCart();
+    });
+  }
+
+  // Terug uit Stripe met de terugknop: knop weer bruikbaar maken.
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted && state.paying) { state.paying = false; renderCart(); }
+  });
+
+  document.addEventListener("click", function (e) {
+    var pay = e.target && e.target.closest ? e.target.closest("#cart-checkout") : null;
+    if (pay && pay.getAttribute("data-pay") === "1") { e.preventDefault(); startCheckout(); }
+  });
+
+  // Actuele voorraad en of online betalen aan staat, van de server.
+  function loadStock() {
+    if (window.location.protocol === "file:") return;
+    fetch("/api/stock", { cache: "no-store" }).then(function (res) {
+      if (!res.ok) throw new Error("geen voorraad");
+      return res.json();
+    }).then(function (data) {
+      if (data && data.stock) {
+        PRODUCTS.forEach(function (p) {
+          if (typeof data.stock[p.id] === "number") p.stock = Math.max(0, Math.floor(data.stock[p.id]));
+        });
+        Object.keys(state.cart).forEach(function (id) {
+          if (!byId[id] || byId[id].stock <= 0) delete state.cart[id];
+          else state.cart[id] = Math.min(state.cart[id], byId[id].stock);
+        });
+        saveCart();
+      }
+      state.pay = !!(data && data.checkout);
+      renderStats();
+      renderPills();
+      refresh();
+    }).catch(function () { /* geen server: de site werkt met de vaste lijst en bestellen per mail */ });
+  }
+
   document.addEventListener("change", function (e) {
     if (e.target && e.target.name === "delivery") {
       state.delivery = e.target.value === "ophalen" ? "ophalen" : "verzenden";
@@ -696,7 +780,11 @@
 
   $("year").textContent = new Date().getFullYear();
 
+  var noteEl = $("cart-hint");
+  if (noteEl) MAIL_NOTE = noteEl.innerHTML;
+
   renderStats();
   renderPills();
   refresh();
+  loadStock();
 })();
