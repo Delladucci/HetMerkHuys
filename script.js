@@ -139,7 +139,7 @@
       name: "Hortza opbergmanden goud, set van 2", spec: "Set van 2 · nestbaar, metallic goud",
       tiers: [{ q: 1, p: 8.99 }],
       stock: 20, unit: "set", note: "Set van 2", worth: 25, worthPrefix: "Winkelwaarde vanaf",
-      images: [],
+      images: ["images/allibert-hortza-manden-1.jpg", "images/allibert-hortza-manden-2.jpg", "images/allibert-hortza-manden-3.jpg", "images/allibert-hortza-manden-4.jpg", "images/allibert-hortza-manden-5.jpg"],
       desc: "Twee manden met een goudkleurige, geweven metallic buitenkant en een stevige zwarte binnenvoering. Handig voor handdoeken of verzorgingsproducten in de badkamer, in de slaapkamer of inloopkast, of gewoon als eyecatcher in de woonkamer. De manden passen in elkaar.",
       specs: [["Merk", "Allibert Bath & Design, model Hortza"], ["Grote mand", "Ø 15,5 cm, hoogte 14 cm"], ["Kleine mand", "Ø 12,5 cm, hoogte 12 cm"], ["Staat", "Nieuw, met originele kaartjes"]]
     },
