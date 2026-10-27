@@ -6,13 +6,13 @@
 //   STRIPE_WEBHOOK_SECRET  (secret)  whsec_...
 //   RESEND_API_KEY         (secret)  re_...
 //   CHECKOUT_ENABLED       (tekst)   "true" zodra online betalen open mag voor klanten
-//   OWNER_EMAIL            (tekst)   optioneel, standaard hallo@hetmerkhuys.nl
+//   OWNER_EMAIL            (tekst)   optioneel, standaard info@hetmerkhuys.nl
 // KV-opslag "STOCK" (zie wrangler.toml) bewaart de actuele voorraad.
 
 import { CATALOG, SHIP } from "./catalog.js";
 
-const MAIL_FROM = "HetMerkhuys <hallo@hetmerkhuys.nl>";
-const DEFAULT_OWNER = "hallo@hetmerkhuys.nl";
+const MAIL_FROM = "HetMerkhuys <info@hetmerkhuys.nl>";
+const DEFAULT_OWNER = "info@hetmerkhuys.nl";
 const STOCK_KEY = "stock";
 
 const JSON_HEADERS = { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" };

@@ -105,7 +105,7 @@ test("webhook: betaling verlaagt voorraad, mailt klant en eigenaar, en wordt maa
   const mails = calls.filter((c) => c.url.includes("resend.com"));
   assert.equal(mails.length, 2);
   assert.deepEqual(JSON.parse(mails[0].opts.body).to, ["klant@example.nl"]);
-  assert.deepEqual(JSON.parse(mails[1].opts.body).to, ["hallo@hetmerkhuys.nl"]);
+  assert.deepEqual(JSON.parse(mails[1].opts.body).to, ["info@hetmerkhuys.nl"]);
   assert.match(JSON.parse(mails[1].opts.body).html, /Straat 1/);
   // herhaling van hetzelfde bericht
   const r2 = await worker.fetch(post("/api/webhook", body, { "stripe-signature": sign(body, "whsec_x") }), e);
@@ -118,7 +118,7 @@ test("webhook: te veel verkocht geeft waarschuwing aan de eigenaar", async () =>
   const e = env({ STOCK: mockKV({ stock: JSON.stringify({ "klok-levy": 0 }) }) });
   const body = paidEvent("cs_2");
   await worker.fetch(post("/api/webhook", body, { "stripe-signature": sign(body, "whsec_x") }), e);
-  const owner = calls.filter((c) => c.url.includes("resend.com")).map((c) => JSON.parse(c.opts.body)).find((m) => m.to[0] === "hallo@hetmerkhuys.nl");
+  const owner = calls.filter((c) => c.url.includes("resend.com")).map((c) => JSON.parse(c.opts.body)).find((m) => m.to[0] === "info@hetmerkhuys.nl");
   assert.match(owner.subject, /TE VEEL VERKOCHT/);
 });
 

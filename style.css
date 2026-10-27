@@ -373,6 +373,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .legal p, .legal li { font-size: 16px; line-height: 1.65; color: var(--text-2); }
 .legal ol { padding-left: 22px; }
 .legal a { color: var(--accent); }
+.legal a.btn { color: #fff; }
 .legal__lead { font-size: 18px !important; color: var(--muted) !important; }
 .legal__date { margin-top: 32px; font-size: 14px !important; color: var(--muted) !important; }
 .legal__back { margin-left: auto; font-size: 14px; color: var(--accent); text-decoration: none; font-weight: 600; }

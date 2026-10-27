@@ -7,7 +7,7 @@
 (function () {
   "use strict";
 
-  var ORDER_EMAIL = "hallo@hetmerkhuys.nl";
+  var ORDER_EMAIL = "info@hetmerkhuys.nl";
   var STORAGE_KEY = "hetmerkhuys-cart-v2";
   var PAY_NOTE = 'Gratis verzending (PostNL, Nederland) vanaf € 75 geldt voor bestellingen die in één gemiddeld pakket passen (max. 10 kg en 100 x 50 x 50 cm). Per extra pakket rekenen we € 6,95. Je rekent veilig af met iDEAL, kaart of Apple Pay. Binnen 14 dagen retour mogelijk, de retourkosten zijn voor de klant. Zie <a href="voorwaarden.html">voorwaarden &amp; retour</a>.';
   var MAIL_NOTE = null; // wordt gevuld met de tekst uit index.html
