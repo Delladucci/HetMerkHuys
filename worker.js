@@ -289,7 +289,7 @@ ${table}
 <p><strong>Totaal betaald: ${total}</strong></p>
 <p>${deliveryLine}</p>
 <p>Je mag je bestelling binnen 14 dagen herroepen. De voorwaarden en het retourbeleid staan op de site. Vragen? Antwoord gewoon op deze mail.</p>
-<p>Groet,<br>HetMerkhuys<br>Bureau Leduc &middot; KvK 97183539</p></div>`;
+<p>Groet,<br>HetMerkhuys<br>KvK 97183539</p></div>`;
 
   const ownerHtml = `<div style="font-family:Arial,sans-serif;color:#2A1F18;line-height:1.5">
 <p><strong>Nieuwe betaalde bestelling</strong></p>
