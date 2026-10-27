@@ -16,14 +16,17 @@ const ctx = vm.createContext({});
 const products = vm.runInContext("(" + "[" + grab("var PRODUCTS = [", "\n  ];\n") + "\n  ]" + ")", ctx);
 const ship = vm.runInContext("(" + grab("var SHIP = ", ";\n") + ")", ctx);
 const units = vm.runInContext("(" + grab("var SHIP_UNITS = ", ";\n") + ")", ctx);
+const groups = vm.runInContext("(" + grab("var GROUPS = ", ";\n") + ")", ctx);
 
 const products_out = {};
 for (const p of products) {
   products_out[p.id] = { name: p.name, tiers: p.tiers, units: units[p.id] != null ? units[p.id] : 1, stock: p.stock };
+  if (p.group) products_out[p.id].group = p.group;
 }
 
 const out = `// GEGENEREERD door tools/sync-catalog.mjs uit script.js. Niet met de hand aanpassen.
 export const SHIP = ${JSON.stringify(ship)};
+export const GROUPS = ${JSON.stringify(groups)};
 export const CATALOG = ${JSON.stringify(products_out, null, 2)};
 `;
 fs.writeFileSync(new URL("../catalog.js", import.meta.url), out);

@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
-import worker, { calc, shipping, verifySignature } from "../worker.js";
+import worker, { calc, shipping, verifySignature, lineCents } from "../worker.js";
 import { CATALOG } from "../catalog.js";
 
 function mockKV(initial = {}) {
@@ -31,6 +31,27 @@ test("prijzen kloppen met de staffels", () => {
   assert.equal(calc(CATALOG["bowie-groen"], 5), 5799);
   assert.equal(calc(CATALOG["wandrek-metaal"], 2), 9900);
   assert.equal(calc(CATALOG["wandrek-metaal"], 3), 15899);
+});
+
+test("plaids: één prijs 9,99 en combi-korting telt over alle kleuren en soorten samen", () => {
+  const sum = (cart) => Object.keys(cart).reduce((s, id) => s + lineCents(cart, id), 0);
+  assert.equal(sum({ "plaid-mohair-taupe": 1 }), 999);
+  assert.equal(sum({ "plaid-mohair-taupe": 1, "plaid-fleece-creme": 1 }), 1798);          // 2 x 8,99
+  assert.equal(sum({ "plaid-mohair-taupe": 1, "plaid-teddy-roze": 1, "plaid-fleece-creme": 1 }), 2697); // 3 x 8,99
+  assert.equal(sum({ "plaid-mohair-creme": 2, "plaid-teddy-creme": 2 }), 3296);              // 4 x 8,24
+  assert.equal(sum({ "plaid-mohair-creme": 4, "plaid-fleece-creme": 4 }), 6592);             // 8 x 8,24
+  assert.equal(sum({ "plaid-mohair-creme": 1, "klok-levy": 1 }), 999 + 7999);               // geen korting met andere artikelen
+  assert.equal(shipping({ "plaid-mohair-creme": 4 }, 3296, "verzenden").parcels, 1);
+  assert.equal(shipping({ "plaid-mohair-creme": 5 }, 4120, "verzenden").parcels, 2);
+});
+
+test("checkout: combi-korting zit in de regels naar Stripe", async () => {
+  mockFetch();
+  const r = await worker.fetch(post("/api/checkout", { cart: { "plaid-mohair-creme": 2, "plaid-teddy-creme": 2 }, delivery: "verzenden" }), env());
+  assert.equal(r.status, 200);
+  const body = decodeURIComponent(calls[0].opts.body);
+  assert.match(body, /line_items\[0\]\[price_data\]\[unit_amount\]=1648/);
+  assert.match(body, /line_items\[1\]\[price_data\]\[unit_amount\]=1648/);
 });
 
 test("verzendkosten: gratis vanaf 75, extra pakket 6,95, ophalen gratis", () => {

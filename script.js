@@ -33,15 +33,27 @@
     "klok-levy": 1, "klok-derby": 1, "tafelset-rupert": 1,
     "by-boo-ming-vaas": 1, "by-boo-olit-bijzettafels": 1, "riviera-room48-poef": 1,
     "allibert-hortza-manden": 0.1667, "philips-crane-bureaulamp": 0.5,
-    "simplehuman-pedaalemmer": 0.34, "wandrek-metaal": 0.34
+    "simplehuman-pedaalemmer": 0.34, "wandrek-metaal": 0.34,
+    "plaid-mohair-taupe": 0.25, "plaid-mohair-creme": 0.25, "plaid-mohair-oudroze": 0.25,
+    "plaid-teddy-creme": 0.25, "plaid-teddy-roze": 0.25, "plaid-fleece-creme": 0.25
   };
 
   var CATEGORIES = [
     { id: "alles", label: "Alles" },
     { id: "kussens", label: "Kussens" },
     { id: "wonen", label: "Wonen" },
-    { id: "wanddecoratie", label: "Wanddecoratie" }
+    { id: "wanddecoratie", label: "Wanddecoratie" },
+    { id: "plaids", label: "Plaids" }
   ];
+
+  /* --------------------------------------------------------------
+     COMBI-KORTING
+     Artikelen met dezelfde "group" tellen samen mee, ongeacht kleur of soort.
+     off = korting per stuk zodra er minimaal q stuks van de groep in het mandje zitten.
+     -------------------------------------------------------------- */
+  var GROUPS = {
+    plaid: { label: "plaids", tiers: [{ q: 2, off: 1 }, { q: 4, off: 1.75 }] }
+  };
 
   var PRODUCTS = [
     {
@@ -169,6 +181,60 @@
       images: ["images/matra-kripa-wandrek-2.jpg", "images/matra-kripa-wandrek-3.jpg", "images/matra-kripa-wandrek-5.jpg", "images/matra-kripa-wandrek-6.jpg"],
       desc: "Zwart metalen wandrek met een houten plank, mooi voor planten, kaarsen en boeken. Per stuk te koop, of neem er twee voor een lagere prijs.",
       specs: [["Afmeting", "60 x 17 x 17 cm"], ["Staat", "Nieuw"]]
+    },
+    {
+      id: "plaid-mohair-taupe", cat: "plaids", group: "plaid", brand: "Soft Blanket",
+      name: "Plaid mohair-look taupe", spec: "130 x 170 cm · grove franjes",
+      tiers: [{ q: 1, p: 9.99 }],
+      stock: 3, unit: "stuk", note: "Combi-korting",
+      images: ["images/plaid-mohair-taupe-1.jpg", "images/plaid-mohair-alle-kleuren.jpg"],
+      desc: "Zacht plaid in mohair-look met grove franjes, in warm taupe. Mooi over de bank of de leesstoel. Neem er meer van (elke kleur of soort plaid) en je krijgt combi-korting.",
+      specs: [["Afmeting", "130 x 170 cm"], ["Materiaal", "100% gerecycled polyester"], ["Staat", "Nieuw, in verpakking"]]
+    },
+    {
+      id: "plaid-mohair-creme", cat: "plaids", group: "plaid", brand: "Soft Blanket",
+      name: "Plaid mohair-look crème", spec: "130 x 170 cm · grove franjes",
+      tiers: [{ q: 1, p: 9.99 }],
+      stock: 4, unit: "stuk", note: "Combi-korting",
+      images: ["images/plaid-mohair-creme-1.jpg", "images/plaid-mohair-alle-kleuren.jpg"],
+      desc: "Zacht plaid in mohair-look met grove franjes, in rustig crème. Past bij elke zithoek. Neem er meer van (elke kleur of soort plaid) en je krijgt combi-korting.",
+      specs: [["Afmeting", "130 x 170 cm"], ["Materiaal", "100% gerecycled polyester"], ["Staat", "Nieuw, in verpakking"]]
+    },
+    {
+      id: "plaid-mohair-oudroze", cat: "plaids", group: "plaid", brand: "Soft Blanket",
+      name: "Plaid mohair-look oudroze", spec: "130 x 170 cm · grove franjes",
+      tiers: [{ q: 1, p: 9.99 }],
+      stock: 2, unit: "stuk", note: "Combi-korting",
+      images: ["images/plaid-mohair-oudroze-1.jpg", "images/plaid-mohair-alle-kleuren.jpg"],
+      desc: "Zacht plaid in mohair-look met grove franjes, in zachte oudroze tint. Neem er meer van (elke kleur of soort plaid) en je krijgt combi-korting.",
+      specs: [["Afmeting", "130 x 170 cm"], ["Materiaal", "100% gerecycled polyester"], ["Staat", "Nieuw, in verpakking"]]
+    },
+    {
+      id: "plaid-teddy-creme", cat: "plaids", group: "plaid", brand: "Paula Lee",
+      name: "Teddy plaid crème", spec: "150 x 200 cm · zacht teddy",
+      tiers: [{ q: 1, p: 9.99 }],
+      stock: 2, unit: "stuk", note: "Combi-korting",
+      images: ["images/plaid-teddy-creme-1.jpg"],
+      desc: "Groot, zacht teddy plaid in crème. Lekker warm op de bank of over het bed. Neem er meer van (elke kleur of soort plaid) en je krijgt combi-korting.",
+      specs: [["Afmeting", "150 x 200 cm"], ["Staat", "Nieuw, in verpakking"]]
+    },
+    {
+      id: "plaid-teddy-roze", cat: "plaids", group: "plaid", brand: "Paula Lee",
+      name: "Teddy plaid roze", spec: "150 x 200 cm · zacht teddy",
+      tiers: [{ q: 1, p: 9.99 }],
+      stock: 1, unit: "stuk", note: "Combi-korting",
+      images: ["images/plaid-teddy-roze-1.jpg"],
+      desc: "Groot, zacht teddy plaid in zachtroze. Lekker warm op de bank of over het bed. Neem er meer van (elke kleur of soort plaid) en je krijgt combi-korting.",
+      specs: [["Afmeting", "150 x 200 cm"], ["Staat", "Nieuw, in verpakking"]]
+    },
+    {
+      id: "plaid-fleece-creme", cat: "plaids", group: "plaid", brand: "Easy Living",
+      name: "Fleece plaid crème", spec: "150 x 200 cm · zacht fleece",
+      tiers: [{ q: 1, p: 9.99 }],
+      stock: 4, unit: "stuk", note: "Combi-korting",
+      images: ["images/plaid-fleece-creme-1.jpg", "images/plaid-fleece-creme-groep.jpg"],
+      desc: "Groot, zacht fleece plaid in crème. Handig voor op de bank, in de tuin of onderweg. Neem er meer van (elke kleur of soort plaid) en je krijgt combi-korting.",
+      specs: [["Afmeting", "150 x 200 cm"], ["Staat", "Nieuw, in verpakking"]]
     }
   ];
 
@@ -208,6 +274,33 @@
   }
 
   function unitPrice(p) { return p.tiers[0].p; }
+
+  // Combi-korting: artikelen met dezelfde "group" tellen samen mee (bv. alle plaids).
+  function groupQty(group) {
+    return Object.keys(state.cart).reduce(function (s, id) {
+      return s + (byId[id].group === group ? state.cart[id] : 0);
+    }, 0);
+  }
+  function groupOff(group) {
+    var g = GROUPS[group], n = groupQty(group), off = 0;
+    if (!g) return 0;
+    g.tiers.forEach(function (t) { if (n >= t.q) off = t.off; });
+    return off;
+  }
+  function lineTotal(id) {
+    var p = byId[id], n = state.cart[id];
+    var t = calc(p, n);
+    if (p.group) t -= groupOff(p.group) * n;
+    return Math.round(t * 100) / 100;
+  }
+  // Volgende combi-korting voor dit artikel (of null als de hoogste al is bereikt).
+  function nextGroupTier(p) {
+    var g = GROUPS[p.group];
+    if (!g) return null;
+    var n = groupQty(p.group), next = null;
+    g.tiers.slice().sort(function (a, b) { return a.q - b.q; }).forEach(function (t) { if (!next && t.q > n) next = t; });
+    return next;
+  }
   function fullPrice(p, qty) { return Math.round(unitPrice(p) * qty * 100) / 100; }
 
   function activeTier(p, qty) {
@@ -257,7 +350,7 @@
   function inCart(id) { return state.cart[id] || 0; }
   function cartCount() { return Object.keys(state.cart).reduce(function (s, id) { return s + state.cart[id]; }, 0); }
   function cartTotal() {
-    return Object.keys(state.cart).reduce(function (s, id) { return s + calc(byId[id], state.cart[id]); }, 0);
+    return Object.keys(state.cart).reduce(function (s, id) { return s + lineTotal(id); }, 0);
   }
 
   // Verzendkosten: eerste pakket gratis vanaf SHIP.freeFrom, elk extra pakket kost SHIP.price.
@@ -334,6 +427,11 @@
     var staffel = "";
     var t2 = p.tiers[1];
     if (t2) staffel = '<div class="tile__staffel">' + (t2.q === p.stock && p.stock > 1 ? "Alle " + t2.q : t2.q + " stuks") + " voor " + fmt(t2.p) + "</div>";
+
+    if (p.group && GROUPS[p.group]) {
+      var g1 = GROUPS[p.group].tiers[0];
+      staffel = '<div class="tile__staffel">Combi: vanaf ' + g1.q + " " + esc(GROUPS[p.group].label) + " " + fmt(unitPrice(p) - g1.off) + " per stuk</div>";
+    }
 
     var action;
     if (soldOut) action = '<span class="tag-full">Uitverkocht</span>';
@@ -418,14 +516,17 @@
 
     $("cart-items").innerHTML = ids.map(function (id) {
       var p = byId[id], n = state.cart[id];
-      var lineTotal = calc(p, n);
-      var saved = Math.round((fullPrice(p, n) - lineTotal) * 100) / 100;
+      var lt = lineTotal(id);
+      var saved = Math.round((fullPrice(p, n) - lt) * 100) / 100;
+      var nx = p.group ? nextGroupTier(p) : null;
+      var groupName = p.group && GROUPS[p.group] ? GROUPS[p.group].label : "";
       return '<li class="line">' +
         '<div class="line__img">' + (p.images[0] ? '<img src="' + esc(p.images[0]) + '" alt="">' : "") + '</div>' +
         '<div>' +
           '<p class="line__name">' + esc(p.name) + '</p>' +
           '<p class="line__meta">' + n + " × " + fmt(unitPrice(p)) + (saved > 0 ? "" : "") + '</p>' +
-          (saved > 0 ? '<p class="line__save">Staffelkorting: je bespaart ' + fmt(saved) + '</p>' : "") +
+          (saved > 0 ? '<p class="line__save">' + (p.group ? "Combi-korting " + esc(groupName) : "Staffelkorting") + ": je bespaart " + fmt(saved) + '</p>' : "") +
+          (nx ? '<p class="line__meta">Met nog ' + (nx.q - groupQty(p.group)) + " " + esc(groupName) + " erbij: " + fmt(nx.off) + " korting per stuk</p>" : "") +
           '<div class="line__ctrl">' +
             '<div class="stepper">' +
               '<button type="button" data-dec="' + id + '" aria-label="Minder ' + esc(p.name) + '">&minus;</button>' +
@@ -435,7 +536,7 @@
             '<button type="button" class="line__remove" data-remove="' + id + '">Verwijder</button>' +
           '</div>' +
         '</div>' +
-        '<div class="line__side">' + fmt(lineTotal) + '</div>' +
+        '<div class="line__side">' + fmt(lt) + '</div>' +
       '</li>';
     }).join("");
 
@@ -463,7 +564,7 @@
     a.removeAttribute("data-pay");
     var lines = ids.map(function (id) {
       var p = byId[id], n = state.cart[id];
-      return "- " + p.name + " x" + n + " (" + fmt(calc(p, n)) + ")";
+      return "- " + p.name + " x" + n + " (" + fmt(lineTotal(id)) + ")";
     });
     var delivery = state.delivery === "ophalen"
       ? "Ophalen (gratis)"
@@ -564,6 +665,15 @@
         p.tiers.slice().sort(function (a, b) { return a.q - b.q; }).map(function (t) {
           var per = t.q > 1 ? "(" + fmtUnit(t.p / t.q) + " per stuk)" : "";
           return '<div class="tiers__row' + (cur && cur.q === t.q ? " is-active" : "") + '"><span>' + esc(tierLabel(p, t)) + "</span><span>" + fmt(t.p) + " <small>" + per + "</small></span></div>";
+        }).join("") + "</div>";
+    }
+
+    if (p.group && GROUPS[p.group]) {
+      var gq = groupQty(p.group);
+      tiersHtml += '<div class="tiers"><div class="tiers__head">Combi-korting: alle ' + esc(GROUPS[p.group].label) + " samen, elke kleur of soort</div>" +
+        GROUPS[p.group].tiers.map(function (t) {
+          var active = gq >= t.q && !GROUPS[p.group].tiers.some(function (o) { return o.q > t.q && gq >= o.q; });
+          return '<div class="tiers__row' + (active ? " is-active" : "") + '"><span>Vanaf ' + t.q + " " + esc(GROUPS[p.group].label) + "</span><span>" + fmt(unitPrice(p) - t.off) + " <small>per stuk</small></span></div>";
         }).join("") + "</div>";
     }
 

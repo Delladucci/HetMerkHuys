@@ -1,5 +1,6 @@
 // GEGENEREERD door tools/sync-catalog.mjs uit script.js. Niet met de hand aanpassen.
 export const SHIP = {"price":6.95,"freeFrom":75};
+export const GROUPS = {"plaid":{"label":"plaids","tiers":[{"q":2,"off":1},{"q":4,"off":1.75}]}};
 export const CATALOG = {
   "bowie-groen": {
     "name": "Bowie sierkussen groen",
@@ -182,5 +183,77 @@ export const CATALOG = {
     ],
     "units": 0.34,
     "stock": 3
+  },
+  "plaid-mohair-taupe": {
+    "name": "Plaid mohair-look taupe",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 9.99
+      }
+    ],
+    "units": 0.25,
+    "stock": 3,
+    "group": "plaid"
+  },
+  "plaid-mohair-creme": {
+    "name": "Plaid mohair-look crème",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 9.99
+      }
+    ],
+    "units": 0.25,
+    "stock": 4,
+    "group": "plaid"
+  },
+  "plaid-mohair-oudroze": {
+    "name": "Plaid mohair-look oudroze",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 9.99
+      }
+    ],
+    "units": 0.25,
+    "stock": 2,
+    "group": "plaid"
+  },
+  "plaid-teddy-creme": {
+    "name": "Teddy plaid crème",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 9.99
+      }
+    ],
+    "units": 0.25,
+    "stock": 2,
+    "group": "plaid"
+  },
+  "plaid-teddy-roze": {
+    "name": "Teddy plaid roze",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 9.99
+      }
+    ],
+    "units": 0.25,
+    "stock": 1,
+    "group": "plaid"
+  },
+  "plaid-fleece-creme": {
+    "name": "Fleece plaid crème",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 9.99
+      }
+    ],
+    "units": 0.25,
+    "stock": 4,
+    "group": "plaid"
   }
 };

@@ -9,7 +9,7 @@
 //   OWNER_EMAIL            (tekst)   optioneel, standaard info@hetmerkhuys.nl
 // KV-opslag "STOCK" (zie wrangler.toml) bewaart de actuele voorraad.
 
-import { CATALOG, SHIP } from "./catalog.js";
+import { CATALOG, SHIP, GROUPS } from "./catalog.js";
 
 const MAIL_FROM = "HetMerkhuys <info@hetmerkhuys.nl>";
 const DEFAULT_OWNER = "info@hetmerkhuys.nl";
@@ -33,6 +33,25 @@ export function calc(product, qty) {
     rem -= n * t.q;
   }
   return cents; // in centen
+}
+
+// Combi-korting: artikelen met dezelfde groep (bv. plaids) tellen samen mee. Geeft de korting per stuk in centen.
+export function groupOffCents(cart, group) {
+  const g = GROUPS[group];
+  if (!g) return 0;
+  let n = 0;
+  for (const [id, qty] of Object.entries(cart)) if (CATALOG[id] && CATALOG[id].group === group) n += qty;
+  let off = 0;
+  for (const t of g.tiers) if (n >= t.q) off = Math.round(t.off * 100);
+  return off;
+}
+
+// Prijs van één regel in het mandje (in centen), inclusief combi-korting.
+export function lineCents(cart, id) {
+  const p = CATALOG[id];
+  let cents = calc(p, cart[id]);
+  if (p.group) cents -= groupOffCents(cart, p.group) * cart[id];
+  return cents;
 }
 
 export function shipping(cart, goodsCents, delivery) {
@@ -127,7 +146,7 @@ export async function handleCheckout(request, env) {
   const lines = [];
   let goods = 0;
   for (const [id, qty] of Object.entries(cart)) {
-    const cents = calc(CATALOG[id], qty);
+    const cents = lineCents(cart, id);
     goods += cents;
     lines.push({
       quantity: 1,
@@ -255,7 +274,7 @@ export async function processPaidSession(env, session) {
     : "";
 
   const itemRows = Object.entries(cart).map(([id, qty]) =>
-    `<tr><td style="padding:4px 12px 4px 0">${escHtml(CATALOG[id].name)}</td><td style="padding:4px 12px">${qty} stuk${qty > 1 ? "s" : ""}</td><td style="padding:4px 0;text-align:right">${euro(calc(CATALOG[id], qty))}</td></tr>`
+    `<tr><td style="padding:4px 12px 4px 0">${escHtml(CATALOG[id].name)}</td><td style="padding:4px 12px">${qty} stuk${qty > 1 ? "s" : ""}</td><td style="padding:4px 0;text-align:right">${euro(lineCents(cart, id))}</td></tr>`
   ).join("");
   const table = `<table style="border-collapse:collapse;font-size:15px">${itemRows}</table>`;
   const total = euro(session.amount_total || 0);
