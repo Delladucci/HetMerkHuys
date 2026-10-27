@@ -101,7 +101,7 @@
     {
       id: "tafelset-rupert", cat: "wonen", brand: "PTMD",
       name: "Salontafelset Rupert naturel", spec: "Set van 2 · gerecycled teakhout",
-      tiers: [{ q: 1, p: 99 }],
+      tiers: [{ q: 1, p: 79 }],
       stock: 1, unit: "set", note: "Set van 2", worth: 215, worthPrefix: "Winkelwaarde ca.",
       images: ["images/ptmd-rupert-naturel-2.jpg", "images/ptmd-rupert-naturel.jpg"],
       desc: "Twee bijzettafels van gerecycled teakhout met zwarte pootjes en een warme houtlook. Schuif ze in elkaar of zet ze apart in de zithoek.",
@@ -166,7 +166,7 @@
       name: "Zwart wandrek met houten plank", spec: "60 x 17 x 17 cm · metaal met hout",
       tiers: [{ q: 1, p: 59.99 }, { q: 2, p: 99 }],
       stock: 3, unit: "stuk", note: "2 voor € 99",
-      images: ["images/matra-kripa-wandrek-2.jpg", "images/matra-kripa-wandrek-3.jpg"],
+      images: ["images/matra-kripa-wandrek-2.jpg", "images/matra-kripa-wandrek-3.jpg", "images/matra-kripa-wandrek-5.jpg", "images/matra-kripa-wandrek-6.jpg"],
       desc: "Zwart metalen wandrek met een houten plank, mooi voor planten, kaarsen en boeken. Per stuk te koop, of neem er twee voor een lagere prijs.",
       specs: [["Afmeting", "60 x 17 x 17 cm"], ["Staat", "Nieuw"]]
     }

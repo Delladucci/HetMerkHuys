@@ -88,7 +88,7 @@ export const CATALOG = {
     "tiers": [
       {
         "q": 1,
-        "p": 99
+        "p": 79
       }
     ],
     "units": 1,
