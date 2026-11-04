@@ -33,7 +33,7 @@
     "klok-levy": 1, "klok-derby": 1, "tafelset-rupert": 1,
     "by-boo-ming-vaas": 1, "by-boo-olit-bijzettafels": 1, "riviera-room48-poef": 1,
     "allibert-hortza-manden": 0.1667, "philips-crane-bureaulamp": 0.5,
-    "simplehuman-pedaalemmer": 0.34, "wandrek-metaal": 0.34, "kuipstoelen-grijs-velvet": 1,
+    "simplehuman-pedaalemmer": 0.34, "wandrek-metaal": 0.34, "kuipstoelen-grijs-velvet": 1, "fauteuil-kansas-offwhite": 1, "coco-maison-carel-bijzettafel": 1, "groto-lounge-voetenbank": 1, "strington-salontafel-120": 1, "venture-night-stoelen": 1, "venture-mariette-stoelen": 1,
     "plaid-mohair-taupe": 0.25, "plaid-mohair-creme": 0.25, "plaid-mohair-oudroze": 0.25,
     "plaid-teddy-creme": 0.25, "plaid-teddy-roze": 0.25, "plaid-fleece-creme": 0.25
   };
@@ -60,7 +60,7 @@
       id: "bowie-groen", cat: "kussens", brand: "Riverdale",
       name: "Bowie sierkussen groen", spec: "45 x 45 cm · inclusief binnenkussen",
       tiers: [{ q: 1, p: 12.99 }, { q: 4, p: 45 }],
-      stock: 12, unit: "stuk", note: "Scherp geprijsd",
+      stock: 10, unit: "stuk", note: "Scherp geprijsd",
       images: ["images/riverdale-bowie-groen-4.jpg", "images/riverdale-bowie-groen-2.jpg", "images/riverdale-bowie-groen-1.jpg", "images/riverdale-bowie-groen-3.jpg"],
       desc: "Zacht groen sierkussen met crème bies, inclusief binnenkussen. Mooi op de bank, in de leesstoel of op bed. Ook verkrijgbaar in beige en taupe.",
       specs: [["Afmeting", "45 x 45 cm"], ["Staat", "Nieuw, met label"], ["Artikelnummer", "429011-21"]]
@@ -172,6 +172,60 @@
       images: ["images/kuipstoelen-grijs-1.jpg", "images/kuipstoelen-grijs-2.jpg", "images/kuipstoelen-grijs-3.jpg", "images/kuipstoelen-grijs-4.jpg", "images/kuipstoelen-grijs-5.jpg"],
       desc: "Twee stoelen met een ronde, omsluitende kuipzitting in grijs velvet en een zwart metalen onderstel met kruisvormige verstevigingen. Prettig zittend aan de eettafel of werktafel, of als zitplek in de woonkamer. Gemaakt door Actona Company A/S. Nieuw en ongebruikt. Fluweel heeft een pool: waar je erover wrijft of veegt, lijkt de kleur even lichter of donkerder (zie de foto's). Dat zijn geen vlekken en het trekt weg door de stof glad te strijken. Deze stoelen versturen we niet: je haalt ze zelf op.",
       specs: [["Merk", "Actona Company A/S"], ["Bekleding", "Velvet, grijs (100% polyester)"], ["Onderstel", "Zwart metaal"], ["Zithoogte", "Ca. 45 cm"], ["Totale hoogte", "Ca. 79 cm"], ["Staat", "Nieuw en ongebruikt"], ["Levering", "Alleen ophalen"]]
+    },
+    {
+      id: "fauteuil-kansas-offwhite", cat: "wonen", brand: "Venture Home", pickupOnly: true,
+      name: "Fauteuil Kansas off-white", spec: "Zwart metalen frame · off-white stof",
+      tiers: [{ q: 1, p: 159 }],
+      stock: 1, unit: "stuk", note: "Alleen ophalen", worth: 360, worthPrefix: "Nieuwprijs vanaf",
+      images: ["images/fauteuil-kansas-1.jpg", "images/fauteuil-kansas-2.jpg", "images/fauteuil-kansas-3.jpg"],
+      desc: "Strakke fauteuil van Venture Home, model Kansas, met een open zwart metalen frame en een zachte, gestoffeerde zitting en rugleuning in off-white. De achterkant van de rug heeft een lichte houten afwerking, dus hij staat net zo mooi midden in de kamer als tegen de muur. Nieuwstaat, zonder doos en met het label er nog aan. Deze fauteuil versturen we niet: je haalt hem zelf op.",
+      specs: [["Merk", "Venture Home, Kansas"], ["Frame", "Zwart metaal"], ["Bekleding", "Off-white stof"], ["Breedte", "Ca. 70 cm"], ["Diepte", "Ca. 83 cm"], ["Staat", "Nieuwstaat, zonder doos, met label"], ["Levering", "Alleen ophalen"]]
+    },
+    {
+      id: "coco-maison-carel-bijzettafel", cat: "wonen", brand: "Coco Maison",
+      name: "Bijzettafel Carel zwart", spec: "Ca. Ø 40 x 55 cm · zwart blad, zwart metalen onderstel",
+      tiers: [{ q: 1, p: 49 }, { q: 2, p: 79 }],
+      stock: 2, unit: "stuk", note: "2 voor € 79", worth: 149, worthPrefix: "Nieuwprijs ca.",
+      images: ["images/coco-maison-carel-1.jpg", "images/coco-maison-carel-2.jpg"],
+      desc: "Ronde bijzettafel Carel van Coco Maison met een zwart blad en een zwart metalen onderstel op drie hoekige poten. Compact en stevig, handig naast de bank of de fauteuil voor een drankje, de afstandsbediening of een plant. Nieuw, in de originele doos.",
+      specs: [["Merk", "Coco Maison, Carel (48485KOP)"], ["Blad", "Zwart"], ["Onderstel", "Zwart metaal, drie poten"], ["Afmeting", "Ca. Ø 40 x 55 cm"], ["Staat", "Nieuw, in originele doos"]]
+    },
+    {
+      id: "groto-lounge-voetenbank", cat: "wonen", brand: "Venture Home", pickupOnly: true,
+      name: "Loungefauteuil Grötö met voetenbank", spec: "Licht houten frame · beige stof · met voetenbank",
+      tiers: [{ q: 1, p: 149 }],
+      stock: 1, unit: "stuk", note: "Alleen ophalen", worth: 320, worthPrefix: "Nieuwprijs stoel ca.",
+      images: ["images/venture-groto-lounge-1.jpg", "images/venture-groto-lounge-2.jpg", "images/venture-groto-lounge-3.jpg"],
+      desc: "Rustgevende loungefauteuil Grötö van Venture Home met een licht houten frame in gebogen vorm en een zachte, beige gestoffeerde zit en rug. Met de bijbehorende voetenbank leg je je benen omhoog, en het losse kussen steunt je hoofd. Nieuw en ongebruikt, in de originele doos (die doos heeft een scheur bovenaan). De eerste foto is een productfoto, de andere foto's tonen de doos en de inhoud. Deze fauteuil versturen we niet: je haalt hem zelf op.",
+      specs: [["Merk", "Venture Home, Grötö (61200-106)"], ["Frame", "Licht hout (multiplex), gebogen vorm"], ["Bekleding", "Beige stof, polyester"], ["Maat stoel", "Ca. 104 cm hoog x 80 cm diep x 63 cm breed"], ["Zithoogte", "Ca. 46 cm"], ["Inbegrepen", "Fauteuil, voetenbank en hoofdkussen"], ["Staat", "Nieuw, in originele doos"], ["Levering", "Alleen ophalen"]]
+    },
+    {
+      id: "venture-night-stoelen", cat: "wonen", brand: "Venture Home",
+      name: "Eetkamerstoel Night off-white", spec: "87 x 49 x 56 cm · kunstleer met zwarte poten", pickupOnly: true,
+      tiers: [{ q: 1, p: 55 }, { q: 2, p: 99 }],
+      stock: 2, unit: "stuk", note: "2 voor € 99", worth: 132, worthPrefix: "Nieuwprijs per stoel ca.",
+      images: ["images/venture-night-stoelen-1.jpg", "images/venture-night-stoelen-2.jpg", "images/venture-night-stoelen-3.jpg", "images/venture-night-stoelen-4.jpg"],
+      desc: "Eetkamerstoel Night van Venture Home met een ronde, gestoffeerde rug en zitting in off-white kunstleer, op slanke zwarte poten. Strak en tijdloos aan de eettafel of bij een bureau. Nieuw, met de labels er nog aan. We hebben er twee: per stoel of samen voor een lagere prijs. Deze stoelen versturen we niet: je haalt ze zelf op.",
+      specs: [["Merk", "Venture Home, Night"], ["Bekleding", "Kunstleer (PU), off-white"], ["Poten", "Zwart metaal"], ["Afmeting", "Ca. 87 cm hoog x 49 cm breed x 56 cm diep"], ["Zithoogte", "Ca. 49 cm"], ["Staat", "Nieuw, met labels"], ["Levering", "Alleen ophalen"]]
+    },
+    {
+      id: "venture-mariette-stoelen", cat: "wonen", brand: "Venture Home",
+      name: "Eetkamerstoel Mariette whitewash", spec: "88 x 43 x 50 cm · massief rubberhout, whitewash", pickupOnly: true,
+      tiers: [{ q: 1, p: 45 }, { q: 2, p: 79 }],
+      stock: 2, unit: "stuk", note: "2 voor € 79", worth: 70, worthPrefix: "Nieuwprijs per stoel ca.",
+      images: ["images/venture-mariette-stoelen-1.jpg", "images/venture-mariette-stoelen-2.jpg", "images/venture-mariette-stoelen-3.jpg", "images/venture-mariette-stoelen-4.jpg", "images/venture-mariette-stoelen-5.jpg"],
+      desc: "Eetkamerstoel Mariette van Venture Home in massief rubberhout met een lichte whitewash-afwerking, een zachte afgeronde zitting en een rug met gekruiste spijlen. Landelijk en toch strak, past bij een eettafel van hout of in een Scandinavische inrichting. Nieuw, met de labels er nog aan. De stoelen zijn al gemonteerd en er is geen doos meer bij. We hebben er twee: per stoel of samen voor een lagere prijs. Deze stoelen versturen we niet: je haalt ze zelf op.",
+      specs: [["Merk", "Venture Home, Mariette"], ["Materiaal", "Massief rubberhout, whitewash"], ["Afmeting", "Ca. 88 cm hoog x 43 cm breed x 50 cm diep"], ["Zithoogte", "Ca. 45 cm"], ["Staat", "Nieuw, met labels, al gemonteerd, zonder doos"], ["Levering", "Alleen ophalen"]]
+    },
+    {
+      id: "strington-salontafel-120", cat: "wonen", brand: "Actona",
+      name: "Salontafel Strington 120 cm zwart", spec: "120 x 60 x 40 cm · marmerlook blad, mat zwart metaal", pickupOnly: true,
+      tiers: [{ q: 1, p: 89 }],
+      stock: 1, unit: "stuk", note: "Alleen ophalen", worth: 179, worthPrefix: "Nieuwprijs ca.",
+      images: ["images/actona-strington-salontafel-product.jpg", "images/actona-strington-salontafel-1.jpg"],
+      desc: "Rechthoekige salontafel Strington van Actona met een tweedelig blad: een zwart marmerlook deel en een deel gerookt glas, op een mat zwart metalen onderstel met vierkante poten. Strak en robuust, past in een moderne woonkamer. Nieuw, in de originele doos. De eerste foto is een productfoto, de tweede foto toont de doos. Deze tafel versturen we niet: je haalt hem zelf op.",
+      specs: [["Merk", "Actona, Strington (0000096002)"], ["Blad", "Tweedelig: zwart marmerlook (melamine) en gerookt glas"], ["Onderstel", "Mat zwart metaal"], ["Afmeting", "120 x 60 x 40 cm"], ["Staat", "Nieuw, in originele doos"], ["Levering", "Alleen ophalen"]]
     },
     {
       id: "simplehuman-pedaalemmer", cat: "wonen", brand: "simplehuman",

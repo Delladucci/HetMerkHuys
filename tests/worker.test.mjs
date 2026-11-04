@@ -177,3 +177,21 @@ test("kuipstoelen: 1 stuk 49, 2 stuks 79 en altijd ophalen", async () => {
   assert.equal(mod.lineCents({ "kuipstoelen-grijs-velvet": 1 }, "kuipstoelen-grijs-velvet"), 4900);
   assert.equal(mod.lineCents({ "kuipstoelen-grijs-velvet": 2 }, "kuipstoelen-grijs-velvet"), 7900);
 });
+
+test("Night-stoelen: 1 stuk 55, 2 stuks 99 en altijd ophalen", async () => {
+  const mod = await import("../worker.js");
+  const { CATALOG } = await import("../catalog.js");
+  assert.equal(CATALOG["venture-night-stoelen"].pickupOnly, true);
+  assert.equal(CATALOG["venture-night-stoelen"].stock, 2);
+  assert.equal(mod.lineCents({ "venture-night-stoelen": 1 }, "venture-night-stoelen"), 5500);
+  assert.equal(mod.lineCents({ "venture-night-stoelen": 2 }, "venture-night-stoelen"), 9900);
+});
+
+test("Mariette-stoelen: 1 stuk 45, 2 stuks 79 en altijd ophalen", async () => {
+  const mod = await import("../worker.js");
+  const { CATALOG } = await import("../catalog.js");
+  assert.equal(CATALOG["venture-mariette-stoelen"].pickupOnly, true);
+  assert.equal(CATALOG["venture-mariette-stoelen"].stock, 2);
+  assert.equal(mod.lineCents({ "venture-mariette-stoelen": 1 }, "venture-mariette-stoelen"), 4500);
+  assert.equal(mod.lineCents({ "venture-mariette-stoelen": 2 }, "venture-mariette-stoelen"), 7900);
+});
