@@ -15,7 +15,7 @@ export const CATALOG = {
       }
     ],
     "units": 0.2,
-    "stock": 12
+    "stock": 10
   },
   "bowie-beige": {
     "name": "Bowie sierkussen beige",
@@ -149,14 +149,109 @@ export const CATALOG = {
       {
         "q": 2,
         "p": 69.99
-      },
-      {
-        "q": 3,
-        "p": 99.99
       }
     ],
     "units": 0.5,
-    "stock": 3
+    "stock": 0
+  },
+  "kuipstoelen-grijs-velvet": {
+    "name": "Kuipstoelen grijs velvet",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 49
+      },
+      {
+        "q": 2,
+        "p": 79
+      }
+    ],
+    "units": 1,
+    "stock": 2,
+    "pickupOnly": true
+  },
+  "fauteuil-kansas-offwhite": {
+    "name": "Fauteuil Kansas off-white",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 159
+      }
+    ],
+    "units": 1,
+    "stock": 1,
+    "pickupOnly": true
+  },
+  "coco-maison-carel-bijzettafel": {
+    "name": "Bijzettafel Carel zwart",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 49
+      },
+      {
+        "q": 2,
+        "p": 79
+      }
+    ],
+    "units": 1,
+    "stock": 2
+  },
+  "groto-lounge-voetenbank": {
+    "name": "Loungefauteuil Grötö met voetenbank",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 149
+      }
+    ],
+    "units": 1,
+    "stock": 1,
+    "pickupOnly": true
+  },
+  "venture-night-stoelen": {
+    "name": "Eetkamerstoel Night off-white",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 55
+      },
+      {
+        "q": 2,
+        "p": 99
+      }
+    ],
+    "units": 1,
+    "stock": 2,
+    "pickupOnly": true
+  },
+  "venture-mariette-stoelen": {
+    "name": "Eetkamerstoel Mariette whitewash",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 45
+      },
+      {
+        "q": 2,
+        "p": 79
+      }
+    ],
+    "units": 1,
+    "stock": 2,
+    "pickupOnly": true
+  },
+  "strington-salontafel-120": {
+    "name": "Salontafel Strington 120 cm zwart",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 89
+      }
+    ],
+    "units": 1,
+    "stock": 1,
+    "pickupOnly": true
   },
   "simplehuman-pedaalemmer": {
     "name": "Pedaalemmer 6L taupe",

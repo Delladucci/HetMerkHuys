@@ -22,6 +22,7 @@ const products_out = {};
 for (const p of products) {
   products_out[p.id] = { name: p.name, tiers: p.tiers, units: units[p.id] != null ? units[p.id] : 1, stock: p.stock };
   if (p.group) products_out[p.id].group = p.group;
+  if (p.pickupOnly) products_out[p.id].pickupOnly = true;
 }
 
 const out = `// GEGENEREERD door tools/sync-catalog.mjs uit script.js. Niet met de hand aanpassen.

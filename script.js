@@ -33,7 +33,7 @@
     "klok-levy": 1, "klok-derby": 1, "tafelset-rupert": 1,
     "by-boo-ming-vaas": 1, "by-boo-olit-bijzettafels": 1, "riviera-room48-poef": 1,
     "allibert-hortza-manden": 0.1667, "philips-crane-bureaulamp": 0.5,
-    "simplehuman-pedaalemmer": 0.34, "wandrek-metaal": 0.34,
+    "simplehuman-pedaalemmer": 0.34, "wandrek-metaal": 0.34, "kuipstoelen-grijs-velvet": 1,
     "plaid-mohair-taupe": 0.25, "plaid-mohair-creme": 0.25, "plaid-mohair-oudroze": 0.25,
     "plaid-teddy-creme": 0.25, "plaid-teddy-roze": 0.25, "plaid-fleece-creme": 0.25
   };
@@ -158,11 +158,20 @@
     {
       id: "philips-crane-bureaulamp", cat: "wonen", brand: "Philips",
       name: "EyeCare Crane LED-bureaulamp zwart", spec: "Dimbaar · met USB-poort",
-      tiers: [{ q: 1, p: 39.99 }, { q: 2, p: 69.99 }, { q: 3, p: 99.99 }],
-      stock: 3, unit: "stuk", note: "", worth: 79, worthPrefix: "Nieuwprijs vanaf",
+      tiers: [{ q: 1, p: 39.99 }, { q: 2, p: 69.99 }],
+      stock: 0, unit: "stuk", note: "", worth: 79, worthPrefix: "Nieuwprijs vanaf",
       images: ["images/philips-crane-bureaulamp-1.jpg", "images/philips-crane-bureaulamp-2.jpg", "images/philips-crane-bureaulamp-3.jpg", "images/philips-crane-bureaulamp-4.jpg", "images/philips-crane-bureaulamp-5.jpg"],
       desc: "Bureaulamp met Honeycomb-lens die het licht gelijkmatig verdeelt en schittering voorkomt, speciaal tegen vermoeide ogen. Met schuifdimmer (touch-bediening op de voet) en een ingebouwde USB-poort om je telefoon of tablet op te laden. Gloednieuw in de originele doos.",
       specs: [["Merk", "Philips, EyeCare Crane"], ["Type", "71665/30/16"], ["Kleur", "Zwart"], ["Staat", "Nieuw, in originele doos"]]
+    },
+    {
+      id: "kuipstoelen-grijs-velvet", cat: "wonen", brand: "Actona", pickupOnly: true,
+      name: "Kuipstoelen grijs velvet", spec: "Zithoogte 45 cm · zwart metalen onderstel",
+      tiers: [{ q: 1, p: 49 }, { q: 2, p: 79 }],
+      stock: 2, unit: "stuk", note: "Alleen ophalen",
+      images: ["images/kuipstoelen-grijs-1.jpg", "images/kuipstoelen-grijs-2.jpg", "images/kuipstoelen-grijs-3.jpg", "images/kuipstoelen-grijs-4.jpg", "images/kuipstoelen-grijs-5.jpg"],
+      desc: "Twee stoelen met een ronde, omsluitende kuipzitting in grijs velvet en een zwart metalen onderstel met kruisvormige verstevigingen. Prettig zittend aan de eettafel of werktafel, of als zitplek in de woonkamer. Gemaakt door Actona Company A/S. Nieuw en ongebruikt. Fluweel heeft een pool: waar je erover wrijft of veegt, lijkt de kleur even lichter of donkerder (zie de foto's). Dat zijn geen vlekken en het trekt weg door de stof glad te strijken. Deze stoelen versturen we niet: je haalt ze zelf op.",
+      specs: [["Merk", "Actona Company A/S"], ["Bekleding", "Velvet, grijs (100% polyester)"], ["Onderstel", "Zwart metaal"], ["Zithoogte", "Ca. 45 cm"], ["Totale hoogte", "Ca. 79 cm"], ["Staat", "Nieuw en ongebruikt"], ["Levering", "Alleen ophalen"]]
     },
     {
       id: "simplehuman-pedaalemmer", cat: "wonen", brand: "simplehuman",
@@ -348,6 +357,10 @@
   }
 
   function inCart(id) { return state.cart[id] || 0; }
+  // Zit er een artikel in het mandje dat alleen opgehaald kan worden (te groot voor PostNL)?
+  function hasPickupOnly() {
+    return Object.keys(state.cart).some(function (id) { return byId[id] && byId[id].pickupOnly; });
+  }
   function cartCount() { return Object.keys(state.cart).reduce(function (s, id) { return s + state.cart[id]; }, 0); }
   function cartTotal() {
     return Object.keys(state.cart).reduce(function (s, id) { return s + lineTotal(id); }, 0);
@@ -426,7 +439,7 @@
 
     var staffel = "";
     var t2 = p.tiers[1];
-    if (t2) staffel = '<div class="tile__staffel">' + (t2.q === p.stock && p.stock > 1 ? "Alle " + t2.q : t2.q + " stuks") + " voor " + fmt(t2.p) + "</div>";
+    if (t2 && !soldOut) staffel = '<div class="tile__staffel">' + (t2.q === p.stock && p.stock > 1 ? "Alle " + t2.q : t2.q + " stuks") + " voor " + fmt(t2.p) + "</div>";
 
     if (p.group && GROUPS[p.group]) {
       var g1 = GROUPS[p.group].tiers[0];
@@ -438,9 +451,10 @@
     else if (maxed) action = '<span class="tag-full">Alles in mandje</span>';
     else action = '<button type="button" class="btn" data-add="' + p.id + '">In mandje</button>';
 
-    return '<article class="tile">' +
+    return '<article class="tile' + (soldOut ? ' tile--sold' : '') + '">' +
       '<div class="tile__media">' +
         '<button type="button" class="tile__open" data-open="' + p.id + '" aria-label="Bekijk ' + esc(p.name) + (multi ? " (" + p.images.length + " foto's)" : "") + '">' + media + '</button>' +
+        (soldOut ? '<span class="sold-banner" aria-hidden="true">Uitverkocht</span>' : '') +
         '<div class="badges">' + badges + '</div>' + photoCount +
       '</div>' +
       '<div class="tile__body">' +
@@ -482,6 +496,8 @@
   /* ---------- mandje ---------- */
 
   function renderCart() {
+    var pickupOnly = hasPickupOnly();
+    if (pickupOnly) state.delivery = "ophalen";
     var count = cartCount();
     var total = cartTotal();
     $("cart-count").textContent = count;
@@ -492,9 +508,13 @@
     $("cart-ship").textContent = count === 0 ? "–" : (state.delivery === "ophalen" ? "Gratis" : (ship.cost === 0 ? "Gratis" : fmt(ship.cost)));
     $("cart-sum").textContent = fmt(grand);
     var opts = document.querySelectorAll('input[name="delivery"]');
-    for (var oi = 0; oi < opts.length; oi++) opts[oi].checked = opts[oi].value === state.delivery;
+    for (var oi = 0; oi < opts.length; oi++) {
+      opts[oi].checked = opts[oi].value === state.delivery;
+      if (opts[oi].value === "verzenden") opts[oi].disabled = pickupOnly;
+    }
     var hint = $("cart-shiphint");
     if (count === 0) hint.textContent = "";
+    else if (pickupOnly) hint.textContent = "Een of meer artikelen in je mandje versturen we niet, die haal je zelf op. Je krijgt het adres en een tijdstip na je bestelling.";
     else if (state.delivery === "ophalen") hint.textContent = "Je haalt je bestelling op. Je krijgt het adres en een tijdstip na je bestelling.";
     else if (ship.free && ship.parcels > 1) hint.textContent = "Eerste pakket gratis. Je bestelling past niet in één pakket, dus voor de overige " + (ship.parcels - 1) + (ship.parcels - 1 === 1 ? " pakket" : " pakketten") + " rekenen we " + fmt(SHIP.price) + " per pakket.";
     else if (ship.free) hint.textContent = "Gratis verzending met PostNL.";
@@ -632,7 +652,7 @@
     var qty = modal.qty;
 
     var img = p.images[modal.thumb];
-    var gallery = '<div><div class="gallery__main">' +
+    var gallery = '<div><div class="gallery__main' + (p.stock <= 0 ? ' is-sold' : '') + '">' + (p.stock <= 0 ? '<span class="sold-banner" aria-hidden="true">Uitverkocht</span>' : '') +
       (img ? '<img src="' + esc(img) + '" alt="' + esc(p.name) + ', foto ' + (modal.thumb + 1) + ' van ' + p.images.length + '">' : "Foto volgt") +
       "</div>";
     if (p.images.length > 1) {
@@ -651,7 +671,7 @@
       for (var i = 0; i < Math.max(0, left) && i < 20; i++) dots += "<i></i>";
       stockHtml = '<div class="info__stock"><span class="stockpill">' + esc(stockLabel(p, left)) + '</span><span class="dots" aria-hidden="true">' + dots + "</span></div>";
     } else {
-      stockHtml = '<div class="info__stock"><span class="stockpill">Uitverkocht</span></div>';
+      stockHtml = '<div class="info__stock"><span class="stockpill stockpill--sold">Uitverkocht</span></div>';
     }
 
     var specs = '<dl class="specs">' + p.specs.map(function (s) {
@@ -659,7 +679,7 @@
     }).join("") + "</dl>";
 
     var tiersHtml = "";
-    if (p.tiers.length > 1) {
+    if (p.tiers.length > 1 && p.stock > 0) {
       var cur = activeTier(p, qty);
       tiersHtml = '<div class="tiers"><div class="tiers__head">Meer stuks, lagere prijs</div>' +
         p.tiers.slice().sort(function (a, b) { return a.q - b.q; }).map(function (t) {

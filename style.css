@@ -382,3 +382,21 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
 .drawer__error { margin: 0 0 12px; padding: 10px 12px; border-radius: 10px; background: #F6DDD3; color: #7A2B14; font-size: 14px; line-height: 1.45; }
 .drawer__error[hidden] { display: none; }
+
+/* Uitverkocht: foto grijs met een banner erover */
+.tile--sold .tile__media img { filter: grayscale(1); opacity: .55; }
+.tile--sold .tile__body { opacity: .7; }
+.tile--sold .tile__img2 { display: none; }
+.gallery__main.is-sold img { filter: grayscale(1); opacity: .55; }
+.gallery__main { position: relative; }
+.sold-banner {
+  position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%);
+  z-index: 3; pointer-events: none; text-align: center;
+  background: rgba(42, 31, 24, .88); color: #fff;
+  font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  font-size: 1rem; padding: 10px 0;
+}
+.stockpill--sold, .tile--sold .badge--stock { color: #6b625b; }
+.tile--sold .badge--stock::before { background: #9a928b; }
+.stockpill--sold { background: #ece7e2; }
+.stockpill--sold::before { background: #9a928b; }

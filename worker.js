@@ -74,7 +74,9 @@ async function readStock(env) {
     const saved = await env.STOCK.get(STOCK_KEY, "json");
     if (saved && typeof saved === "object") {
       for (const id of Object.keys(base)) {
-        if (Number.isFinite(saved[id])) base[id] = Math.max(0, Math.floor(saved[id]));
+        // Nooit meer dan in de catalogus staat: zet je de voorraad in script.js lager,
+        // dan geldt dat meteen, ook als KV nog een hoger aantal bewaard heeft.
+        if (Number.isFinite(saved[id])) base[id] = Math.min(base[id], Math.max(0, Math.floor(saved[id])));
       }
     }
   } catch (e) { /* val terug op de standaardvoorraad */ }
@@ -132,7 +134,8 @@ export async function handleCheckout(request, env) {
 
   const cart = cleanCart(payload.cart);
   if (!cart) return json({ error: "Je mandje is leeg of ongeldig." }, 400);
-  const delivery = payload.delivery === "ophalen" ? "ophalen" : "verzenden";
+  // Artikelen met pickupOnly (te groot voor PostNL) kunnen nooit verzonden worden.
+  const delivery = (payload.delivery === "ophalen" || Object.keys(cart).some((id) => CATALOG[id].pickupOnly)) ? "ophalen" : "verzenden";
 
   const stock = await readStock(env);
   for (const [id, qty] of Object.entries(cart)) {

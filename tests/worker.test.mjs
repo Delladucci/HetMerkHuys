@@ -167,3 +167,13 @@ test("catalogus staat gelijk aan script.js", async () => {
   const after = (await import("node:fs")).readFileSync(new URL("../catalog.js", import.meta.url), "utf8");
   assert.equal(before, after);
 });
+
+test("kuipstoelen: 1 stuk 49, 2 stuks 79 en altijd ophalen", async () => {
+  const mod = await import("../worker.js");
+  const { CATALOG } = await import("../catalog.js");
+  assert.equal(CATALOG["kuipstoelen-grijs-velvet"].pickupOnly, true);
+  assert.equal(CATALOG["philips-crane-bureaulamp"].stock, 0);
+  assert.equal(CATALOG["philips-crane-bureaulamp"].tiers.length, 2);
+  assert.equal(mod.lineCents({ "kuipstoelen-grijs-velvet": 1 }, "kuipstoelen-grijs-velvet"), 4900);
+  assert.equal(mod.lineCents({ "kuipstoelen-grijs-velvet": 2 }, "kuipstoelen-grijs-velvet"), 7900);
+});
