@@ -169,7 +169,7 @@
       name: "Kuipstoelen grijs velvet", spec: "Zithoogte 45 cm · zwart metalen onderstel",
       tiers: [{ q: 1, p: 49 }, { q: 2, p: 79 }],
       stock: 2, unit: "stuk", note: "Alleen ophalen",
-      images: ["images/kuipstoelen-grijs-1.jpg", "images/kuipstoelen-grijs-2.jpg", "images/kuipstoelen-grijs-3.jpg", "images/kuipstoelen-grijs-4.jpg", "images/kuipstoelen-grijs-5.jpg"],
+      images: ["images/kuipstoelen-grijs-3.jpg", "images/kuipstoelen-grijs-1.jpg", "images/kuipstoelen-grijs-2.jpg", "images/kuipstoelen-grijs-4.jpg", "images/kuipstoelen-grijs-5.jpg"],
       desc: "Twee stoelen met een ronde, omsluitende kuipzitting in grijs velvet en een zwart metalen onderstel met kruisvormige verstevigingen. Prettig zittend aan de eettafel of werktafel, of als zitplek in de woonkamer. Gemaakt door Actona Company A/S. Nieuw en ongebruikt. Fluweel heeft een pool: waar je erover wrijft of veegt, lijkt de kleur even lichter of donkerder (zie de foto's). Dat zijn geen vlekken en het trekt weg door de stof glad te strijken. Deze stoelen versturen we niet: je haalt ze zelf op.",
       specs: [["Merk", "Actona Company A/S"], ["Bekleding", "Velvet, grijs (100% polyester)"], ["Onderstel", "Zwart metaal"], ["Zithoogte", "Ca. 45 cm"], ["Totale hoogte", "Ca. 79 cm"], ["Staat", "Nieuw en ongebruikt"], ["Levering", "Alleen ophalen"]]
     },
@@ -178,7 +178,7 @@
       name: "Fauteuil Kansas off-white", spec: "Zwart metalen frame · off-white stof",
       tiers: [{ q: 1, p: 159 }],
       stock: 1, unit: "stuk", note: "Alleen ophalen", worth: 360, worthPrefix: "Nieuwprijs vanaf",
-      images: ["images/fauteuil-kansas-1.jpg", "images/fauteuil-kansas-2.jpg", "images/fauteuil-kansas-3.jpg"],
+      images: ["images/fauteuil-kansas-4.jpg", "images/fauteuil-kansas-5.jpg", "images/fauteuil-kansas-6.jpg", "images/fauteuil-kansas-1.jpg", "images/fauteuil-kansas-2.jpg", "images/fauteuil-kansas-3.jpg"],
       desc: "Strakke fauteuil van Venture Home, model Kansas, met een open zwart metalen frame en een zachte, gestoffeerde zitting en rugleuning in off-white. De achterkant van de rug heeft een lichte houten afwerking, dus hij staat net zo mooi midden in de kamer als tegen de muur. Nieuwstaat, zonder doos en met het label er nog aan. Deze fauteuil versturen we niet: je haalt hem zelf op.",
       specs: [["Merk", "Venture Home, Kansas"], ["Frame", "Zwart metaal"], ["Bekleding", "Off-white stof"], ["Breedte", "Ca. 70 cm"], ["Diepte", "Ca. 83 cm"], ["Staat", "Nieuwstaat, zonder doos, met label"], ["Levering", "Alleen ophalen"]]
     },
@@ -196,7 +196,7 @@
       name: "Loungefauteuil Grötö met voetenbank", spec: "Licht houten frame · beige stof · met voetenbank",
       tiers: [{ q: 1, p: 149 }],
       stock: 1, unit: "stuk", note: "Alleen ophalen", worth: 320, worthPrefix: "Nieuwprijs stoel ca.",
-      images: ["images/venture-groto-lounge-1.jpg", "images/venture-groto-lounge-2.jpg", "images/venture-groto-lounge-3.jpg"],
+      images: ["images/venture-groto-lounge-1.jpg", "images/venture-groto-lounge-2.jpg", "images/venture-groto-lounge-3.jpg", "images/venture-groto-lounge-4.jpg"],
       desc: "Rustgevende loungefauteuil Grötö van Venture Home met een licht houten frame in gebogen vorm en een zachte, beige gestoffeerde zit en rug. Met de bijbehorende voetenbank leg je je benen omhoog, en het losse kussen steunt je hoofd. Nieuw en ongebruikt, in de originele doos (die doos heeft een scheur bovenaan). De eerste foto is een productfoto, de andere foto's tonen de doos en de inhoud. Deze fauteuil versturen we niet: je haalt hem zelf op.",
       specs: [["Merk", "Venture Home, Grötö (61200-106)"], ["Frame", "Licht hout (multiplex), gebogen vorm"], ["Bekleding", "Beige stof, polyester"], ["Maat stoel", "Ca. 104 cm hoog x 80 cm diep x 63 cm breed"], ["Zithoogte", "Ca. 46 cm"], ["Inbegrepen", "Fauteuil, voetenbank en hoofdkussen"], ["Staat", "Nieuw, in originele doos"], ["Levering", "Alleen ophalen"]]
     },
@@ -226,15 +226,6 @@
       images: ["images/actona-strington-salontafel-product.jpg", "images/actona-strington-salontafel-1.jpg"],
       desc: "Rechthoekige salontafel Strington van Actona met een tweedelig blad: een zwart marmerlook deel en een deel gerookt glas, op een mat zwart metalen onderstel met vierkante poten. Strak en robuust, past in een moderne woonkamer. Nieuw, in de originele doos. De eerste foto is een productfoto, de tweede foto toont de doos. Deze tafel versturen we niet: je haalt hem zelf op.",
       specs: [["Merk", "Actona, Strington (0000096002)"], ["Blad", "Tweedelig: zwart marmerlook (melamine) en gerookt glas"], ["Onderstel", "Mat zwart metaal"], ["Afmeting", "120 x 60 x 40 cm"], ["Staat", "Nieuw, in originele doos"], ["Levering", "Alleen ophalen"]]
-    },
-    {
-      id: "simplehuman-pedaalemmer", cat: "wonen", brand: "simplehuman",
-      name: "Pedaalemmer 6L taupe", spec: "6 liter · compact en halfrond",
-      tiers: [{ q: 1, p: 11.99 }],
-      stock: 5, unit: "stuk", note: "", worth: 25, worthPrefix: "Winkelwaarde ca.",
-      images: ["images/simplehuman-pedaalemmer-2.jpg", "images/simplehuman-pedaalemmer-1.jpg", "images/simplehuman-pedaalemmer-3.jpg", "images/simplehuman-pedaalemmer-4.jpg", "images/simplehuman-pedaalemmer-5.jpg"],
-      desc: "Compacte pedaalemmer van simplehuman in een stijlvolle taupe/grijze kleur, perfect voor toilet of badkamer. Met een ijzersterk metalen pedaal voor jarenlang soepel gebruik en een uitneembare binnenemmer om makkelijk schoon te maken en zakken te wisselen. Het halfronde design past in kleine hoekjes. Splinternieuw, met originele labels en beschermende verpakking. Alle 5 in één keer? Stuur ons een bericht voor de prijs.",
-      specs: [["Merk", "simplehuman, Compact Plastic Step Can"], ["Inhoud", "6 liter"], ["Kleur", "Taupe/grijs"], ["Staat", "Nieuw, met labels en verpakking"]]
     },
     {
       id: "wandrek-metaal", cat: "wonen", brand: "HetMerkhuys",
@@ -298,6 +289,15 @@
       images: ["images/plaid-fleece-creme-1.jpg", "images/plaid-fleece-creme-groep.jpg"],
       desc: "Groot, zacht fleece plaid in crème. Handig voor op de bank, in de tuin of onderweg. Neem er meer van (elke kleur of soort plaid) en je krijgt combi-korting.",
       specs: [["Afmeting", "150 x 200 cm"], ["Staat", "Nieuw, in verpakking"]]
+    },
+    {
+      id: "simplehuman-pedaalemmer", cat: "wonen", brand: "simplehuman",
+      name: "Pedaalemmer 6L taupe", spec: "6 liter · compact en halfrond",
+      tiers: [{ q: 1, p: 11.99 }],
+      stock: 5, unit: "stuk", note: "", worth: 25, worthPrefix: "Winkelwaarde ca.",
+      images: ["images/simplehuman-pedaalemmer-2.jpg", "images/simplehuman-pedaalemmer-1.jpg", "images/simplehuman-pedaalemmer-3.jpg", "images/simplehuman-pedaalemmer-4.jpg", "images/simplehuman-pedaalemmer-5.jpg"],
+      desc: "Compacte pedaalemmer van simplehuman in een stijlvolle taupe/grijze kleur, perfect voor toilet of badkamer. Met een ijzersterk metalen pedaal voor jarenlang soepel gebruik en een uitneembare binnenemmer om makkelijk schoon te maken en zakken te wisselen. Het halfronde design past in kleine hoekjes. Splinternieuw, met originele labels en beschermende verpakking. Alle 5 in één keer? Stuur ons een bericht voor de prijs.",
+      specs: [["Merk", "simplehuman, Compact Plastic Step Can"], ["Inhoud", "6 liter"], ["Kleur", "Taupe/grijs"], ["Staat", "Nieuw, met labels en verpakking"]]
     }
   ];
 

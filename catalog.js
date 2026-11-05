@@ -253,17 +253,6 @@ export const CATALOG = {
     "stock": 1,
     "pickupOnly": true
   },
-  "simplehuman-pedaalemmer": {
-    "name": "Pedaalemmer 6L taupe",
-    "tiers": [
-      {
-        "q": 1,
-        "p": 11.99
-      }
-    ],
-    "units": 0.34,
-    "stock": 5
-  },
   "wandrek-metaal": {
     "name": "Zwart wandrek met houten plank",
     "tiers": [
@@ -350,5 +339,16 @@ export const CATALOG = {
     "units": 0.25,
     "stock": 4,
     "group": "plaid"
+  },
+  "simplehuman-pedaalemmer": {
+    "name": "Pedaalemmer 6L taupe",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 11.99
+      }
+    ],
+    "units": 0.34,
+    "stock": 5
   }
 };
