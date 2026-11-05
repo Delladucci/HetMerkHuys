@@ -1,0 +1,10 @@
+worker.js
+catalog.js
+wrangler.toml
+.assetsignore
+tools
+tests
+node_modules
+*.md
+.git
+.github
