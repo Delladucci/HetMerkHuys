@@ -209,7 +209,7 @@
       sale: [{ q: 1, p: 119 }],
       stock: 1, unit: "stuk", note: "Alleen ophalen in Heel", worth: 320, worthPrefix: "Nieuwprijs stoel ca.",
       images: ["images/venture-groto-lounge-1.jpg", "images/venture-groto-lounge-2.jpg", "images/venture-groto-lounge-3.jpg", "images/venture-groto-lounge-4.jpg"],
-      desc: "Rustgevende loungefauteuil Grötö van Venture Home met een licht houten frame in gebogen vorm en een zachte, beige gestoffeerde zit en rug. Met de bijbehorende voetenbank leg je je benen omhoog, en het losse kussen steunt je hoofd. Nieuw en ongebruikt, in de originele doos (die doos heeft een scheur bovenaan). De eerste foto is een productfoto, de andere foto's tonen de doos en de inhoud. Deze fauteuil versturen we niet: je haalt hem zelf op in Heel (Limburg).",
+      desc: "Rustgevende loungefauteuil Grötö van Venture Home met een licht houten frame in gebogen vorm en een zachte, beige gestoffeerde zit en rug. Met de bijbehorende voetenbank leg je je benen omhoog, en het losse kussen steunt je hoofd. Nieuw en ongebruikt, in de originele doos. De eerste foto is een productfoto, de andere foto's tonen de doos en de inhoud. Deze fauteuil versturen we niet: je haalt hem zelf op in Heel (Limburg).",
       specs: [["Merk", "Venture Home, Grötö (61200-106)"], ["Frame", "Licht hout (multiplex), gebogen vorm"], ["Bekleding", "Beige stof, polyester"], ["Maat stoel", "Ca. 104 cm hoog x 80 cm diep x 63 cm breed"], ["Zithoogte", "Ca. 46 cm"], ["Inbegrepen", "Fauteuil, voetenbank en hoofdkussen"], ["Staat", "Nieuw, in originele doos"], ["Levering", "Alleen ophalen in Heel (Limburg)"]]
     },
     {
@@ -227,7 +227,7 @@
       name: "Eetkamerstoel Mariette whitewash", spec: "88 x 43 x 50 cm · massief rubberhout, whitewash", pickupOnly: true,
       tiers: [{ q: 1, p: 45 }, { q: 2, p: 79 }],
       sale: [{ q: 1, p: 35 }, { q: 2, p: 59 }],
-      stock: 2, unit: "stuk", note: "2 voor € 79", worth: 70, worthPrefix: "Nieuwprijs per stoel ca.",
+      stock: 2, unit: "stuk", note: "2 voor € 79", worth: 222.99, worthPrefix: "Nieuwprijs per set van 2 vanaf",
       images: ["images/venture-mariette-stoelen-1.jpg", "images/venture-mariette-stoelen-2.jpg", "images/venture-mariette-stoelen-3.jpg", "images/venture-mariette-stoelen-4.jpg", "images/venture-mariette-stoelen-5.jpg"],
       desc: "Eetkamerstoel Mariette van Venture Home in massief rubberhout met een lichte whitewash-afwerking, een zachte afgeronde zitting en een rug met gekruiste spijlen. Landelijk en toch strak, past bij een eettafel van hout of in een Scandinavische inrichting. Nieuw, met de labels er nog aan. De stoelen zijn al gemonteerd en er is geen doos meer bij. We hebben er twee: per stoel of samen voor een lagere prijs. Deze stoelen versturen we niet: je haalt ze zelf op in Heel (Limburg).",
       specs: [["Merk", "Venture Home, Mariette"], ["Materiaal", "Massief rubberhout, whitewash"], ["Afmeting", "Ca. 88 cm hoog x 43 cm breed x 50 cm diep"], ["Zithoogte", "Ca. 45 cm"], ["Staat", "Nieuw, met labels, al gemonteerd, zonder doos"], ["Levering", "Alleen ophalen in Heel (Limburg)"]]
