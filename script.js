@@ -28,6 +28,15 @@
                  0.2 = er passen er 5 in één pakket). Pas aan als het niet klopt.
      -------------------------------------------------------------- */
   var SHIP = { price: 6.95, freeFrom: 75 };
+
+  /* --------------------------------------------------------------
+     ACTIE (Black Friday)
+     De actie start en stopt vanzelf op de genoemde tijden (Nederlandse tijd).
+     Artikelen met een "sale"-lijst (staffelprijzen, zelfde opbouw als tiers) krijgen
+     in die periode die prijzen; de gewone prijs wordt doorgestreept getoond.
+     freeFrom = tijdelijk lagere grens voor gratis verzending.
+     -------------------------------------------------------------- */
+  var SALE = { label: "Black Friday", from: "2026-11-27T00:00:00+01:00", until: "2026-11-30T23:59:59+01:00", freeFrom: 50 };
   var SHIP_UNITS = {
     "bowie-groen": 0.2, "bowie-beige": 0.2, "bowie-taupe": 0.2, "cush-roze": 0.25,
     "klok-levy": 1, "klok-derby": 1, "tafelset-rupert": 1,
@@ -168,19 +177,21 @@
       id: "kuipstoelen-grijs-velvet", cat: "wonen", brand: "Actona", pickupOnly: true,
       name: "Kuipstoelen grijs velvet", spec: "Zithoogte 45 cm · zwart metalen onderstel",
       tiers: [{ q: 1, p: 49 }, { q: 2, p: 79 }],
-      stock: 2, unit: "stuk", note: "Alleen ophalen",
+      sale: [{ q: 1, p: 39 }, { q: 2, p: 59 }],
+      stock: 2, unit: "stuk", note: "Alleen ophalen in Heel",
       images: ["images/kuipstoelen-grijs-3.jpg", "images/kuipstoelen-grijs-1.jpg", "images/kuipstoelen-grijs-2.jpg", "images/kuipstoelen-grijs-4.jpg", "images/kuipstoelen-grijs-5.jpg"],
-      desc: "Twee stoelen met een ronde, omsluitende kuipzitting in grijs velvet en een zwart metalen onderstel met kruisvormige verstevigingen. Prettig zittend aan de eettafel of werktafel, of als zitplek in de woonkamer. Gemaakt door Actona Company A/S. Nieuw en ongebruikt. Fluweel heeft een pool: waar je erover wrijft of veegt, lijkt de kleur even lichter of donkerder (zie de foto's). Dat zijn geen vlekken en het trekt weg door de stof glad te strijken. Deze stoelen versturen we niet: je haalt ze zelf op.",
-      specs: [["Merk", "Actona Company A/S"], ["Bekleding", "Velvet, grijs (100% polyester)"], ["Onderstel", "Zwart metaal"], ["Zithoogte", "Ca. 45 cm"], ["Totale hoogte", "Ca. 79 cm"], ["Staat", "Nieuw en ongebruikt"], ["Levering", "Alleen ophalen"]]
+      desc: "Twee stoelen met een ronde, omsluitende kuipzitting in grijs velvet en een zwart metalen onderstel met kruisvormige verstevigingen. Prettig zittend aan de eettafel of werktafel, of als zitplek in de woonkamer. Gemaakt door Actona Company A/S. Nieuw en ongebruikt. Fluweel heeft een pool: waar je erover wrijft of veegt, lijkt de kleur even lichter of donkerder (zie de foto's). Dat zijn geen vlekken en het trekt weg door de stof glad te strijken. Deze stoelen versturen we niet: je haalt ze zelf op in Heel (Limburg).",
+      specs: [["Merk", "Actona Company A/S"], ["Bekleding", "Velvet, grijs (100% polyester)"], ["Onderstel", "Zwart metaal"], ["Zithoogte", "Ca. 45 cm"], ["Totale hoogte", "Ca. 79 cm"], ["Staat", "Nieuw en ongebruikt"], ["Levering", "Alleen ophalen in Heel (Limburg)"]]
     },
     {
       id: "fauteuil-kansas-offwhite", cat: "wonen", brand: "Venture Home", pickupOnly: true,
       name: "Fauteuil Kansas off-white", spec: "Zwart metalen frame · off-white stof",
       tiers: [{ q: 1, p: 159 }],
-      stock: 1, unit: "stuk", note: "Alleen ophalen", worth: 360, worthPrefix: "Nieuwprijs vanaf",
+      sale: [{ q: 1, p: 129 }],
+      stock: 1, unit: "stuk", note: "Alleen ophalen in Heel", worth: 360, worthPrefix: "Nieuwprijs vanaf",
       images: ["images/fauteuil-kansas-4.jpg", "images/fauteuil-kansas-5.jpg", "images/fauteuil-kansas-6.jpg", "images/fauteuil-kansas-1.jpg", "images/fauteuil-kansas-2.jpg", "images/fauteuil-kansas-3.jpg"],
-      desc: "Strakke fauteuil van Venture Home, model Kansas, met een open zwart metalen frame en een zachte, gestoffeerde zitting en rugleuning in off-white. De achterkant van de rug heeft een lichte houten afwerking, dus hij staat net zo mooi midden in de kamer als tegen de muur. Nieuwstaat, zonder doos en met het label er nog aan. Deze fauteuil versturen we niet: je haalt hem zelf op.",
-      specs: [["Merk", "Venture Home, Kansas"], ["Frame", "Zwart metaal"], ["Bekleding", "Off-white stof"], ["Breedte", "Ca. 70 cm"], ["Diepte", "Ca. 83 cm"], ["Staat", "Nieuwstaat, zonder doos, met label"], ["Levering", "Alleen ophalen"]]
+      desc: "Strakke fauteuil van Venture Home, model Kansas, met een open zwart metalen frame en een zachte, gestoffeerde zitting en rugleuning in off-white. De achterkant van de rug heeft een lichte houten afwerking, dus hij staat net zo mooi midden in de kamer als tegen de muur. Nieuwstaat, zonder doos en met het label er nog aan. Deze fauteuil versturen we niet: je haalt hem zelf op in Heel (Limburg).",
+      specs: [["Merk", "Venture Home, Kansas"], ["Frame", "Zwart metaal"], ["Bekleding", "Off-white stof"], ["Breedte", "Ca. 70 cm"], ["Diepte", "Ca. 83 cm"], ["Staat", "Nieuwstaat, zonder doos, met label"], ["Levering", "Alleen ophalen in Heel (Limburg)"]]
     },
     {
       id: "coco-maison-carel-bijzettafel", cat: "wonen", brand: "Coco Maison",
@@ -195,37 +206,40 @@
       id: "groto-lounge-voetenbank", cat: "wonen", brand: "Venture Home", pickupOnly: true,
       name: "Loungefauteuil Grötö met voetenbank", spec: "Licht houten frame · beige stof · met voetenbank",
       tiers: [{ q: 1, p: 149 }],
-      stock: 1, unit: "stuk", note: "Alleen ophalen", worth: 320, worthPrefix: "Nieuwprijs stoel ca.",
+      sale: [{ q: 1, p: 119 }],
+      stock: 1, unit: "stuk", note: "Alleen ophalen in Heel", worth: 320, worthPrefix: "Nieuwprijs stoel ca.",
       images: ["images/venture-groto-lounge-1.jpg", "images/venture-groto-lounge-2.jpg", "images/venture-groto-lounge-3.jpg", "images/venture-groto-lounge-4.jpg"],
-      desc: "Rustgevende loungefauteuil Grötö van Venture Home met een licht houten frame in gebogen vorm en een zachte, beige gestoffeerde zit en rug. Met de bijbehorende voetenbank leg je je benen omhoog, en het losse kussen steunt je hoofd. Nieuw en ongebruikt, in de originele doos (die doos heeft een scheur bovenaan). De eerste foto is een productfoto, de andere foto's tonen de doos en de inhoud. Deze fauteuil versturen we niet: je haalt hem zelf op.",
-      specs: [["Merk", "Venture Home, Grötö (61200-106)"], ["Frame", "Licht hout (multiplex), gebogen vorm"], ["Bekleding", "Beige stof, polyester"], ["Maat stoel", "Ca. 104 cm hoog x 80 cm diep x 63 cm breed"], ["Zithoogte", "Ca. 46 cm"], ["Inbegrepen", "Fauteuil, voetenbank en hoofdkussen"], ["Staat", "Nieuw, in originele doos"], ["Levering", "Alleen ophalen"]]
+      desc: "Rustgevende loungefauteuil Grötö van Venture Home met een licht houten frame in gebogen vorm en een zachte, beige gestoffeerde zit en rug. Met de bijbehorende voetenbank leg je je benen omhoog, en het losse kussen steunt je hoofd. Nieuw en ongebruikt, in de originele doos (die doos heeft een scheur bovenaan). De eerste foto is een productfoto, de andere foto's tonen de doos en de inhoud. Deze fauteuil versturen we niet: je haalt hem zelf op in Heel (Limburg).",
+      specs: [["Merk", "Venture Home, Grötö (61200-106)"], ["Frame", "Licht hout (multiplex), gebogen vorm"], ["Bekleding", "Beige stof, polyester"], ["Maat stoel", "Ca. 104 cm hoog x 80 cm diep x 63 cm breed"], ["Zithoogte", "Ca. 46 cm"], ["Inbegrepen", "Fauteuil, voetenbank en hoofdkussen"], ["Staat", "Nieuw, in originele doos"], ["Levering", "Alleen ophalen in Heel (Limburg)"]]
     },
     {
       id: "venture-night-stoelen", cat: "wonen", brand: "Venture Home",
       name: "Eetkamerstoel Night off-white", spec: "87 x 49 x 56 cm · kunstleer met zwarte poten", pickupOnly: true,
       tiers: [{ q: 1, p: 55 }, { q: 2, p: 99 }],
+      sale: [{ q: 1, p: 45 }, { q: 2, p: 69 }],
       stock: 2, unit: "stuk", note: "2 voor € 99", worth: 132, worthPrefix: "Nieuwprijs per stoel ca.",
       images: ["images/venture-night-stoelen-1.jpg", "images/venture-night-stoelen-2.jpg", "images/venture-night-stoelen-3.jpg", "images/venture-night-stoelen-4.jpg"],
-      desc: "Eetkamerstoel Night van Venture Home met een ronde, gestoffeerde rug en zitting in off-white kunstleer, op slanke zwarte poten. Strak en tijdloos aan de eettafel of bij een bureau. Nieuw, met de labels er nog aan. We hebben er twee: per stoel of samen voor een lagere prijs. Deze stoelen versturen we niet: je haalt ze zelf op.",
-      specs: [["Merk", "Venture Home, Night"], ["Bekleding", "Kunstleer (PU), off-white"], ["Poten", "Zwart metaal"], ["Afmeting", "Ca. 87 cm hoog x 49 cm breed x 56 cm diep"], ["Zithoogte", "Ca. 49 cm"], ["Staat", "Nieuw, met labels"], ["Levering", "Alleen ophalen"]]
+      desc: "Eetkamerstoel Night van Venture Home met een ronde, gestoffeerde rug en zitting in off-white kunstleer, op slanke zwarte poten. Strak en tijdloos aan de eettafel of bij een bureau. Nieuw, met de labels er nog aan. We hebben er twee: per stoel of samen voor een lagere prijs. Deze stoelen versturen we niet: je haalt ze zelf op in Heel (Limburg).",
+      specs: [["Merk", "Venture Home, Night"], ["Bekleding", "Kunstleer (PU), off-white"], ["Poten", "Zwart metaal"], ["Afmeting", "Ca. 87 cm hoog x 49 cm breed x 56 cm diep"], ["Zithoogte", "Ca. 49 cm"], ["Staat", "Nieuw, met labels"], ["Levering", "Alleen ophalen in Heel (Limburg)"]]
     },
     {
       id: "venture-mariette-stoelen", cat: "wonen", brand: "Venture Home",
       name: "Eetkamerstoel Mariette whitewash", spec: "88 x 43 x 50 cm · massief rubberhout, whitewash", pickupOnly: true,
       tiers: [{ q: 1, p: 45 }, { q: 2, p: 79 }],
+      sale: [{ q: 1, p: 35 }, { q: 2, p: 59 }],
       stock: 2, unit: "stuk", note: "2 voor € 79", worth: 70, worthPrefix: "Nieuwprijs per stoel ca.",
       images: ["images/venture-mariette-stoelen-1.jpg", "images/venture-mariette-stoelen-2.jpg", "images/venture-mariette-stoelen-3.jpg", "images/venture-mariette-stoelen-4.jpg", "images/venture-mariette-stoelen-5.jpg"],
-      desc: "Eetkamerstoel Mariette van Venture Home in massief rubberhout met een lichte whitewash-afwerking, een zachte afgeronde zitting en een rug met gekruiste spijlen. Landelijk en toch strak, past bij een eettafel van hout of in een Scandinavische inrichting. Nieuw, met de labels er nog aan. De stoelen zijn al gemonteerd en er is geen doos meer bij. We hebben er twee: per stoel of samen voor een lagere prijs. Deze stoelen versturen we niet: je haalt ze zelf op.",
-      specs: [["Merk", "Venture Home, Mariette"], ["Materiaal", "Massief rubberhout, whitewash"], ["Afmeting", "Ca. 88 cm hoog x 43 cm breed x 50 cm diep"], ["Zithoogte", "Ca. 45 cm"], ["Staat", "Nieuw, met labels, al gemonteerd, zonder doos"], ["Levering", "Alleen ophalen"]]
+      desc: "Eetkamerstoel Mariette van Venture Home in massief rubberhout met een lichte whitewash-afwerking, een zachte afgeronde zitting en een rug met gekruiste spijlen. Landelijk en toch strak, past bij een eettafel van hout of in een Scandinavische inrichting. Nieuw, met de labels er nog aan. De stoelen zijn al gemonteerd en er is geen doos meer bij. We hebben er twee: per stoel of samen voor een lagere prijs. Deze stoelen versturen we niet: je haalt ze zelf op in Heel (Limburg).",
+      specs: [["Merk", "Venture Home, Mariette"], ["Materiaal", "Massief rubberhout, whitewash"], ["Afmeting", "Ca. 88 cm hoog x 43 cm breed x 50 cm diep"], ["Zithoogte", "Ca. 45 cm"], ["Staat", "Nieuw, met labels, al gemonteerd, zonder doos"], ["Levering", "Alleen ophalen in Heel (Limburg)"]]
     },
     {
       id: "strington-salontafel-120", cat: "wonen", brand: "Actona",
       name: "Salontafel Strington 120 cm zwart", spec: "120 x 60 x 40 cm · marmerlook blad, mat zwart metaal", pickupOnly: true,
       tiers: [{ q: 1, p: 89 }],
-      stock: 1, unit: "stuk", note: "Alleen ophalen", worth: 179, worthPrefix: "Nieuwprijs ca.",
+      stock: 1, unit: "stuk", note: "Alleen ophalen in Heel", worth: 179, worthPrefix: "Nieuwprijs ca.",
       images: ["images/actona-strington-salontafel-product.jpg", "images/actona-strington-salontafel-1.jpg"],
-      desc: "Rechthoekige salontafel Strington van Actona met een tweedelig blad: een zwart marmerlook deel en een deel gerookt glas, op een mat zwart metalen onderstel met vierkante poten. Strak en robuust, past in een moderne woonkamer. Nieuw, in de originele doos. De eerste foto is een productfoto, de tweede foto toont de doos. Deze tafel versturen we niet: je haalt hem zelf op.",
-      specs: [["Merk", "Actona, Strington (0000096002)"], ["Blad", "Tweedelig: zwart marmerlook (melamine) en gerookt glas"], ["Onderstel", "Mat zwart metaal"], ["Afmeting", "120 x 60 x 40 cm"], ["Staat", "Nieuw, in originele doos"], ["Levering", "Alleen ophalen"]]
+      desc: "Rechthoekige salontafel Strington van Actona met een tweedelig blad: een zwart marmerlook deel en een deel gerookt glas, op een mat zwart metalen onderstel met vierkante poten. Strak en robuust, past in een moderne woonkamer. Nieuw, in de originele doos. De eerste foto is een productfoto, de tweede foto toont de doos. Deze tafel versturen we niet: je haalt hem zelf op in Heel (Limburg).",
+      specs: [["Merk", "Actona, Strington (0000096002)"], ["Blad", "Tweedelig: zwart marmerlook (melamine) en gerookt glas"], ["Onderstel", "Mat zwart metaal"], ["Afmeting", "120 x 60 x 40 cm"], ["Staat", "Nieuw, in originele doos"], ["Levering", "Alleen ophalen in Heel (Limburg)"]]
     },
     {
       id: "wandrek-metaal", cat: "wonen", brand: "HetMerkhuys",
@@ -300,6 +314,23 @@
       specs: [["Merk", "simplehuman, Compact Plastic Step Can"], ["Inhoud", "6 liter"], ["Kleur", "Taupe/grijs"], ["Staat", "Nieuw, met labels en verpakking"]]
     }
   ];
+
+  // Is de actie nu bezig? Zo ja: gebruik de actieprijzen en de lagere grens voor gratis verzending.
+  var saleOn = Date.now() >= Date.parse(SALE.from) && Date.now() <= Date.parse(SALE.until);
+  if (saleOn) {
+    PRODUCTS.forEach(function (p) {
+      if (p.sale) {
+        p.regular = p.tiers; p.tiers = p.sale;
+        // Label "2 voor € 99" op de foto volgt de actieprijs
+        if (p.note && /^\d+ voor €/.test(p.note)) {
+          var multi = p.sale.filter(function (t) { return t.q > 1; })[0];
+          p.note = multi ? multi.q + " voor € " + String(multi.p).replace(".", ",") : "";
+        }
+      }
+    });
+    SHIP.freeFrom = SALE.freeFrom;
+    PAY_NOTE = PAY_NOTE.replace("vanaf € 75", "vanaf € " + SALE.freeFrom);
+  }
 
   var byId = {};
   PRODUCTS.forEach(function (p) { byId[p.id] = p; });
@@ -486,6 +517,7 @@
     else if (p.stock === 1) badges += '<span class="badge badge--last">Laatste ' + esc(p.unit) + '</span>';
     else badges += '<span class="badge badge--stock">Nog ' + p.stock + ' op voorraad</span>';
     if (p.note && !soldOut) badges += '<span class="badge badge--note">' + esc(p.note) + '</span>';
+    if (p.regular && !soldOut) badges += '<span class="badge badge--sale">' + esc(SALE.label) + '</span>';
 
     var photoCount = multi
       ? '<span class="photocount"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M21 16l-5-5-8 8"></path></svg>' + p.images.length + '</span>'
@@ -516,7 +548,7 @@
         '<h3 class="tile__name"><button type="button" data-open="' + p.id + '">' + esc(p.name) + '</button></h3>' +
         '<div class="tile__spec">' + esc(p.spec) + '</div>' +
         '<div class="tile__buy">' + staffel +
-          '<div class="tile__buyrow"><div class="tile__price">' + fmt(unitPrice(p)) + '</div>' + action + '</div>' +
+          '<div class="tile__buyrow"><div class="tile__price">' + (p.regular ? '<s class="was">' + fmt(p.regular[0].p) + '</s> ' : '') + fmt(unitPrice(p)) + '</div>' + action + '</div>' +
         '</div>' +
       '</div>' +
     '</article>';
@@ -543,6 +575,17 @@
     var pieces = PRODUCTS.reduce(function (s, p) { return s + p.stock; }, 0);
     var from = Math.min.apply(null, PRODUCTS.map(unitPrice));
     $("stat-items").textContent = PRODUCTS.length;
+    if (saleOn) {
+      var bar = $("sale-bar");
+      if (bar) {
+        bar.textContent = SALE.label + " · t/m maandag 30 november: sets van 2 stoelen vanaf " + fmt(59) + " en gratis verzending vanaf " + fmt(SALE.freeFrom);
+        bar.hidden = false;
+      }
+      var usp = document.querySelector(".usp-bar span:nth-child(2)");
+      if (usp) usp.textContent = "Gratis verzending vanaf € " + SALE.freeFrom;
+      var staticHint = $("cart-hint");
+      if (staticHint) staticHint.textContent = staticHint.textContent.replace("vanaf € 75", "vanaf € " + SALE.freeFrom);
+    }
     $("stat-pieces").textContent = pieces;
     $("stat-from").textContent = fmt(from);
   }
@@ -568,8 +611,8 @@
     }
     var hint = $("cart-shiphint");
     if (count === 0) hint.textContent = "";
-    else if (pickupOnly) hint.textContent = "Een of meer artikelen in je mandje versturen we niet, die haal je zelf op. Je krijgt het adres en een tijdstip na je bestelling.";
-    else if (state.delivery === "ophalen") hint.textContent = "Je haalt je bestelling op. Je krijgt het adres en een tijdstip na je bestelling.";
+    else if (pickupOnly) hint.textContent = "Een of meer artikelen in je mandje versturen we niet, die haal je zelf op in Heel (Limburg). Je krijgt het adres en een tijdstip na je bestelling.";
+    else if (state.delivery === "ophalen") hint.textContent = "Je haalt je bestelling op in Heel (Limburg). Je krijgt het adres en een tijdstip na je bestelling.";
     else if (ship.free && ship.parcels > 1) hint.textContent = "Eerste pakket gratis. Je bestelling past niet in één pakket, dus voor de overige " + (ship.parcels - 1) + (ship.parcels - 1 === 1 ? " pakket" : " pakketten") + " rekenen we " + fmt(SHIP.price) + " per pakket.";
     else if (ship.free) hint.textContent = "Gratis verzending met PostNL.";
     else hint.textContent = "Nog " + fmt(SHIP.freeFrom - total) + " tot gratis verzending (" + fmt(SHIP.price) + " per pakket).";
@@ -641,7 +684,7 @@
       return "- " + p.name + " x" + n + " (" + fmt(lineTotal(id)) + ")";
     });
     var delivery = state.delivery === "ophalen"
-      ? "Ophalen (gratis)"
+      ? "Ophalen in Heel (gratis)"
       : "Verzenden met PostNL binnen Nederland (" + (ship.cost === 0 ? "gratis" : fmt(ship.cost)) + ")";
     var body = "Hallo HetMerkhuys,\n\nIk wil graag het volgende bestellen:\n\n" +
       lines.join("\n") + "\n\nProducten: " + fmt(total) +
@@ -717,6 +760,7 @@
     gallery += "</div>";
 
     var priceHtml = '<div class="info__price"><strong>' + fmt(unitPrice(p)) + "</strong>" +
+      (p.regular ? '<s class="was was--big">' + fmt(p.regular[0].p) + '</s><span class="badge badge--sale">' + esc(SALE.label) + '</span>' : "") +
       (p.worth ? '<span class="info__worth">' + esc(p.worthPrefix) + " " + fmt(p.worth) + "</span>" : "") + "</div>";
 
     var stockHtml = "";

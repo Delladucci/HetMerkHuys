@@ -400,3 +400,13 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .tile--sold .badge--stock::before { background: #9a928b; }
 .stockpill--sold { background: #ece7e2; }
 .stockpill--sold::before { background: #9a928b; }
+
+/* ---- Actie (Black Friday) ---- */
+.sale-bar { background: var(--accent); color: #fff; font-size: 14px; font-weight: 600; padding: 10px 24px; text-align: center; }
+.badge--sale { background: var(--accent); color: #fff; }
+.tile__price { white-space: nowrap; }
+.tile__price .was { display: block; font-size: 13px; margin: 0 0 2px; }
+.was { font-family: var(--sans, inherit); font-size: 15px; font-weight: 400; color: var(--muted); text-decoration: line-through; margin-right: 4px; }
+.was--big { font-size: 18px; }
+
+.modal .was--big, .was--big { display: inline; white-space: nowrap; }

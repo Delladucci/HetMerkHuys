@@ -9,7 +9,7 @@
 //   OWNER_EMAIL            (tekst)   optioneel, standaard info@hetmerkhuys.nl
 // KV-opslag "STOCK" (zie wrangler.toml) bewaart de actuele voorraad.
 
-import { CATALOG, SHIP, GROUPS } from "./catalog.js";
+import { CATALOG, SHIP, GROUPS, SALE } from "./catalog.js";
 
 const MAIL_FROM = "HetMerkhuys <info@hetmerkhuys.nl>";
 const DEFAULT_OWNER = "info@hetmerkhuys.nl";
@@ -23,8 +23,21 @@ function json(data, status = 200) {
 
 /* ---------- prijzen (zelfde regels als in script.js) ---------- */
 
-export function calc(product, qty) {
-  const tiers = product.tiers.slice().sort((a, b) => b.q - a.q);
+// Klok van de server. Staat los zodat tests de tijd kunnen vastzetten.
+export const clock = { now: () => Date.now() };
+
+// Loopt de actie (Black Friday) op dit moment? Tijden staan in catalog.js (uit script.js).
+export function saleActive(now = clock.now()) {
+  return !!SALE && now >= Date.parse(SALE.from) && now <= Date.parse(SALE.until);
+}
+
+// Staffelprijzen die nu gelden: actieprijzen tijdens de actie, anders de gewone prijzen.
+export function tiersFor(product, now = clock.now()) {
+  return saleActive(now) && product.sale ? product.sale : product.tiers;
+}
+
+export function calc(product, qty, now = clock.now()) {
+  const tiers = tiersFor(product, now).slice().sort((a, b) => b.q - a.q);
   let rem = qty;
   let cents = 0;
   for (const t of tiers) {
@@ -47,19 +60,20 @@ export function groupOffCents(cart, group) {
 }
 
 // Prijs van één regel in het mandje (in centen), inclusief combi-korting.
-export function lineCents(cart, id) {
+export function lineCents(cart, id, now = clock.now()) {
   const p = CATALOG[id];
-  let cents = calc(p, cart[id]);
+  let cents = calc(p, cart[id], now);
   if (p.group) cents -= groupOffCents(cart, p.group) * cart[id];
   return cents;
 }
 
-export function shipping(cart, goodsCents, delivery) {
+export function shipping(cart, goodsCents, delivery, now = clock.now()) {
   if (delivery === "ophalen") return { cents: 0, parcels: 0, free: false };
   let units = 0;
   for (const [id, qty] of Object.entries(cart)) units += CATALOG[id].units * qty;
   const parcels = Math.max(1, Math.ceil(Math.round(units * 100) / 100));
-  const free = goodsCents >= SHIP.freeFrom * 100;
+  const freeFrom = saleActive(now) && SALE.freeFrom != null ? SALE.freeFrom : SHIP.freeFrom;
+  const free = goodsCents >= freeFrom * 100;
   const paid = parcels - (free ? 1 : 0);
   return { cents: paid * Math.round(SHIP.price * 100), parcels, free };
 }
@@ -181,7 +195,7 @@ export async function handleCheckout(request, env) {
         type: "fixed_amount",
         fixed_amount: { amount: ship.cents, currency: "eur" },
         display_name: delivery === "ophalen"
-          ? "Ophalen (adres volgt na je bestelling)"
+          ? "Ophalen in Heel (adres volgt na je bestelling)"
           : (ship.cents === 0 ? "Gratis verzending met PostNL" : "Verzending met PostNL")
       }
     }]
@@ -277,12 +291,12 @@ export async function processPaidSession(env, session) {
     : "";
 
   const itemRows = Object.entries(cart).map(([id, qty]) =>
-    `<tr><td style="padding:4px 12px 4px 0">${escHtml(CATALOG[id].name)}</td><td style="padding:4px 12px">${qty} stuk${qty > 1 ? "s" : ""}</td><td style="padding:4px 0;text-align:right">${euro(lineCents(cart, id))}</td></tr>`
+    `<tr><td style="padding:4px 12px 4px 0">${escHtml(CATALOG[id].name)}</td><td style="padding:4px 12px">${qty} stuk${qty > 1 ? "s" : ""}</td><td style="padding:4px 0;text-align:right">${euro(lineCents(cart, id, (session.created || 0) * 1000 || clock.now()))}</td></tr>`
   ).join("");
   const table = `<table style="border-collapse:collapse;font-size:15px">${itemRows}</table>`;
   const total = euro(session.amount_total || 0);
   const deliveryLine = delivery === "ophalen"
-    ? "Ophalen. Het ophaaladres en een tijdstip sturen we je in een aparte mail."
+    ? "Ophalen in Heel (Limburg). Het ophaaladres en een tijdstip sturen we je in een aparte mail."
     : "Verzending met PostNL naar: " + escHtml(addrText);
 
   const customerHtml = `<div style="font-family:Arial,sans-serif;color:#2A1F18;line-height:1.5">

@@ -1,8 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
-import worker, { calc, shipping, verifySignature, lineCents } from "../worker.js";
+import worker, { calc, shipping, verifySignature, lineCents, clock, saleActive } from "../worker.js";
 import { CATALOG } from "../catalog.js";
+
+// Zet de klok vast op een gewone dag (buiten de actie), zodat de tests niet van de datum afhangen.
+const NORMAL_DAY = Date.parse("2026-11-10T12:00:00+01:00");
+clock.now = () => NORMAL_DAY;
 
 function mockKV(initial = {}) {
   const m = new Map(Object.entries(initial));
@@ -194,4 +198,46 @@ test("Mariette-stoelen: 1 stuk 45, 2 stuks 79 en altijd ophalen", async () => {
   assert.equal(CATALOG["venture-mariette-stoelen"].stock, 2);
   assert.equal(mod.lineCents({ "venture-mariette-stoelen": 1 }, "venture-mariette-stoelen"), 4500);
   assert.equal(mod.lineCents({ "venture-mariette-stoelen": 2 }, "venture-mariette-stoelen"), 7900);
+});
+
+test("Black Friday: actievenster in Amsterdamse tijd (vr 27 nov t/m ma 30 nov)", () => {
+  assert.equal(saleActive(Date.parse("2026-11-26T23:59:59+01:00")), false);
+  assert.equal(saleActive(Date.parse("2026-11-27T00:00:00+01:00")), true);
+  assert.equal(saleActive(Date.parse("2026-11-30T23:59:59+01:00")), true);
+  assert.equal(saleActive(Date.parse("2026-12-01T00:00:00+01:00")), false);
+});
+
+test("Black Friday: actieprijzen binnen het venster, gewone prijzen erbuiten", () => {
+  const during = Date.parse("2026-11-28T15:00:00+01:00");
+  const price = (id, q, now) => lineCents({ [id]: q }, id, now);
+  assert.equal(price("venture-night-stoelen", 1, during), 4500);
+  assert.equal(price("venture-night-stoelen", 2, during), 6900);
+  assert.equal(price("venture-mariette-stoelen", 1, during), 3500);
+  assert.equal(price("venture-mariette-stoelen", 2, during), 5900);
+  assert.equal(price("kuipstoelen-grijs-velvet", 1, during), 3900);
+  assert.equal(price("kuipstoelen-grijs-velvet", 2, during), 5900);
+  assert.equal(price("fauteuil-kansas-offwhite", 1, during), 12900);
+  assert.equal(price("groto-lounge-voetenbank", 1, during), 11900);
+  // erbuiten: gewone prijzen
+  assert.equal(price("venture-night-stoelen", 2), 9900);
+  assert.equal(price("fauteuil-kansas-offwhite", 1), 15900);
+  assert.equal(price("groto-lounge-voetenbank", 1), 14900);
+});
+
+test("Black Friday: gratis verzending vanaf 50 tijdens de actie, anders vanaf 75", () => {
+  const during = Date.parse("2026-11-28T15:00:00+01:00");
+  const cart = { "bowie-groen": 1 };
+  assert.equal(shipping(cart, 5500, "bezorgen", during).free, true);
+  assert.equal(shipping(cart, 5500, "bezorgen").free, false);
+  assert.equal(shipping(cart, 7500, "bezorgen").free, true);
+});
+
+test("Black Friday: elke actieprijs ligt onder de gewone prijs", () => {
+  for (const [id, p] of Object.entries(CATALOG)) {
+    if (!p.sale) continue;
+    const q = p.sale.map(t => t.q);
+    for (const n of new Set([1, ...q])) {
+      assert.ok(calc(p, n, Date.parse("2026-11-28T12:00:00+01:00")) < calc(p, n), id + " x" + n);
+    }
+  }
 });

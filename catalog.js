@@ -1,6 +1,7 @@
 // GEGENEREERD door tools/sync-catalog.mjs uit script.js. Niet met de hand aanpassen.
 export const SHIP = {"price":6.95,"freeFrom":75};
 export const GROUPS = {"plaid":{"label":"plaids","tiers":[{"q":2,"off":1},{"q":4,"off":1.75}]}};
+export const SALE = {"label":"Black Friday","from":"2026-11-27T00:00:00+01:00","until":"2026-11-30T23:59:59+01:00","freeFrom":50};
 export const CATALOG = {
   "bowie-groen": {
     "name": "Bowie sierkussen groen",
@@ -168,6 +169,16 @@ export const CATALOG = {
     ],
     "units": 1,
     "stock": 2,
+    "sale": [
+      {
+        "q": 1,
+        "p": 39
+      },
+      {
+        "q": 2,
+        "p": 59
+      }
+    ],
     "pickupOnly": true
   },
   "fauteuil-kansas-offwhite": {
@@ -180,6 +191,12 @@ export const CATALOG = {
     ],
     "units": 1,
     "stock": 1,
+    "sale": [
+      {
+        "q": 1,
+        "p": 129
+      }
+    ],
     "pickupOnly": true
   },
   "coco-maison-carel-bijzettafel": {
@@ -207,6 +224,12 @@ export const CATALOG = {
     ],
     "units": 1,
     "stock": 1,
+    "sale": [
+      {
+        "q": 1,
+        "p": 119
+      }
+    ],
     "pickupOnly": true
   },
   "venture-night-stoelen": {
@@ -223,6 +246,16 @@ export const CATALOG = {
     ],
     "units": 1,
     "stock": 2,
+    "sale": [
+      {
+        "q": 1,
+        "p": 45
+      },
+      {
+        "q": 2,
+        "p": 69
+      }
+    ],
     "pickupOnly": true
   },
   "venture-mariette-stoelen": {
@@ -239,6 +272,16 @@ export const CATALOG = {
     ],
     "units": 1,
     "stock": 2,
+    "sale": [
+      {
+        "q": 1,
+        "p": 35
+      },
+      {
+        "q": 2,
+        "p": 59
+      }
+    ],
     "pickupOnly": true
   },
   "strington-salontafel-120": {
