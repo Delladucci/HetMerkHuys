@@ -212,7 +212,7 @@ export const CATALOG = {
       }
     ],
     "units": 1,
-    "stock": 2
+    "stock": 0
   },
   "groto-lounge-voetenbank": {
     "name": "Loungefauteuil Grötö met voetenbank",

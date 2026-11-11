@@ -197,7 +197,7 @@
       id: "coco-maison-carel-bijzettafel", cat: "wonen", brand: "Coco Maison",
       name: "Bijzettafel Carel zwart", spec: "Ca. Ø 40 x 55 cm · zwart blad, zwart metalen onderstel",
       tiers: [{ q: 1, p: 49 }, { q: 2, p: 79 }],
-      stock: 2, unit: "stuk", note: "2 voor € 79", worth: 149, worthPrefix: "Nieuwprijs ca.",
+      stock: 0, unit: "stuk", note: "2 voor € 79", worth: 149, worthPrefix: "Nieuwprijs ca.",
       images: ["images/coco-maison-carel-1.jpg", "images/coco-maison-carel-2.jpg"],
       desc: "Ronde bijzettafel Carel van Coco Maison met een zwart blad en een zwart metalen onderstel op drie hoekige poten. Compact en stevig, handig naast de bank of de fauteuil voor een drankje, de afstandsbediening of een plant. Nieuw, in de originele doos.",
       specs: [["Merk", "Coco Maison, Carel (48485KOP)"], ["Blad", "Zwart"], ["Onderstel", "Zwart metaal, drie poten"], ["Afmeting", "Ca. Ø 40 x 55 cm"], ["Staat", "Nieuw, in originele doos"]]
