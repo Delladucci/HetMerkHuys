@@ -383,6 +383,22 @@ export const CATALOG = {
     "stock": 4,
     "group": "plaid"
   },
+  "riviera-tavira-bijzettafel": {
+    "name": "Bijzettafel Tavira zand",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 59
+      },
+      {
+        "q": 2,
+        "p": 99
+      }
+    ],
+    "units": 1,
+    "stock": 2,
+    "pickupOnly": true
+  },
   "simplehuman-pedaalemmer": {
     "name": "Pedaalemmer 6L taupe",
     "tiers": [

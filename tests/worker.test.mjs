@@ -241,3 +241,10 @@ test("Black Friday: elke actieprijs ligt onder de gewone prijs", () => {
     }
   }
 });
+
+test("Tavira bijzettafel: 1 stuk 59, 2 stuks 99 en altijd ophalen", () => {
+  assert.equal(CATALOG["riviera-tavira-bijzettafel"].pickupOnly, true);
+  assert.equal(CATALOG["riviera-tavira-bijzettafel"].stock, 2);
+  assert.equal(lineCents({ "riviera-tavira-bijzettafel": 1 }, "riviera-tavira-bijzettafel"), 5900);
+  assert.equal(lineCents({ "riviera-tavira-bijzettafel": 2 }, "riviera-tavira-bijzettafel"), 9900);
+});

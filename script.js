@@ -42,7 +42,7 @@
     "klok-levy": 1, "klok-derby": 1, "tafelset-rupert": 1,
     "by-boo-ming-vaas": 1, "by-boo-olit-bijzettafels": 1, "riviera-room48-poef": 1,
     "allibert-hortza-manden": 0.1667, "philips-crane-bureaulamp": 0.5,
-    "simplehuman-pedaalemmer": 0.34, "wandrek-metaal": 0.34, "kuipstoelen-grijs-velvet": 1, "fauteuil-kansas-offwhite": 1, "coco-maison-carel-bijzettafel": 1, "groto-lounge-voetenbank": 1, "strington-salontafel-120": 1, "venture-night-stoelen": 1, "venture-mariette-stoelen": 1,
+    "simplehuman-pedaalemmer": 0.34, "wandrek-metaal": 0.34, "kuipstoelen-grijs-velvet": 1, "fauteuil-kansas-offwhite": 1, "coco-maison-carel-bijzettafel": 1, "groto-lounge-voetenbank": 1, "strington-salontafel-120": 1, "venture-night-stoelen": 1, "venture-mariette-stoelen": 1, "riviera-tavira-bijzettafel": 1,
     "plaid-mohair-taupe": 0.25, "plaid-mohair-creme": 0.25, "plaid-mohair-oudroze": 0.25,
     "plaid-teddy-creme": 0.25, "plaid-teddy-roze": 0.25, "plaid-fleece-creme": 0.25
   };
@@ -303,6 +303,15 @@
       images: ["images/plaid-fleece-creme-1.jpg", "images/plaid-fleece-creme-groep.jpg"],
       desc: "Groot, zacht fleece plaid in crème. Handig voor op de bank, in de tuin of onderweg. Neem er meer van (elke kleur of soort plaid) en je krijgt combi-korting.",
       specs: [["Afmeting", "150 x 200 cm"], ["Staat", "Nieuw, in verpakking"]]
+    },
+    {
+      id: "riviera-tavira-bijzettafel", cat: "wonen", brand: "Rivièra Maison", pickupOnly: true,
+      name: "Bijzettafel Tavira zand", spec: "Keramiek · gevlochten reliëf · 45 cm hoog",
+      tiers: [{ q: 1, p: 59 }, { q: 2, p: 99 }],
+      stock: 2, unit: "stuk", note: "2 voor € 99", worth: 149, worthPrefix: "Nieuwprijs",
+      images: ["images/riviera-tavira-1.jpg", "images/riviera-tavira-2.jpg"],
+      desc: "Bijzettafel Tavira van Rivièra Maison in de kleur zand. Het geglazuurde keramiek heeft een fraai gevlochten reliëf en een zachte, afgeronde bovenkant. Ook handig als krukje of plantentafel, binnen of op een beschutte plek. Nieuw, in de originele doos. Deze tafel versturen we niet (keramiek is zwaar en breekbaar): je haalt hem zelf op in Heel (Limburg).",
+      specs: [["Merk", "Rivièra Maison, Tavira End Table (574270)"], ["Kleur", "Zand (Sand)"], ["Materiaal", "Geglazuurd keramiek"], ["Hoogte", "45 cm"], ["Doorsnede", "Ca. 37 cm"], ["Staat", "Nieuw, in originele doos"], ["Levering", "Alleen ophalen in Heel (Limburg)"]]
     },
     {
       id: "simplehuman-pedaalemmer", cat: "wonen", brand: "simplehuman",
