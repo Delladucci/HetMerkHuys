@@ -1,8 +1,23 @@
 // GEGENEREERD door tools/sync-catalog.mjs uit script.js. Niet met de hand aanpassen.
-export const SHIP = {"price":6.95,"freeFrom":75};
+export const SHIP = {"price":7.45,"freeFrom":75};
 export const GROUPS = {"plaid":{"label":"plaids","tiers":[{"q":2,"off":1},{"q":4,"off":1.75}]}};
 export const SALE = {"label":"Black Friday","from":"2026-11-27T00:00:00+01:00","until":"2026-11-30T23:59:59+01:00","freeFrom":50};
 export const CATALOG = {
+  "gusta-plateau-groen": {
+    "name": "Serveer- en decoplateau met handvat groen",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 8.99
+      },
+      {
+        "q": 2,
+        "p": 15.99
+      }
+    ],
+    "units": 0.5,
+    "stock": 20
+  },
   "bowie-groen": {
     "name": "Bowie sierkussen groen",
     "tiers": [

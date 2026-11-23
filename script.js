@@ -9,7 +9,7 @@
 
   var ORDER_EMAIL = "info@hetmerkhuys.nl";
   var STORAGE_KEY = "hetmerkhuys-cart-v2";
-  var PAY_NOTE = 'Gratis verzending (PostNL, Nederland) vanaf € 75 geldt voor bestellingen die in één gemiddeld pakket passen (max. 10 kg en 100 x 50 x 50 cm). Per extra pakket rekenen we € 6,95. Je rekent veilig af met iDEAL, kaart of Apple Pay. Binnen 14 dagen retour mogelijk, de retourkosten zijn voor de klant. Zie <a href="voorwaarden.html">voorwaarden &amp; retour</a>.';
+  var PAY_NOTE = 'Gratis verzending (PostNL, Nederland) vanaf € 75 geldt voor bestellingen die in één gemiddeld pakket passen (max. 10 kg en 100 x 50 x 50 cm). Per extra pakket rekenen we € 7,45. Je rekent veilig af met iDEAL, kaart of Apple Pay. Binnen 14 dagen retour mogelijk, de retourkosten zijn voor de klant. Zie <a href="voorwaarden.html">voorwaarden &amp; retour</a>.';
   var MAIL_NOTE = null; // wordt gevuld met de tekst uit index.html
   var DELIVERY_KEY = "hetmerkhuys-delivery";
 
@@ -27,7 +27,7 @@
      SHIP_UNITS= hoeveel van een pakket een artikel inneemt (1 = een heel pakket,
                  0.2 = er passen er 5 in één pakket). Pas aan als het niet klopt.
      -------------------------------------------------------------- */
-  var SHIP = { price: 6.95, freeFrom: 75 };
+  var SHIP = { price: 7.45, freeFrom: 75 };
 
   /* --------------------------------------------------------------
      ACTIE (Black Friday)
@@ -42,7 +42,7 @@
     "klok-levy": 1, "klok-derby": 1, "tafelset-rupert": 1,
     "by-boo-ming-vaas": 1, "by-boo-olit-bijzettafels": 1, "riviera-room48-poef": 1,
     "allibert-hortza-manden": 0.1667, "philips-crane-bureaulamp": 0.5,
-    "simplehuman-pedaalemmer": 0.34, "wandrek-metaal": 0.34, "kuipstoelen-grijs-velvet": 1, "fauteuil-kansas-offwhite": 1, "coco-maison-carel-bijzettafel": 1, "groto-lounge-voetenbank": 1, "strington-salontafel-120": 1, "venture-night-stoelen": 1, "venture-mariette-stoelen": 1, "riviera-tavira-bijzettafel": 1,
+    "simplehuman-pedaalemmer": 0.34, "wandrek-metaal": 0.34, "kuipstoelen-grijs-velvet": 1, "fauteuil-kansas-offwhite": 1, "coco-maison-carel-bijzettafel": 1, "groto-lounge-voetenbank": 1, "strington-salontafel-120": 1, "venture-night-stoelen": 1, "venture-mariette-stoelen": 1, "riviera-tavira-bijzettafel": 1, "gusta-plateau-groen": 0.5,
     "plaid-mohair-taupe": 0.25, "plaid-mohair-creme": 0.25, "plaid-mohair-oudroze": 0.25,
     "plaid-teddy-creme": 0.25, "plaid-teddy-roze": 0.25, "plaid-fleece-creme": 0.25
   };
@@ -65,6 +65,15 @@
   };
 
   var PRODUCTS = [
+    {
+      id: "gusta-plateau-groen", cat: "wonen", brand: "Gusta",
+      name: "Serveer- en decoplateau met handvat groen", spec: "Metaal · 29,5 x 23 x 29 cm · salie/mintgroen",
+      tiers: [{ q: 1, p: 8.99 }, { q: 2, p: 15.99 }],
+      stock: 20, unit: "stuk", note: "2 voor € 15,99", worth: 19.95, worthPrefix: "Winkelwaarde ca.",
+      images: ["images/gusta-plateau-1.jpg", "images/gusta-plateau-2.jpg", "images/gusta-plateau-3.jpg", "images/gusta-plateau-4.jpg", "images/gusta-plateau-5.jpg"],
+      desc: "Metalen plateau van Gusta in een zachte saliegroene kleur, met een handvat en een kleine rand om het plateau. Gebruik het als serveerplateau, fruitschaal, tijdschriftenrek of kookboekenstandaard in de keuken, of als decoratie op de kast of tafel. Nieuw, met het label er nog aan. Niet geschikt voor de vaatwasser. De laatste foto is een sfeerbeeld (door AI gemaakt); de andere foto's tonen het echte product.",
+      specs: [["Merk", "Gusta (art.nr. 02274580)"], ["Materiaal", "Metaal"], ["Kleur", "Salie/mintgroen"], ["Afmeting", "29,5 x 23 x 29 cm"], ["Gewicht", "Ca. 600 g"], ["Onderhoud", "Niet in de vaatwasser"], ["Staat", "Nieuw, met label"]]
+    },
     {
       id: "bowie-groen", cat: "kussens", brand: "Riverdale",
       name: "Bowie sierkussen groen", spec: "45 x 45 cm · inclusief binnenkussen",

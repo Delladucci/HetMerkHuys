@@ -58,10 +58,10 @@ test("checkout: combi-korting zit in de regels naar Stripe", async () => {
   assert.match(body, /line_items\[1\]\[price_data\]\[unit_amount\]=1648/);
 });
 
-test("verzendkosten: gratis vanaf 75, extra pakket 6,95, ophalen gratis", () => {
-  assert.equal(shipping({ "bowie-groen": 1 }, 1299, "verzenden").cents, 695);
+test("verzendkosten: gratis vanaf 75, extra pakket 7,45, ophalen gratis", () => {
+  assert.equal(shipping({ "bowie-groen": 1 }, 1299, "verzenden").cents, 745);
   assert.equal(shipping({ "klok-levy": 1 }, 7999, "verzenden").cents, 0);
-  assert.equal(shipping({ "klok-levy": 2 }, 15998, "verzenden").cents, 695);
+  assert.equal(shipping({ "klok-levy": 2 }, 15998, "verzenden").cents, 745);
   assert.equal(shipping({ "klok-levy": 2 }, 15998, "ophalen").cents, 0);
   assert.equal(shipping({ "allibert-hortza-manden": 6 }, 5394, "verzenden").parcels, 1);
   assert.equal(shipping({ "allibert-hortza-manden": 7 }, 6293, "verzenden").parcels, 2);
@@ -89,7 +89,7 @@ test("checkout: server rekent zelf, prijs uit het verzoek wordt genegeerd", asyn
   assert.equal((await r.json()).url, "https://checkout.stripe.com/c/pay/cs_test_1");
   const body = decodeURIComponent(calls[0].opts.body);
   assert.match(body, /line_items\[0\]\[price_data\]\[unit_amount\]=4500/);
-  assert.match(body, /shipping_options\[0\]\[shipping_rate_data\]\[fixed_amount\]\[amount\]=695/);
+  assert.match(body, /shipping_options\[0\]\[shipping_rate_data\]\[fixed_amount\]\[amount\]=745/);
   assert.match(body, /shipping_address_collection\[allowed_countries\]\[0\]=NL/);
   assert.match(body, /metadata\[cart\]=bowie-groen:4/);
   assert.equal(calls[0].opts.headers.authorization, "Bearer sk_test_x");
@@ -247,4 +247,15 @@ test("Tavira bijzettafel: 1 stuk 59, 2 stuks 99 en altijd ophalen", () => {
   assert.equal(CATALOG["riviera-tavira-bijzettafel"].stock, 2);
   assert.equal(lineCents({ "riviera-tavira-bijzettafel": 1 }, "riviera-tavira-bijzettafel"), 5900);
   assert.equal(lineCents({ "riviera-tavira-bijzettafel": 2 }, "riviera-tavira-bijzettafel"), 9900);
+});
+
+test("Gusta plateau: 1 stuk 8,99, 2 stuks 15,99, 2 per pakket en gewoon verzendbaar", () => {
+  const id = "gusta-plateau-groen";
+  assert.equal(CATALOG[id].pickupOnly, undefined);
+  assert.equal(CATALOG[id].stock, 20);
+  assert.equal(lineCents({ [id]: 1 }, id), 899);
+  assert.equal(lineCents({ [id]: 2 }, id), 1599);
+  assert.equal(lineCents({ [id]: 3 }, id), 2498);
+  assert.equal(shipping({ [id]: 2 }, 1599, "bezorgen").parcels, 1);
+  assert.equal(shipping({ [id]: 3 }, 2498, "bezorgen").parcels, 2);
 });
