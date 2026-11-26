@@ -116,7 +116,7 @@ export const CATALOG = {
     "tiers": [
       {
         "q": 1,
-        "p": 39.99
+        "p": 34.99
       }
     ],
     "units": 1,
@@ -127,7 +127,7 @@ export const CATALOG = {
     "tiers": [
       {
         "q": 1,
-        "p": 79
+        "p": 59
       }
     ],
     "units": 1,
@@ -138,11 +138,60 @@ export const CATALOG = {
     "tiers": [
       {
         "q": 1,
-        "p": 99
+        "p": 49
       }
     ],
     "units": 1,
     "stock": 1
+  },
+  "riviera-tavira-bijzettafel": {
+    "name": "Bijzettafel Tavira zand",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 59
+      },
+      {
+        "q": 2,
+        "p": 99
+      }
+    ],
+    "units": 1,
+    "stock": 2,
+    "pickupOnly": true
+  },
+  "riviera-qbic-poef": {
+    "name": "Qbic poef mohair Truffle",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 44.99
+      }
+    ],
+    "units": 1,
+    "stock": 8
+  },
+  "coco-maison-bodie-beeld": {
+    "name": "Bodie beeld terracotta 36 cm",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 39.99
+      }
+    ],
+    "units": 1,
+    "stock": 10
+  },
+  "coco-maison-todd-beeld": {
+    "name": "Todd beeld bollen 46 cm",
+    "tiers": [
+      {
+        "q": 1,
+        "p": 29.99
+      }
+    ],
+    "units": 1,
+    "stock": 15
   },
   "allibert-hortza-manden": {
     "name": "Hortza opbergmanden goud, set van 2",
@@ -175,11 +224,11 @@ export const CATALOG = {
     "tiers": [
       {
         "q": 1,
-        "p": 49
+        "p": 39
       },
       {
         "q": 2,
-        "p": 79
+        "p": 69
       }
     ],
     "units": 1,
@@ -187,7 +236,7 @@ export const CATALOG = {
     "sale": [
       {
         "q": 1,
-        "p": 39
+        "p": 35
       },
       {
         "q": 2,
@@ -252,11 +301,11 @@ export const CATALOG = {
     "tiers": [
       {
         "q": 1,
-        "p": 55
+        "p": 39
       },
       {
         "q": 2,
-        "p": 99
+        "p": 69
       }
     ],
     "units": 1,
@@ -264,11 +313,11 @@ export const CATALOG = {
     "sale": [
       {
         "q": 1,
-        "p": 45
+        "p": 35
       },
       {
         "q": 2,
-        "p": 69
+        "p": 59
       }
     ],
     "pickupOnly": true
@@ -282,7 +331,7 @@ export const CATALOG = {
       },
       {
         "q": 2,
-        "p": 79
+        "p": 69
       }
     ],
     "units": 1,
@@ -304,7 +353,7 @@ export const CATALOG = {
     "tiers": [
       {
         "q": 1,
-        "p": 89
+        "p": 79
       }
     ],
     "units": 1,
@@ -397,22 +446,6 @@ export const CATALOG = {
     "units": 0.25,
     "stock": 4,
     "group": "plaid"
-  },
-  "riviera-tavira-bijzettafel": {
-    "name": "Bijzettafel Tavira zand",
-    "tiers": [
-      {
-        "q": 1,
-        "p": 59
-      },
-      {
-        "q": 2,
-        "p": 99
-      }
-    ],
-    "units": 1,
-    "stock": 2,
-    "pickupOnly": true
   },
   "simplehuman-pedaalemmer": {
     "name": "Pedaalemmer 6L taupe",

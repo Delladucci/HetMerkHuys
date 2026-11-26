@@ -172,23 +172,23 @@ test("catalogus staat gelijk aan script.js", async () => {
   assert.equal(before, after);
 });
 
-test("kuipstoelen: 1 stuk 49, 2 stuks 79 en altijd ophalen", async () => {
+test("kuipstoelen: 1 stuk 39, 2 stuks 69 en altijd ophalen", async () => {
   const mod = await import("../worker.js");
   const { CATALOG } = await import("../catalog.js");
   assert.equal(CATALOG["kuipstoelen-grijs-velvet"].pickupOnly, true);
   assert.equal(CATALOG["philips-crane-bureaulamp"].stock, 0);
   assert.equal(CATALOG["philips-crane-bureaulamp"].tiers.length, 2);
-  assert.equal(mod.lineCents({ "kuipstoelen-grijs-velvet": 1 }, "kuipstoelen-grijs-velvet"), 4900);
-  assert.equal(mod.lineCents({ "kuipstoelen-grijs-velvet": 2 }, "kuipstoelen-grijs-velvet"), 7900);
+  assert.equal(mod.lineCents({ "kuipstoelen-grijs-velvet": 1 }, "kuipstoelen-grijs-velvet"), 3900);
+  assert.equal(mod.lineCents({ "kuipstoelen-grijs-velvet": 2 }, "kuipstoelen-grijs-velvet"), 6900);
 });
 
-test("Night-stoelen: 1 stuk 55, 2 stuks 99 en altijd ophalen", async () => {
+test("Night-stoelen: 1 stuk 39, 2 stuks 69 en altijd ophalen", async () => {
   const mod = await import("../worker.js");
   const { CATALOG } = await import("../catalog.js");
   assert.equal(CATALOG["venture-night-stoelen"].pickupOnly, true);
   assert.equal(CATALOG["venture-night-stoelen"].stock, 2);
-  assert.equal(mod.lineCents({ "venture-night-stoelen": 1 }, "venture-night-stoelen"), 5500);
-  assert.equal(mod.lineCents({ "venture-night-stoelen": 2 }, "venture-night-stoelen"), 9900);
+  assert.equal(mod.lineCents({ "venture-night-stoelen": 1 }, "venture-night-stoelen"), 3900);
+  assert.equal(mod.lineCents({ "venture-night-stoelen": 2 }, "venture-night-stoelen"), 6900);
 });
 
 test("Mariette-stoelen: 1 stuk 45, 2 stuks 79 en altijd ophalen", async () => {
@@ -197,7 +197,7 @@ test("Mariette-stoelen: 1 stuk 45, 2 stuks 79 en altijd ophalen", async () => {
   assert.equal(CATALOG["venture-mariette-stoelen"].pickupOnly, true);
   assert.equal(CATALOG["venture-mariette-stoelen"].stock, 2);
   assert.equal(mod.lineCents({ "venture-mariette-stoelen": 1 }, "venture-mariette-stoelen"), 4500);
-  assert.equal(mod.lineCents({ "venture-mariette-stoelen": 2 }, "venture-mariette-stoelen"), 7900);
+  assert.equal(mod.lineCents({ "venture-mariette-stoelen": 2 }, "venture-mariette-stoelen"), 6900);
 });
 
 test("Black Friday: actievenster in Amsterdamse tijd (vr 27 nov t/m ma 30 nov)", () => {
@@ -210,16 +210,16 @@ test("Black Friday: actievenster in Amsterdamse tijd (vr 27 nov t/m ma 30 nov)",
 test("Black Friday: actieprijzen binnen het venster, gewone prijzen erbuiten", () => {
   const during = Date.parse("2026-11-28T15:00:00+01:00");
   const price = (id, q, now) => lineCents({ [id]: q }, id, now);
-  assert.equal(price("venture-night-stoelen", 1, during), 4500);
-  assert.equal(price("venture-night-stoelen", 2, during), 6900);
+  assert.equal(price("venture-night-stoelen", 1, during), 3500);
+  assert.equal(price("venture-night-stoelen", 2, during), 5900);
   assert.equal(price("venture-mariette-stoelen", 1, during), 3500);
   assert.equal(price("venture-mariette-stoelen", 2, during), 5900);
-  assert.equal(price("kuipstoelen-grijs-velvet", 1, during), 3900);
+  assert.equal(price("kuipstoelen-grijs-velvet", 1, during), 3500);
   assert.equal(price("kuipstoelen-grijs-velvet", 2, during), 5900);
   assert.equal(price("fauteuil-kansas-offwhite", 1, during), 12900);
   assert.equal(price("groto-lounge-voetenbank", 1, during), 11900);
   // erbuiten: gewone prijzen
-  assert.equal(price("venture-night-stoelen", 2), 9900);
+  assert.equal(price("venture-night-stoelen", 2), 6900);
   assert.equal(price("fauteuil-kansas-offwhite", 1), 15900);
   assert.equal(price("groto-lounge-voetenbank", 1), 14900);
 });
@@ -258,4 +258,42 @@ test("Gusta plateau: 1 stuk 8,99, 2 stuks 15,99, 2 per pakket en gewoon verzendb
   assert.equal(lineCents({ [id]: 3 }, id), 2498);
   assert.equal(shipping({ [id]: 2 }, 1599, "bezorgen").parcels, 1);
   assert.equal(shipping({ [id]: 3 }, 2498, "bezorgen").parcels, 2);
+});
+
+/* ---------- contactformulier ---------- */
+
+function contactReq(body, ip = "1.2.3.4") {
+  return new Request("https://x.test/api/contact", { method: "POST", headers: { "content-type": "application/json", "cf-connecting-ip": ip }, body: JSON.stringify(body) });
+}
+
+test("contact: geldige vraag gaat per mail naar de eigenaar met reply-to van de klant", async () => {
+  const sent = [];
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = async (url, init) => { sent.push({ url, body: JSON.parse(init.body) }); return new Response("{}", { status: 200 }); };
+  try {
+    const env = { RESEND_API_KEY: "re_test", STOCK: mockKV() };
+    const res = await worker.fetch(contactReq({ name: "Anna", email: "anna@example.com", message: "Is de poef nog beschikbaar?", product: "riviera-room48-poef" }), env);
+    assert.equal(res.status, 200);
+    assert.equal(sent.length, 1);
+    assert.equal(sent[0].body.reply_to, "anna@example.com");
+    assert.deepEqual(sent[0].body.to, ["info@hetmerkhuys.nl"]);
+    assert.match(sent[0].body.html, /Room 48 poef/);
+  } finally { globalThis.fetch = realFetch; }
+});
+
+test("contact: ongeldige invoer, honeypot en te veel berichten", async () => {
+  const sent = [];
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = async (url, init) => { sent.push(1); return new Response("{}", { status: 200 }); };
+  try {
+    const env = { RESEND_API_KEY: "re_test", STOCK: mockKV() };
+    assert.equal((await worker.fetch(contactReq({ name: "", email: "a@b.nl", message: "hallo daar" }), env)).status, 400);
+    assert.equal((await worker.fetch(contactReq({ name: "A", email: "geen-mail", message: "hallo daar" }), env)).status, 400);
+    assert.equal((await worker.fetch(contactReq({ name: "A", email: "a@b.nl", message: "hi" }), env)).status, 400);
+    const bot = await worker.fetch(contactReq({ name: "Bot", email: "b@b.nl", message: "koop nu spam", website: "http://spam" }), env);
+    assert.equal(bot.status, 200);
+    assert.equal(sent.length, 0);
+    for (let i = 0; i < 5; i++) assert.equal((await worker.fetch(contactReq({ name: "A", email: "a@b.nl", message: "vraag " + i + " hier" }, "9.9.9.9"), env)).status, 200);
+    assert.equal((await worker.fetch(contactReq({ name: "A", email: "a@b.nl", message: "zesde vraag hier" }, "9.9.9.9"), env)).status, 429);
+  } finally { globalThis.fetch = realFetch; }
 });

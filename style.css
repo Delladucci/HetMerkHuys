@@ -410,3 +410,95 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .was--big { font-size: 18px; }
 
 .modal .was--big, .was--big { display: inline; white-space: nowrap; }
+
+/* Vraag stellen */
+.linkbtn { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+.linkbtn:hover { color: var(--accent); }
+.info__ask { margin-top: 14px; font-size: 14px; color: var(--muted, #666); }
+.askdlg { border: 0; border-radius: 14px; padding: 0; width: min(480px, calc(100vw - 32px)); max-height: calc(100vh - 32px); box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+.askdlg::backdrop { background: rgba(0,0,0,.45); }
+.askform { position: relative; padding: 26px 24px 22px; display: grid; gap: 14px; }
+.askform h2 { margin: 0; font-size: 22px; padding-right: 40px; }
+.askform label { display: grid; gap: 6px; font-size: 14px; font-weight: 600; }
+.askform input, .askform textarea { font: inherit; font-weight: 400; padding: 11px 12px; border: 1px solid #c9c9c9; border-radius: 10px; width: 100%; box-sizing: border-box; }
+.askform input:focus, .askform textarea:focus { outline: 2px solid var(--accent, #2a6); outline-offset: 1px; }
+.askform__close { position: absolute; right: 12px; top: 12px; }
+.askform__product { margin: -6px 0 0; font-size: 14px; color: #555; }
+.askform__hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.askform__status { margin: 0; min-height: 1.2em; font-size: 14px; }
+.askform__status.is-error { color: #b00020; }
+.askform__status.is-ok { color: #1b6e3a; }
+.askform__note { margin: 0; font-size: 12.5px; color: #777; }
+
+/* ---- Mobiel: compacter en makkelijker te bedienen ---- */
+@media (max-width: 760px) {
+  .usp-bar { font-size: 12px; padding: 8px 12px; gap: 16px; flex-wrap: nowrap; }
+  .usp-bar span:nth-child(3) { display: none; }
+  .logo { font-size: 26px; }
+  .header__inner { padding-top: 12px; padding-bottom: 12px; }
+  .outlet { padding-top: 14px; padding-bottom: 14px; }
+  .outlet p { font-size: 13px; line-height: 1.45; }
+  .intro { padding-top: 28px; gap: 20px; }
+  .intro h1 { font-size: 30px; }
+  .intro__lead { font-size: 16px; }
+  .stats { flex-wrap: nowrap; gap: 8px; width: 100%; }
+  .stat { flex: 1 1 0; min-width: 0; padding: 12px 12px; border-radius: 14px; }
+  .stat__num { font-size: 24px; }
+  .stat__label { font-size: 12px; margin-top: 4px; }
+
+  /* Categorieën: één rij, zijwaarts vegen */
+  .cats { padding-top: 16px; }
+  .cats__row {
+    flex-wrap: nowrap; overflow-x: auto; gap: 8px; margin: 0 -16px; padding: 2px 16px 8px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; scroll-padding-left: 16px;
+  }
+  .cats__row::-webkit-scrollbar { display: none; }
+  .pill { flex: none; height: 42px; padding: 0 16px; font-size: 15px; gap: 8px; scroll-snap-align: start; }
+  .products { padding-top: 12px; }
+
+  /* Labels op de foto's: kleiner, aantal foto's naar rechtsonder */
+  .badges { left: 8px; top: 8px; gap: 4px; }
+  .badge { font-size: 11px; padding: 4px 9px; }
+  .badge--stock { padding-left: 7px; gap: 5px; }
+  .badge--stock::before { width: 7px; height: 7px; }
+  .photocount { top: auto; bottom: 8px; right: 8px; font-size: 11px; padding: 3px 8px; }
+  .tile__name button { font-size: 16px; }
+  .tile__spec { font-size: 13px; }
+  .tile__price { font-size: 20px; }
+
+  /* Productvenster */
+  .gallery__thumbs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-right: -16px; padding-right: 16px; }
+  .gallery__thumbs::-webkit-scrollbar { display: none; }
+  .gallery__thumbs .thumb { flex: none; }
+  .info__price strong { font-size: 32px; }
+  .buy { position: sticky; bottom: 0; z-index: 5; margin: 20px -16px 0; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: var(--surface); border-top: 1px solid var(--line); }
+  .buy .btn { flex: 1 1 140px; }
+}
+
+@media (max-width: 760px) {
+  /* Mandjebalk: één compacte rij */
+  .cartbar { bottom: 10px; padding: 0 10px; bottom: calc(10px + env(safe-area-inset-bottom)); }
+  .cartbar__inner { width: 100%; max-width: 460px; flex-wrap: nowrap; justify-content: space-between; gap: 10px; padding: 8px 8px 8px 18px; font-size: 15px; }
+  .cartbar__ex { display: none; }
+  .cartbar .btn { flex: none; height: 44px; padding: 0 18px; font-size: 15px; }
+  .toast { bottom: calc(80px + env(safe-area-inset-bottom)); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-radius: 14px; padding: 10px 16px; font-size: 13px; }
+
+  /* Mandje: het hele paneel scrolt, zodat de artikelen niet verdwijnen */
+  .drawer { width: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .drawer__head { position: sticky; top: 0; z-index: 3; background: var(--surface); padding: 14px 16px; }
+  .drawer__head h2 { font-size: 24px; }
+  .drawer__items { flex: none; overflow: visible; }
+  .line { padding: 14px 16px; }
+  .drawer__foot { padding: 16px 16px 20px; }
+  .drawer__foot .btn { position: sticky; bottom: 10px; }
+}
+@media (max-width: 760px) {
+  .line .stepper { height: 42px; }
+  .line .stepper button { width: 42px; height: 42px; }
+  .line__remove { padding: 10px 6px; }
+}
+@media (max-width: 380px) {
+  .logo { font-size: 22px; }
+  .header__inner { gap: 8px; }
+  .usp-bar { gap: 10px; font-size: 11px; }
+}

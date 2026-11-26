@@ -40,7 +40,7 @@
   var SHIP_UNITS = {
     "bowie-groen": 0.2, "bowie-beige": 0.2, "bowie-taupe": 0.2, "cush-roze": 0.25,
     "klok-levy": 1, "klok-derby": 1, "tafelset-rupert": 1,
-    "by-boo-ming-vaas": 1, "by-boo-olit-bijzettafels": 1, "riviera-room48-poef": 1,
+    "by-boo-ming-vaas": 1, "by-boo-olit-bijzettafels": 1, "riviera-room48-poef": 1, "riviera-qbic-poef": 1, "coco-maison-bodie-beeld": 1, "coco-maison-todd-beeld": 1,
     "allibert-hortza-manden": 0.1667, "philips-crane-bureaulamp": 0.5,
     "simplehuman-pedaalemmer": 0.34, "wandrek-metaal": 0.34, "kuipstoelen-grijs-velvet": 1, "fauteuil-kansas-offwhite": 1, "coco-maison-carel-bijzettafel": 1, "groto-lounge-voetenbank": 1, "strington-salontafel-120": 1, "venture-night-stoelen": 1, "venture-mariette-stoelen": 1, "riviera-tavira-bijzettafel": 1, "gusta-plateau-groen": 0.5,
     "plaid-mohair-taupe": 0.25, "plaid-mohair-creme": 0.25, "plaid-mohair-oudroze": 0.25,
@@ -140,7 +140,7 @@
     {
       id: "by-boo-ming-vaas", cat: "wonen", brand: "By-Boo",
       name: "Ming vaas zwart (large)", spec: "Hoogte 40 cm · ruw keramiek",
-      tiers: [{ q: 1, p: 39.99 }],
+      tiers: [{ q: 1, p: 34.99 }],
       stock: 1, unit: "stuk", note: "", worth: 59.95, worthPrefix: "Winkelwaarde",
       images: ["images/by-boo-ming-vaas-1.jpg", "images/by-boo-ming-vaas-2.jpg", "images/by-boo-ming-vaas-3.jpg"],
       desc: "Robuuste zwarte vaas van By-Boo, model Ming in de grootste uitvoering. Het keramiek heeft een stoere, ruwe structuur: mooi met een grote bos droogbloemen of een paar siertakken, en van zichzelf al een statement in de kamer.",
@@ -149,7 +149,7 @@
     {
       id: "by-boo-olit-bijzettafels", cat: "wonen", brand: "By-Boo",
       name: "Olit bijzettafels, set van 2", spec: "Set van 2 · zwart staal met glazen blad",
-      tiers: [{ q: 1, p: 79 }],
+      tiers: [{ q: 1, p: 59 }],
       stock: 1, unit: "set", note: "Set van 2", worth: 139, worthPrefix: "Nieuwprijs",
       images: ["images/by-boo-olit-tafels-1.jpg", "images/by-boo-olit-tafels-2.jpg", "images/by-boo-olit-tafels-3.jpg", "images/by-boo-olit-tafels-4.jpg", "images/by-boo-olit-tafels-5.jpg", "images/by-boo-olit-tafels-6.jpg"],
       desc: "Een minimalistische set van twee hoge bijzettafels uit de Olit-serie, ook mooi als plantenstandaard of decoratiezuil. Door het hoogteverschil schuif je ze deels onder elkaar of zet je ze los van elkaar. Showroommodel in nieuwstaat.",
@@ -158,11 +158,47 @@
     {
       id: "riviera-room48-poef", cat: "wonen", brand: "Rivièra Maison",
       name: "Room 48 poef FabFlax 40x40", spec: "40 x 40 cm · vlaslook met eikenhout",
-      tiers: [{ q: 1, p: 99 }],
+      tiers: [{ q: 1, p: 49 }],
       stock: 1, unit: "stuk", note: "", worth: 249, worthPrefix: "Winkelwaarde ca.",
       images: ["images/riviera-room48-poef-1.jpg", "images/riviera-room48-poef-2.jpg", "images/riviera-room48-poef-3.jpg"],
       desc: "Chique vierkante poef (hocker) in een geblokte vlas/linnen-look. De onderkant heeft een stoer detail van geleefd, gerecycled eikenhout met industriële handgrepen. Fijn als extra zitplek, voetenbank of decoratief item in de woon- of slaapkamer. Nieuw en nog ongeopend in de originele fabrieksverpakking.",
       specs: [["Merk", "Rivièra Maison, Room 48 Stool"], ["Afmeting", "40 x 40 cm"], ["Materiaal", "Vlas/linnen-look met gerecycled eikenhout"], ["Staat", "Nieuw, ongeopend in originele verpakking"]]
+    },
+    {
+      id: "riviera-tavira-bijzettafel", cat: "wonen", brand: "Rivièra Maison", pickupOnly: true,
+      name: "Bijzettafel Tavira zand", spec: "Keramiek · gevlochten reliëf · 45 cm hoog",
+      tiers: [{ q: 1, p: 59 }, { q: 2, p: 99 }],
+      stock: 2, unit: "stuk", note: "2 voor € 99", worth: 149, worthPrefix: "Nieuwprijs",
+      images: ["images/riviera-tavira-1.jpg", "images/riviera-tavira-2.jpg", "images/riviera-tavira-3.jpg", "images/riviera-tavira-4.jpg", "images/riviera-tavira-5.jpg"],
+      desc: "Bijzettafel Tavira van Rivièra Maison in de kleur zand. Het geglazuurde keramiek heeft een fraai gevlochten reliëf en een zachte, afgeronde bovenkant. Ook handig als krukje of plantentafel, binnen of op een beschutte plek. Nieuw, in de originele doos. De fauteuil op het tweede beeld is niet inbegrepen. Deze tafel versturen we niet (keramiek is zwaar en breekbaar): je haalt hem zelf op in Heel (Limburg).",
+      specs: [["Merk", "Rivièra Maison, Tavira End Table (574270)"], ["Kleur", "Zand (Sand)"], ["Materiaal", "Geglazuurd keramiek"], ["Hoogte", "45 cm"], ["Doorsnede", "Ca. 37 cm"], ["Staat", "Nieuw, in originele doos"], ["Levering", "Alleen ophalen in Heel (Limburg)"]]
+    },
+    {
+      id: "riviera-qbic-poef", cat: "wonen", brand: "Rivièra Maison",
+      name: "Qbic poef mohair Truffle", spec: "40 x 40 x 45 cm · mohair-look stof, truffle",
+      tiers: [{ q: 1, p: 44.99 }],
+      stock: 8, unit: "stuk", note: "Meer? Vraag korting", worth: 129, worthPrefix: "Winkelwaarde vanaf",
+      images: ["images/riviera-qbic-poef-1.jpg", "images/riviera-qbic-poef-2.jpg", "images/riviera-qbic-poef-3.jpg", "images/riviera-qbic-poef-4.jpg", "images/riviera-qbic-poef-5.jpg", "images/riviera-qbic-poef-6.jpg", "images/riviera-qbic-poef-7.jpg"],
+      desc: "Stijlvolle Qbic poef van Rivièra Maison in de warme kleur Truffle (taupe/bruin). De poef is bekleed met een zachte mohair-look stof in een strak gevlochten kubusdesign. Door het compacte formaat van 40 x 40 x 45 cm is hij ideaal als voetenbankje bij de bank of fauteuil, als extra zitplaats in de woonkamer of als sfeervol accent in de slaapkamer. Nieuw en ongebruikt, met label en in de originele doos. Het laatste beeld is een sfeerbeeld ter illustratie.",
+      specs: [["Merk", "Rivièra Maison, Qbic"], ["Kleur", "Truffle (taupe/bruin)"], ["Afmeting", "40 x 40 x 45 cm"], ["Materiaal", "Mohair-look stof"], ["Staat", "Nieuw, met label, in originele doos"]]
+    },
+    {
+      id: "coco-maison-bodie-beeld", cat: "wonen", brand: "Coco Maison",
+      name: "Bodie beeld terracotta 36 cm", spec: "36 cm hoog · terracotta · abstract beeld",
+      tiers: [{ q: 1, p: 39.99 }],
+      stock: 10, unit: "stuk", note: "", worth: 99, worthPrefix: "Winkelwaarde",
+      images: ["images/coco-maison-bodie-1.jpg", "images/coco-maison-bodie-2.jpg", "images/coco-maison-bodie-3.jpg", "images/coco-maison-bodie-4.jpg", "images/coco-maison-bodie-5.jpg", "images/coco-maison-bodie-6.jpg"],
+      desc: "Abstract beeld Bodie van Coco Maison in een warme terracotta-roze kleur. De zachte, ronde vormen van een zittende figuur maken er een mooi blikvanger van op de salontafel, een dressoir of een zuil. Nieuw, met het label van Coco Maison (artikelnummer 48301-TER). De salontafels en de zuil op de foto's zijn niet inbegrepen. Het beeld is van terracotta en dus breekbaar: we verpakken het extra stevig. Liever zeker van je zaak? Ophalen in Heel (Limburg) kan altijd.",
+      specs: [["Merk", "Coco Maison, Bodie figurine (48301-TER)"], ["Kleur", "Terracotta"], ["Hoogte", "36 cm"], ["Materiaal", "Terracotta"], ["Staat", "Nieuw, met label"], ["Let op", "Breekbaar, wordt extra stevig verpakt"]]
+    },
+    {
+      id: "coco-maison-todd-beeld", cat: "wonen", brand: "Coco Maison",
+      name: "Todd beeld bollen 46 cm", spec: "46 cm hoog · grijsblauw · sculptuur met bollen",
+      tiers: [{ q: 1, p: 29.99 }],
+      stock: 15, unit: "stuk", note: "", worth: 79, worthPrefix: "Winkelwaarde",
+      images: ["images/coco-maison-todd-1.jpg", "images/coco-maison-todd-2.jpg", "images/coco-maison-todd-3.jpg"],
+      desc: "Sculptuur Todd van Coco Maison: een flink beeld van 46 cm hoog, ovaal en vol ronde bollen in een mat grijsblauwe kleur, op een zwarte getrapte sokkel. Door de variatie in bolgroottes oogt het van dichtbij en van veraf bijzonder. Een echte blikvanger op een zuil, dressoir of salontafel. Nieuw, met het label van Coco Maison (artikelnummer 47867ANT). De zuil op de foto's is niet inbegrepen. Het beeld is breekbaar: we verpakken het extra stevig. Liever zeker van je zaak? Ophalen in Heel (Limburg) kan altijd.",
+      specs: [["Merk", "Coco Maison, Todd figurine (47867ANT)"], ["Kleur", "Grijsblauw, zwarte sokkel"], ["Hoogte", "46 cm"], ["Staat", "Nieuw, met label"], ["Let op", "Breekbaar, wordt extra stevig verpakt"]]
     },
     {
       id: "allibert-hortza-manden", cat: "wonen", brand: "Allibert",
@@ -185,8 +221,8 @@
     {
       id: "kuipstoelen-grijs-velvet", cat: "wonen", brand: "Actona", pickupOnly: true,
       name: "Kuipstoelen grijs velvet", spec: "Zithoogte 45 cm · zwart metalen onderstel",
-      tiers: [{ q: 1, p: 49 }, { q: 2, p: 79 }],
-      sale: [{ q: 1, p: 39 }, { q: 2, p: 59 }],
+      tiers: [{ q: 1, p: 39 }, { q: 2, p: 69 }],
+      sale: [{ q: 1, p: 35 }, { q: 2, p: 59 }],
       stock: 2, unit: "stuk", note: "Alleen ophalen in Heel",
       images: ["images/kuipstoelen-grijs-3.jpg", "images/kuipstoelen-grijs-1.jpg", "images/kuipstoelen-grijs-2.jpg", "images/kuipstoelen-grijs-4.jpg", "images/kuipstoelen-grijs-5.jpg"],
       desc: "Twee stoelen met een ronde, omsluitende kuipzitting in grijs velvet en een zwart metalen onderstel met kruisvormige verstevigingen. Prettig zittend aan de eettafel of werktafel, of als zitplek in de woonkamer. Gemaakt door Actona Company A/S. Nieuw en ongebruikt. Fluweel heeft een pool: waar je erover wrijft of veegt, lijkt de kleur even lichter of donkerder (zie de foto's). Dat zijn geen vlekken en het trekt weg door de stof glad te strijken. Deze stoelen versturen we niet: je haalt ze zelf op in Heel (Limburg).",
@@ -224,9 +260,9 @@
     {
       id: "venture-night-stoelen", cat: "wonen", brand: "Venture Home",
       name: "Eetkamerstoel Night off-white", spec: "87 x 49 x 56 cm · kunstleer met zwarte poten", pickupOnly: true,
-      tiers: [{ q: 1, p: 55 }, { q: 2, p: 99 }],
-      sale: [{ q: 1, p: 45 }, { q: 2, p: 69 }],
-      stock: 2, unit: "stuk", note: "2 voor € 99", worth: 132, worthPrefix: "Nieuwprijs per stoel ca.",
+      tiers: [{ q: 1, p: 39 }, { q: 2, p: 69 }],
+      sale: [{ q: 1, p: 35 }, { q: 2, p: 59 }],
+      stock: 2, unit: "stuk", note: "2 voor € 69", worth: 132, worthPrefix: "Nieuwprijs per stoel ca.",
       images: ["images/venture-night-stoelen-1.jpg", "images/venture-night-stoelen-2.jpg", "images/venture-night-stoelen-3.jpg", "images/venture-night-stoelen-4.jpg"],
       desc: "Eetkamerstoel Night van Venture Home met een ronde, gestoffeerde rug en zitting in off-white kunstleer, op slanke zwarte poten. Strak en tijdloos aan de eettafel of bij een bureau. Nieuw, met de labels er nog aan. We hebben er twee: per stoel of samen voor een lagere prijs. Deze stoelen versturen we niet: je haalt ze zelf op in Heel (Limburg).",
       specs: [["Merk", "Venture Home, Night"], ["Bekleding", "Kunstleer (PU), off-white"], ["Poten", "Zwart metaal"], ["Afmeting", "Ca. 87 cm hoog x 49 cm breed x 56 cm diep"], ["Zithoogte", "Ca. 49 cm"], ["Staat", "Nieuw, met labels"], ["Levering", "Alleen ophalen in Heel (Limburg)"]]
@@ -234,9 +270,9 @@
     {
       id: "venture-mariette-stoelen", cat: "wonen", brand: "Venture Home",
       name: "Eetkamerstoel Mariette whitewash", spec: "88 x 43 x 50 cm · massief rubberhout, whitewash", pickupOnly: true,
-      tiers: [{ q: 1, p: 45 }, { q: 2, p: 79 }],
+      tiers: [{ q: 1, p: 45 }, { q: 2, p: 69 }],
       sale: [{ q: 1, p: 35 }, { q: 2, p: 59 }],
-      stock: 2, unit: "stuk", note: "2 voor € 79", worth: 222.99, worthPrefix: "Nieuwprijs per set van 2 vanaf",
+      stock: 2, unit: "stuk", note: "2 voor € 69", worth: 222.99, worthPrefix: "Nieuwprijs per set van 2 vanaf",
       images: ["images/venture-mariette-stoelen-1.jpg", "images/venture-mariette-stoelen-2.jpg", "images/venture-mariette-stoelen-3.jpg", "images/venture-mariette-stoelen-4.jpg", "images/venture-mariette-stoelen-5.jpg"],
       desc: "Eetkamerstoel Mariette van Venture Home in massief rubberhout met een lichte whitewash-afwerking, een zachte afgeronde zitting en een rug met gekruiste spijlen. Landelijk en toch strak, past bij een eettafel van hout of in een Scandinavische inrichting. Nieuw, met de labels er nog aan. De stoelen zijn al gemonteerd en er is geen doos meer bij. We hebben er twee: per stoel of samen voor een lagere prijs. Deze stoelen versturen we niet: je haalt ze zelf op in Heel (Limburg).",
       specs: [["Merk", "Venture Home, Mariette"], ["Materiaal", "Massief rubberhout, whitewash"], ["Afmeting", "Ca. 88 cm hoog x 43 cm breed x 50 cm diep"], ["Zithoogte", "Ca. 45 cm"], ["Staat", "Nieuw, met labels, al gemonteerd, zonder doos"], ["Levering", "Alleen ophalen in Heel (Limburg)"]]
@@ -244,7 +280,7 @@
     {
       id: "strington-salontafel-120", cat: "wonen", brand: "Actona",
       name: "Salontafel Strington 120 cm zwart", spec: "120 x 60 x 40 cm · marmerlook blad, mat zwart metaal", pickupOnly: true,
-      tiers: [{ q: 1, p: 89 }],
+      tiers: [{ q: 1, p: 79 }],
       stock: 1, unit: "stuk", note: "Alleen ophalen in Heel", worth: 179, worthPrefix: "Nieuwprijs ca.",
       images: ["images/actona-strington-salontafel-product.jpg", "images/actona-strington-salontafel-1.jpg"],
       desc: "Rechthoekige salontafel Strington van Actona met een tweedelig blad: een zwart marmerlook deel en een deel gerookt glas, op een mat zwart metalen onderstel met vierkante poten. Strak en robuust, past in een moderne woonkamer. Nieuw, in de originele doos. De eerste foto is een productfoto, de tweede foto toont de doos. Deze tafel versturen we niet: je haalt hem zelf op in Heel (Limburg).",
@@ -312,15 +348,6 @@
       images: ["images/plaid-fleece-creme-1.jpg", "images/plaid-fleece-creme-groep.jpg"],
       desc: "Groot, zacht fleece plaid in crème. Handig voor op de bank, in de tuin of onderweg. Neem er meer van (elke kleur of soort plaid) en je krijgt combi-korting.",
       specs: [["Afmeting", "150 x 200 cm"], ["Staat", "Nieuw, in verpakking"]]
-    },
-    {
-      id: "riviera-tavira-bijzettafel", cat: "wonen", brand: "Rivièra Maison", pickupOnly: true,
-      name: "Bijzettafel Tavira zand", spec: "Keramiek · gevlochten reliëf · 45 cm hoog",
-      tiers: [{ q: 1, p: 59 }, { q: 2, p: 99 }],
-      stock: 2, unit: "stuk", note: "2 voor € 99", worth: 149, worthPrefix: "Nieuwprijs",
-      images: ["images/riviera-tavira-1.jpg", "images/riviera-tavira-2.jpg"],
-      desc: "Bijzettafel Tavira van Rivièra Maison in de kleur zand. Het geglazuurde keramiek heeft een fraai gevlochten reliëf en een zachte, afgeronde bovenkant. Ook handig als krukje of plantentafel, binnen of op een beschutte plek. Nieuw, in de originele doos. Deze tafel versturen we niet (keramiek is zwaar en breekbaar): je haalt hem zelf op in Heel (Limburg).",
-      specs: [["Merk", "Rivièra Maison, Tavira End Table (574270)"], ["Kleur", "Zand (Sand)"], ["Materiaal", "Geglazuurd keramiek"], ["Hoogte", "45 cm"], ["Doorsnede", "Ca. 37 cm"], ["Staat", "Nieuw, in originele doos"], ["Levering", "Alleen ophalen in Heel (Limburg)"]]
     },
     {
       id: "simplehuman-pedaalemmer", cat: "wonen", brand: "simplehuman",
@@ -643,7 +670,7 @@
 
     var bar = $("cartbar");
     bar.hidden = count === 0;
-    $("cartbar-text").textContent = count + (count === 1 ? " stuk" : " stuks") + " in je mandje · " + fmt(total) + " (excl. verzending)";
+    $("cartbar-text").innerHTML = count + (count === 1 ? " stuk" : " stuks") + '<span class="cartbar__ex"> in je mandje</span> · ' + fmt(total) + '<span class="cartbar__ex"> (excl. verzending)</span>';
 
     var ids = Object.keys(state.cart);
     $("cart-empty").hidden = ids.length > 0;
@@ -837,7 +864,8 @@
       '<h2 class="info__title" id="detail-title">' + esc(p.name) + "</h2>" +
       '<div class="info__spec">' + esc(p.spec) + "</div>" +
       priceHtml + stockHtml +
-      '<p class="info__desc">' + esc(p.desc) + "</p>" + specs + tiersHtml + buy + "</div>";
+      '<p class="info__desc">' + esc(p.desc) + "</p>" + specs + tiersHtml + buy +
+      '<p class="info__ask">Vraag of wil je meer stuks? <button type="button" class="linkbtn" data-ask="' + p.id + '">Stel een vraag</button></p></div>';
 
     if (focusSel) {
       var el = $("modal-box").querySelector(focusSel);
@@ -986,6 +1014,52 @@
       saveDelivery();
       renderCart();
     }
+  });
+
+  /* ---------- vraag stellen (contactformulier) ---------- */
+  var askProduct = "";
+  function openAsk(id) {
+    var dlg = $("ask-dialog");
+    if (!dlg || typeof dlg.showModal !== "function") { location.href = "mailto:info@hetmerkhuys.nl"; return; }
+    askProduct = byId[id] ? id : "";
+    var line = $("ask-product");
+    line.hidden = !askProduct;
+    line.textContent = askProduct ? "Over: " + byId[askProduct].name : "";
+    $("ask-status").textContent = "";
+    $("ask-status").className = "askform__status";
+    $("ask-send").disabled = false;
+    dlg.showModal();
+    dlg.querySelector("input[name=name]").focus();
+  }
+  document.addEventListener("click", function (e) {
+    var open = e.target.closest("[data-ask]");
+    if (open) { e.preventDefault(); openAsk(open.getAttribute("data-ask")); return; }
+    if (e.target.closest("[data-ask-close]")) { $("ask-dialog").close(); return; }
+    if (e.target === $("ask-dialog")) $("ask-dialog").close();
+  });
+  if ($("ask-form")) $("ask-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = e.target, st = $("ask-status"), btn = $("ask-send");
+    var data = { name: f.name.value, email: f.email.value, message: f.message.value, website: f.website.value, product: askProduct };
+    if (!data.name.trim() || !data.email.trim() || data.message.trim().length < 5) {
+      st.className = "askform__status is-error"; st.textContent = "Vul je naam, e-mailadres en vraag in."; return;
+    }
+    btn.disabled = true; st.className = "askform__status"; st.textContent = "Bezig met versturen...";
+    fetch("/api/contact", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (res.ok) {
+          f.reset(); st.className = "askform__status is-ok";
+          st.textContent = "Bedankt! Je vraag is verstuurd. We mailen je zo snel mogelijk terug.";
+        } else {
+          btn.disabled = false; st.className = "askform__status is-error";
+          st.textContent = res.j.error || "Versturen is niet gelukt. Mail ons gerust op info@hetmerkhuys.nl.";
+        }
+      })
+      .catch(function () {
+        btn.disabled = false; st.className = "askform__status is-error";
+        st.textContent = "Versturen is niet gelukt. Mail ons gerust op info@hetmerkhuys.nl.";
+      });
   });
 
   $("cart-toggle").addEventListener("click", openCart);

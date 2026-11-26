@@ -251,12 +251,12 @@ function parseCart(meta) {
   return cart;
 }
 
-async function sendMail(env, { to, subject, html }) {
+async function sendMail(env, { to, subject, html, replyTo }) {
   if (!env.RESEND_API_KEY) { console.error("RESEND_API_KEY ontbreekt, mail niet verstuurd:", subject); return false; }
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { authorization: "Bearer " + env.RESEND_API_KEY, "content-type": "application/json" },
-    body: JSON.stringify({ from: MAIL_FROM, to: [to], subject, html, reply_to: env.OWNER_EMAIL || DEFAULT_OWNER })
+    body: JSON.stringify({ from: MAIL_FROM, to: [to], subject, html, reply_to: replyTo || env.OWNER_EMAIL || DEFAULT_OWNER })
   });
   if (!res.ok) console.error("Resend fout", res.status, await res.text());
   return res.ok;
@@ -342,6 +342,45 @@ export async function handleWebhook(request, env) {
   return new Response("ok", { status: 200 });
 }
 
+
+/* ---------- contactformulier ---------- */
+
+const CONTACT_MAX_PER_HOUR = 5;
+
+export async function handleContact(request, env) {
+  let b;
+  try { b = await request.json(); } catch (e) { return json({ error: "Ongeldig bericht." }, 400); }
+  // Verborgen veld: mensen laten het leeg, spambots vullen het in. Doe dan alsof het gelukt is.
+  if (b && b.website) return json({ ok: true });
+  const name = String((b && b.name) || "").trim().slice(0, 100);
+  const email = String((b && b.email) || "").trim().slice(0, 200);
+  const message = String((b && b.message) || "").trim().slice(0, 2000);
+  const product = CATALOG[b && b.product] ? CATALOG[b.product].name : "";
+  if (!name) return json({ error: "Vul je naam in." }, 400);
+  if (!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(email)) return json({ error: "Vul een geldig e-mailadres in." }, 400);
+  if (message.length < 5) return json({ error: "Schrijf even je vraag erbij." }, 400);
+
+  if (env.STOCK) {
+    const ip = request.headers.get("cf-connecting-ip") || "onbekend";
+    const key = "rl:" + ip + ":" + Math.floor(clock.now() / 3600000);
+    const n = Number(await env.STOCK.get(key)) || 0;
+    if (n >= CONTACT_MAX_PER_HOUR) return json({ error: "Je hebt al een paar berichten gestuurd. Probeer het over een uur nog eens, of mail ons." }, 429);
+    await env.STOCK.put(key, String(n + 1), { expirationTtl: 3600 });
+  }
+
+  const html = "<p><strong>Vraag via de webshop</strong></p>" +
+    "<p>Van: " + escHtml(name) + " &lt;" + escHtml(email) + "&gt;" + (product ? "<br>Over: " + escHtml(product) : "") + "</p>" +
+    "<p style=\"white-space:pre-wrap\">" + escHtml(message) + "</p>" +
+    "<p style=\"color:#777\">Antwoorden gaat direct naar de klant (reply-to staat op het adres van de klant).</p>";
+  const ok = await sendMail(env, {
+    to: env.OWNER_EMAIL || DEFAULT_OWNER,
+    subject: "Vraag van " + name + (product ? " over " + product : ""),
+    html, replyTo: email
+  });
+  if (!ok) return json({ error: "Versturen is niet gelukt. Mail ons gerust op info@hetmerkhuys.nl." }, 502);
+  return json({ ok: true });
+}
+
 /* ---------- ingang ---------- */
 
 export default {
@@ -352,6 +391,7 @@ export default {
     }
     if (url.pathname === "/api/checkout" && request.method === "POST") return handleCheckout(request, env);
     if (url.pathname === "/api/webhook" && request.method === "POST") return handleWebhook(request, env);
+    if (url.pathname === "/api/contact" && request.method === "POST") return handleContact(request, env);
     if (url.pathname.startsWith("/api/")) return json({ error: "Niet gevonden" }, 404);
     return env.ASSETS.fetch(request);
   }
