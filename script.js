@@ -141,7 +141,7 @@
       id: "by-boo-ming-vaas", cat: "wonen", brand: "By-Boo",
       name: "Ming vaas zwart (large)", spec: "Hoogte 40 cm · ruw keramiek",
       tiers: [{ q: 1, p: 34.99 }],
-      stock: 1, unit: "stuk", note: "", worth: 59.95, worthPrefix: "Winkelwaarde",
+      stock: 0, unit: "stuk", note: "", worth: 59.95, worthPrefix: "Winkelwaarde",
       images: ["images/by-boo-ming-vaas-1.jpg", "images/by-boo-ming-vaas-2.jpg", "images/by-boo-ming-vaas-3.jpg"],
       desc: "Robuuste zwarte vaas van By-Boo, model Ming in de grootste uitvoering. Het keramiek heeft een stoere, ruwe structuur: mooi met een grote bos droogbloemen of een paar siertakken, en van zichzelf al een statement in de kamer.",
       specs: [["Merk", "By-Boo, model Ming (Large)"], ["Hoogte", "40 cm"], ["Materiaal", "Keramiek met ruwe, steenachtige afwerking"], ["Staat", "Zo goed als nieuw, geen beschadigingen"]]

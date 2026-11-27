@@ -120,7 +120,7 @@ export const CATALOG = {
       }
     ],
     "units": 1,
-    "stock": 1
+    "stock": 0
   },
   "by-boo-olit-bijzettafels": {
     "name": "Olit bijzettafels, set van 2",
